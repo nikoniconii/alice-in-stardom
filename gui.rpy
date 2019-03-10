@@ -26,7 +26,7 @@ init python:
 define gui.accent_color = '#99ccff'
 
 ## The color used for a text button when it is neither selected nor hovered.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#510b24'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
@@ -44,7 +44,7 @@ define gui.insensitive_color = '#8888887f'
 
 ## Colors used for the portions of bars that are not filled in. These are not
 ## used directly, but are used when re-generating bar image files.
-define gui.muted_color = '#3d5166'
+define gui.muted_color = '#664b3d'
 define gui.hover_muted_color = '#5b7a99'
 
 ## The colors used for dialogue and menu choice text.
@@ -70,7 +70,7 @@ define gui.text_size = 26
 define gui.name_text_size = 42
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 22
+define gui.interface_text_size = 26
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = 24
@@ -89,8 +89,8 @@ define gui.dialogue_text_outlines = [(2, "#bf5e8a", 0, 0)]
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
+define gui.main_menu_background = "mmconcert"
+define gui.game_menu_background = "images/promo mic copy.png"
 
 
 ## Dialogue ####################################################################
@@ -158,7 +158,14 @@ define gui.button_height = None
 define gui.button_borders = Borders(4, 4, 4, 4)
 
 
-define gui.button_text_outlines = [(1, "#c7748d", 0, 0)]
+define gui.button_text_outlines = [(2, "#c77481", 0, 0)]
+
+
+#####       #D04466
+#####       #982A38
+
+
+
 
 ## If True, the background image will be tiled. If False, the background image
 ## will be linearly scaled.
@@ -267,7 +274,7 @@ define gui.notify_ypos = 45
 define gui.choice_spacing = 22
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 4
+define gui.navigation_spacing = 10
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 10
@@ -279,7 +286,7 @@ define gui.pref_button_spacing = 0
 define gui.page_spacing = 0
 
 ## The spacing between file slots.
-define gui.slot_spacing = 10
+define gui.slot_spacing = 30
 
 ## The position of the main menu text.
 define gui.main_menu_text_xalign = 1.0

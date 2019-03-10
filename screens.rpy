@@ -95,10 +95,14 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+define persistent.say_window_alpha = 0.85
+
 screen say(who, what):
     style_prefix "say"
 
     window:
+        background Transform(style.window.background, alpha=persistent.say_window_alpha)
+
         id "window"
 
         if who is not None:
@@ -255,10 +259,10 @@ screen quick_menu():
 
             spacing 17.5
 
-            textbutton _("History") action ShowMenu('history') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4"
-            textbutton _("Auto") action Preference("auto-forward", "toggle") text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4"
-            textbutton _("Save") action ShowMenu('save') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4"
-            textbutton _("Config") action ShowMenu('preferences') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4"
+            textbutton _("History") action ShowMenu('history') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
+            textbutton _("Auto") action Preference("auto-forward", "toggle") text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
+            textbutton _("Save") action ShowMenu('save') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
+            textbutton _("Config") action ShowMenu('preferences') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -292,14 +296,21 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        # xpos gui.navigation_xpos
+        yalign 0.25
+        xalign 0.03
 
         spacing gui.navigation_spacing
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            imagebutton auto "gui/start_%s.png" action Start() xalign 0.03 yalign 0.10 at dissolvemm
+            imagebutton auto "gui/load_%s.png" action ShowMenu("load") xalign 0.03 yalign 0.20 at dissolvemm
+            imagebutton auto "gui/config_%s.png" action ShowMenu("preferences") xalign 0.03 yalign 0.30 at dissolvemm
+            imagebutton auto "gui/about_%s.png" action ShowMenu("about") xalign 0.03 yalign 0.40 at dissolvemm
+            imagebutton auto "gui/help_%s.png" action ShowMenu("help") xalign 0.03 yalign 0.50 at dissolvemm
+            imagebutton auto "gui/quit_%s.png" action Quit(confirm=not main_menu) xalign 0.03 yalign 0.60 at dissolvemm
+
 
         else:
 
@@ -307,9 +318,9 @@ screen navigation():
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+            textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+            textbutton _("Preferences") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -319,15 +330,15 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+            textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc"):
+        # if renpy.variant("pc"):
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+        #     ## Help isn't necessary or relevant to mobile devices.
+        #     textbutton _("Help") action ShowMenu("help")
 
-            ## The quit button is banned on iOS and unnecessary on Android.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+        #     ## The quit button is banned on iOS and unnecessary on Android.
+        #     textbutton _("Quit") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -339,6 +350,9 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
+    size 38
+    color "#560134"
+    hover_color "#a92856"
 
 
 ## Main Menu screen ############################################################
@@ -363,6 +377,9 @@ screen main_menu():
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
     use navigation
+
+    #add "images/logo.png" yalign 1.0 xalign 0.5
+    add "logomm" yalign 1.0 xalign 0.5
 
     if gui.show_name:
 
@@ -613,7 +630,7 @@ screen file_slots(title):
                 style "page_label"
 
                 key_events True
-                xalign 0.5
+                xalign 0.45
                 action page_name_value.Toggle()
 
                 input:
@@ -624,8 +641,8 @@ screen file_slots(title):
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
 
-                xalign 0.5
-                yalign 0.5
+                xalign 0.45
+                yalign 0.35
 
                 spacing gui.slot_spacing
 
@@ -638,10 +655,19 @@ screen file_slots(title):
 
                         has vbox
 
-                        add FileScreenshot(slot) xalign 0.5
+                        add FileScreenshot(slot) xalign 0.45
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"
+                            color "#fff"
+                            outlines [(1, "#3c0f1b")]
+                            size 18
+
+                        text _("[savename]"):
+                            style "slot_time_text"
+                            color "#fff"
+                            outlines [(1, "#3c0f1b")]
+                            size 18
 
                         text FileSaveName(slot):
                             style "slot_name_text"
@@ -671,6 +697,8 @@ screen file_slots(title):
 
                 textbutton _(">") action FilePageNext()
 
+
+default savename = " "
 
 style page_label is gui_label
 style page_label_text is gui_label_text
@@ -763,7 +791,14 @@ screen preferences():
 
                     bar value Preference("auto-forward time")
 
+                    label _("Textbox Opacity")
+                
+                    bar value FieldValue(persistent, 'say_window_alpha', 1.0, max_is_zero=False, style="slider", offset=0, step=1)
+
+            hbox:
                 vbox:
+                    style_prefix "slider"
+                    box_wrap True
 
                     if config.has_music:
                         label _("Music Volume")
@@ -781,15 +816,6 @@ screen preferences():
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
 
-
-                    if config.has_voice:
-                        label _("Voice Volume")
-
-                        hbox:
-                            bar value Preference("voice volume")
-
-                            if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
