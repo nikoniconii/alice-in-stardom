@@ -11,6 +11,7 @@ define t = Character('Taylor', color="#e7cc5a", image='taylor')    #slop
 define c = Character('Cherry', color="#e3a7d7", image='cherry')    #pale
 
 define fadee = Fade(1.0, 1.0, 1.0, color="#000")
+define whitefade = Fade(1.0, 1.0, 1.0, color="#fff")
 
 transform leftt:
     
