@@ -16,7 +16,7 @@ label week1contest:
     ann summer frown "{i}Another contest already...{/i}"
     
     show jacques up smile at center
-    with Dissolve
+    with dissolve
     
     j talk "You look nervous, Kid."
     
@@ -42,8 +42,8 @@ label week1contest:
     
     ann "{i}I groan. I need not be reminded.{/i}"
     
-    show jacques at left with moveinright
-    show taylor up frown summer at right with moveinright
+    show jacques at leftt with moveinright
+    show taylor up frown summer at rightt with moveinright
 
     t frowntalk "She probably was in shock last week. Didn’t even realize what she was doing."
     
@@ -136,7 +136,9 @@ label week1contest:
     
     show mary smile
     
-    a down frowntalk blush "What...?"
+    ## TODO alice blush 
+
+    a down frowntalk "What...?"
 
     a frown "{nw}"
     
@@ -144,10 +146,12 @@ label week1contest:
     
     show mary smile
 
-    show cherry down frown at left:
-        xalign 0.0
-    show taylor up frown at right:
-        xalign 0.30
+    show cherry down frown summer at left behind mary:
+        zoom 0.98
+        xalign -0.05
+    show taylor up frown summer at right behind mary:
+        zoom 0.98
+        xalign 0.25
     with moveinleft
     
     ann "{i}I can feel heat rush into my cheeks, especially when the nearby staff all seem to turn around to look at me right this moment. Even Cherry and Taylor pause what they're doing...{/i}"
@@ -156,7 +160,9 @@ label week1contest:
 
     a frown "{nw}"
     
-    show director smile at right with moveinright
+    show director smile at right:
+        zoom 1.1
+    with moveinright
         
     di talk "Yeah, dream on, Intie. Now get that makeup on and meet me by the stage in ten. All of you too! Hurry up and get your asses moving!"
     

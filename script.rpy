@@ -6,9 +6,13 @@ define ann = Character(' ', color="#ee9dc6", image='alice')     #protag nar
 define na = Character('???', color="#fff")
 define k = Character('Katja', color="#e74969", image='katja')     #producer
 define j = Character('Jacque', color="#e19f69", image='jacques')    #host
-define m = Character('Mary', color="#b03f3f", image='mary')      #mary-sue - darkskinned
+define m = Character('Mary', color="#9E6D9F", image='mary')      #mary-sue - darkskinned
 define t = Character('Taylor', color="#e7cc5a", image='taylor')    #slop
 define c = Character('Cherry', color="#e3a7d7", image='cherry')    #pale
+
+
+define ma = Character('Makeup Artist', color="#fff")
+
 
 define fadee = Fade(1.0, 1.0, 1.0, color="#000")
 define whitefade = Fade(1.0, 1.0, 1.0, color="#fff")
@@ -36,12 +40,12 @@ label start:
 
     #$ config.side_image_tag = "alice"
     
-    $ mary = 1
-    $ cherry = 1
-    $ taylor = 1
-    $ katja = 1
-    $ jacque = 1
-    $ director = 1
+    $ mary_stat = 1
+    $ cherry_stat = 1
+    $ taylor_stat = 1
+    $ katja_stat = 1
+    $ jacque_stat = 1
+    $ director_stat = 1
     
     scene stagefar
     with fade
