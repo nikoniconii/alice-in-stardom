@@ -15,7 +15,7 @@
 # Shopping Area
     
         
-label maryroom:
+label maryroom1:
     
     $ int3 = renpy.random.randint(1,5)
     
@@ -455,6 +455,12 @@ label mary1:
         an "I hope I made a decent impression. It feels like I know nothing about her."
         an "Well, if she's not gonna talk to me, I guess I can chase her down some other day."
 
+        if day == 1:
+            jump insomnia1
+        elif day == 2:
+            jump sleepy1
+
+
         ## end scene
 
 
@@ -693,14 +699,91 @@ label musicroom:
     
     $ int11 = renpy.random.randint(1,5)
     
-    if int11 == 1:
-        
+    label musichall2:
         scene musicroom
         with fade
+
+        $ config.side_image_tag = ""
+
+        an "I feel like swinging by the music hall. I can get some practice in."
+        an "Performing on the big stage is still kind of a new thing, so I need to get in as much practice as I can."
+        an "...I figured some of the other girls would have the same idea, but I don't see anyone. What gives?"
+        an "...Oh, wait, scratch that, the Boss is here. She's just in front of the stage, holding... a clipboard?"
+
+        ## TODO sfx banging wood
+
+        $ config.side_image_tag = "alice"
         
-        ann "{i}Seems like I'm the only one in the music room. Let's use the opportunity to practice lots!{/i}"
+        a down frowntalk "Ah-!"
+        an frown "She was banging the back of her hand against the stage! What on earth was she doing?"
+        an "...Y'know what, I'll just ask her."
+        a frowntalk "Um, miss producer?"
+        a frown "{nw}"
+
+        show katja frown at center:
+            zoom 1.2
+            yalign 0.4
+        with dissolve
+
+        k frowntalk "Ugh, what is it, Alice? Can't you see I'm busy?"
+
+        show katja frown
+
+        an "...?"
+        an "I squint my eyes, trying to make out what exactly she was doing."
+        a frowntalk "...Sorry, I don't think I see it."
+        a frown "{nw}"
+
+        k frowntalk "Seriously? Ugh, stupid kids..."
+
+        show katja frown
+
+        an "Shaking her head, she scribbled something in her clipboard."
+
+        k frowntalk "I'm doing a preliminary check of the entire set. I kindly suggest you stay the hell out of my way for the time being."
         
-    if int11 == 2:
+        show katja frown
+
+        a frowntalk "...Is that your job? I thought you just, um, paid for everything."
+        a frown "{nw}"
+
+        k frowntalk "It pays to have an eye for potential disasters. They're rather costly, and it's not the kind of publicity I like to pay for."
+        k "Remember this, Alice: literally anything can go wrong at any given moment, and only constant vigilance and due diligence will keep the barbarians at the gates..."
+        
+        show katja frown
+
+        an "...I think she mixed up her metaphors. But I keep that comment to myself for the time being."
+        a frowntalk "S-still, inspections sound like a job for, uh, a safety contractor, or something..."
+        a frown "{nw}"
+
+        k frowntalk "Ugh, child, I don't fathom why you're so obstinate about this. I can eyeball test whatever I damn well please on the set."
+        k "Better to catch these things earlier instead of later. Who knows what could happen when the lot of you go up on stage together."
+        k "Collapsing spotlights, rotten floorboards, malfunctioning trapdoors, toxic smog, roadies hellbent on revenge. There's a long checklist to go over!"
+        
+        show katja frown
+
+        an "She flashed the thing, gesturing to it with a pointed finger that could pierce armor." 
+        a frowntalk "...Oooookay. I... guess I can practice somewhere else for the time being."
+        a talk "Thanks for making sure everything's safe for the rest of us, Ms. Producer! It's a sweet gesture-"
+        a frown "{nw}"
+
+        k frowntalk "You misunderstand me. After the show's over and your contracts are up, I couldn't care less if the lot of you got hit by a train."
+        
+        show katja frown
+
+        a frowntalk "...Ah."
+        an frown "Well, she isn't the sentimental sort. I guess I'll just give her a wide berth and leave her to her business..."
+
+        hide katja with dissolve
+
+        $ config.side_image_tag = ""
+
+        an "...God I hope I survive this goddamn show."
+
+        ## end scene
+
+        
+    label marymusic:
         
         scene musicroom
         with fade
@@ -831,6 +914,13 @@ label musicroom:
 
         di "Ohhhh nooo, Daddy didn't mean to frighten you little schnookie wookies...!"
 
+        if day == 1:
+            jump insomnia1
+        elif day == 2:
+            jump sleepy1
+
+
+
         ## end scene
 
 
@@ -839,28 +929,164 @@ label musicroom:
 
 label lounge:
     
-    $ int13 = renpy.random.randint(1,5)
-    
-    if int13 == 1:
-        
-        scene loungeday
-        
-        ann "{i}I haven't watched TV in a while. Gotta catch up on some sappy romance drama and watch the news!{/i}"
+    label jacquesinterview:
+
+        an "You know what? I think I need to stretch my legs for a while..."
+        an "I’ll take a walk around the grounds and see if I can clear my head."
+
+        scene fountainday
+        with fade
+
+        an "As I step outside, the gravel crunches softly under my feet."
+        an "It’s crunching much {i}less{/i} softly as a tall, harried figure paces back and forth on the other side of the fountain."
+        an "I peek my head around."
+
+        $ config.side_image_tag = "alice"
+
+        a frowntalk "...{i}Jacques[/i}?"
+        an frown "He stops and looks up at me."
+
+        show jacques up frown at center:
+            zoom 1.2
+            yalign 0.3
+        with dissolve
+
+        j frowntalk "Yes? Can I help you, mademoiselle?" 
+
+        show jacques frown
+
+        a frowntalk "Umm..."
+
+        menu: 
+            "Ask him what’s wrong.":
+                jump jacqueschat1
+
+            "Forget it and leave.":
+                jump jacquesscene1end
+
+        label jacqueschat1:
+
+            a "You look like you’re... thinking about something."
+            an frown "{nw}"
+
+            j talk "My dear Alice, I’m {i}always{/i} thinking about something."
+            j frowntalk "...But you’re right. This morning I am... how do you say... {i}elsewhere{/i}."
+
+            show jacques frown
+
+            a frowntalk "Excuse me?"
+            an frown "{nw}"
+
+            j frowntalk "It’s an {i}interview{/i}, mademoiselle."
+
+            show jacques frown
+
+            an "That... didn’t really answer my question."
+            a frowntalk "So are you interviewing {i}us{/i}? Like, for the show."
+            an frown "Jacques waves his hand dismissively."
+
+            j frowntalk "No, it’s nothing like {i}that{/i}."
+            j "It’s the {i}press{/i}. {i}They{/i} want to interview {i}me{/i}... Ah, {i}moi{/i}."
+
+            show jacques frown
+
+            a frowntalk "Oh? How come?"
+            an frown "Jacques raises an eyebrow."
+            a down talk "I mean, {i}aside{/i} from the fact that you’re very famous and talented."
+            a smile "{nw}"
+
+            j talk "{i}And{/i} handsome."
+            j "But you’ve got a point."
+            j frowntalk "You see...this show, {i}Supernova{/i}, it’s my first \"big project\" in a very long time."
+
+            show jacques frown
+
+            an frown "That’s right."
+            an "I’d remembered seeing Jacques on all kinds of kids’ variety shows growing up."
+            an "Gameshows, talk shows, stuff where he’d interview tween pop stars..."
+            an "But that stuff kind of...fell out of fashion around the time I graduated junior high."
+            an "I hadn’t thought about it until now, but {i}Supernova{/i} was the first time I’d seen Jacques Bellvance in {i}years{/i}."
+            a frowntalk "So... this is kind of like your big comeback?"
+            a frown "{nw}"
+
+            j frowntalk "Oh, I never really {i}went away{/i}, it’s just the lovely public got {i}distracted{/i} by all the new fads out there."
+            
+            show jacques down frown
+
+            an "He sounds... maybe just a little bitter about that."
+
+            j up talk "But the past is in the past! C’est la vie, non?"
+            j "Now we’re back on track, and I’m becoming a household name once again."
+
+            show jacques smile
+
+            a frowntalk "So, is that what they’re going to ask you about?"
+            a frown "{nw}"
+
+            j frowntalk "Hmm, most likely {i}not{/i}, but {i}that’s{/i} the art of the interview."
+
+            show jacques smile
+
+            an "He winks at me, smiling."
+            j talk "The presss always want to ask the same old boring questions."
+            j "But if you know the right words to say, well... a well-aimed {i}bon mot{/i} can help you steer the conversation."
+
+            show jacques smile
+
+            a talk "So you can talk about what {i}you{/i} want to talk about."
+            a smile "{nw}"
+
+            j talk "{i}Exactement{/i}, dear Alice."
+            j "And {i}that{/i} is your little Bellvance Industry Pro Tip of the day."
+
+            show jacques smile
+
+            an "My {i}what{/i} now?"
+            a down talk "Well, uh, thanks, Jacques."
+            a "It was nice talking to you."
+            a smile "{nw}"
+
+            j talk "Of course it was."
+
+            show jacques smile
+
+            an "He winks again."
+
+            j talk "After all, that’s my {i}job{/i} Alice."
+            j "~Conversation With Style!~"
+
+            show jacques smile
+
+            an smile "Cheesy as it is, I can’t help by smile as I walk away."
+            an "He may be kind of an eccentric, but deep down, Jacques is a really nice person."
+            an "At least... I think he is."
+
+            jump jacquessceneending
+
+        label jacquessceneoneend:
+
+            an frown "As much as I’d like to keep talking to Jacques, I’ve got other things I need to do..."
+
+        label jacquessceneending:
+
+            $ config.side_image_tag = ""
+
+            an "I part ways with him and walk back inside."
+
+            if day == 2:
+                jump sleepy1
+            elif day == 3:
+                jump 
+
+
+
+
         
 
         
 label rooftop:  ## garden
     
-    $ int15 = renpy.random.randint(1,5)
-    
-    if int15 == 1:
-        
-        scene fountainday
-        with fade
-        
-        ann "{i}I really need a breath of fresh air. I enjoy the peace and serenity of the rooftop garden.{/i}"
-        
-    if int15 == 2:
+    label maryrooftop1:
         
         scene fountainday
         with fade
@@ -1097,6 +1323,12 @@ label shopping:
 
             a talk "...Well, alright. Godspeed."
             an smile "She's dedicated, I'll give her that..."
+
+
+            if day == 1:
+                jump insomnia1
+            elif day == 2:
+                jump sleepy1
 
             ## end scene
 

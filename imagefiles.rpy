@@ -263,6 +263,15 @@ image mmconcert:
         easein 3.5 crop (0, 0, 1200, 800)
 
 
+image concert1:
+    "images/promo.jpg"
+    size (1280, 1697)
+    alpha 1.0
+    yalign 1.0
+    linear 10.0 yalign 0.0
+
+
+
 image logomm:
     "images/logo.png"
     alpha 0

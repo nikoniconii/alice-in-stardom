@@ -83,14 +83,14 @@ define gui.title_text_size = 50
 
 
 define gui.name_text_outlines = [(2, "#562139", 0, 0)]
-define gui.dialogue_text_outlines = [(2, "#bf5e8a", 0, 0)]
+define gui.dialogue_text_outlines = [(2, "#a94874", 0, 0)]
 
 
 ## Main and Game Menus #########################################################
 
 ## The images used for the main and game menus.
 define gui.main_menu_background = "mmconcert"
-define gui.game_menu_background = "images/promo mic copy.png"
+define gui.game_menu_background = "images/promo mic.png"
 
 
 ## Dialogue ####################################################################
@@ -99,7 +99,7 @@ define gui.game_menu_background = "images/promo mic copy.png"
 ## time.
 
 ## The height of the textbox containing dialogue.
-define gui.textbox_height = 260
+define gui.textbox_height = 250
 #define gui.textbox_width = 110
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
@@ -110,7 +110,7 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 260
+define gui.name_xpos = 235
 define gui.name_ypos = -20
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
@@ -135,7 +135,7 @@ define gui.namebox_tile = False
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
 define gui.dialogue_xpos = 240
-define gui.dialogue_ypos = 51
+define gui.dialogue_ypos = 50
 
 ## The maximum width of dialogue text, in pixels.
 define gui.dialogue_width = 744
@@ -359,15 +359,15 @@ define gui.history_height = 140
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
-define gui.history_name_xpos = 155
+define gui.history_name_xpos = 115
 define gui.history_name_ypos = 0
-define gui.history_name_width = 155
+define gui.history_name_width = 130
 define gui.history_name_xalign = 1.0
 
 ## The position, width, and alignment of the dialogue text.
-define gui.history_text_xpos = 170
+define gui.history_text_xpos = 140
 define gui.history_text_ypos = 2
-define gui.history_text_width = 740
+define gui.history_text_width = 690
 define gui.history_text_xalign = 0.0
 
 

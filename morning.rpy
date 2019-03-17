@@ -6,10 +6,144 @@
 #######################################################################################################################
 
 
+######################### First morning
 
-######################### Normal Wake-up
+label morning1:
 
-label normal:
+    scene dinnerday
+    with fade
+
+    $ config.side_image_tag = ""
+
+    an "Ugh... I somehow couldn't sleep at all and still slept like a log last night. It doesn't feel real- none of this."
+    an "Do they feel the same way too?"
+    an "There was a bit of an awkward tension in the air. Taylor and Mary didn't look all too happy to be here."
+    an "Worse still, Cherry wasn't here yet. Usually she was pretty good at making things a little less uneasy."
+
+    $ config.side_image_tag = "alice"
+
+    a talk "Soooo... this is nice. A full breakfast, just us girls. Pretty neat."
+    a smile "{nw}"
+
+    show taylor up frown at center
+    with dissolve
+
+    t frowntalk "Mm. Seems a little calculated to me. You don't see the camera men off to the sides?"
+    t "They're more interested in preparing some dumb direct-to-video featurette."
+
+    show taylor frown
+
+    a frowntalk "...You sure you want to mention that out loud?"
+    a frown "{nw}"
+
+    t talk "Ohhh, they'll edit it out. It's the magic of Hollywood."
+
+    show taylor frown
+
+    show taylor at leftt
+    show mary up frown at rightt
+    with moveinright
+
+    m frowntalk "Ugh, they didn't cut the crust of my French toast. Useless gits, the lot of them."
+
+    show mary frown
+
+    a frowntalk "Okay, they're {i}definitely{/i} not cutting out that part..."
+    a frown "{nw}"
+
+    t talk "Mary, didn't anyone ever tell you that there's no cutting corners on the road to stardom?"
+
+    show taylor smile
+
+    m down frowntalk "Tch, seriously Taylor? It's too early in the morning for your insufferable tone."
+
+    show mary frown
+
+    an "I didn't have a comment prepared; I feel like Taylor's smug, holier-than-thou expression spoke volumes."
+
+    t talk "We're all still competitors. I figured your skin would be thicker after surviving all the preliminary rounds, but I suppose not."
+    t "Of course, I can't imagine a girl who didn't have to work for anything in her life would understand-"
+
+    show taylor smile
+
+    m frowntalk "Excuse me? Where do you come off, you mouthy, pompous-"
+
+    show mary frown
+
+    show cherry at center
+    show mary at right
+    show taylor at left
+
+    c talk "Hi guys!!"
+
+    show cherry smile
+
+    a talk "Ohhhh thank god it's Cherry..."
+    an frown "Before their catfight could escalate any further, Cherry bounced along, into her seat."
+
+    c talk "Ooh, pancakes! Can we get any shaped like rabbits? Ohhhh, I bet they have those pancake artists! Like those videos online!"
+    
+    show cherry smile
+    show taylor frown
+
+    m unsure frowntalk "...Cherry, put your phone away. It's bad manners."
+
+    show cherry frown
+
+    c frowntalk "Eh?? But they're really cool! They make cartoon characters and stuff..."
+
+    show cherry frown
+
+    t frowntalk "I'm more curious about coffee art myself. I wonder if they make requests."
+
+    show taylor frown
+
+    a frowntalk "I doubt the producer is willing to pay out of pocket for baristas that can do that..."
+    an smile "Things cooled off between the four of us quickly. Cherry had that calming effect on people, even as Taylor and Mary kept each other at an arm's length."
+    
+    t frowntalk "I suppose the execs want us all to start training together... and to get along more."
+
+    show taylor frown
+
+    m up frowntalk "Obviously. Only the best for our adoring fans..."
+
+    show mary frown
+
+    c talk "We're getting to practice together? YAAAY~!"
+
+    show cherry smile
+
+    a talk "...Heh."
+
+    hide cherry
+    hide taylor
+    hide mary
+    with dissolve
+
+    $ config.side_image_tag = ""
+
+    an smile "It looks like we're all going to be spending a lot more time together. Better fill up here - the next few days are going to be big."
+    an "Now, where should I spend the day?"
+
+    $ interaction1 = null
+
+    menu:
+        "Go to the makeup room":
+            $ interaction1 = mary1
+            jump mary1
+        "Go to the music room":
+            $ interaction1 = musichall1
+            jump musichall1
+        "Go to the mall":
+            $ interaction1 = cherry1
+            jump cherry1
+
+
+
+
+######################### Morning 2
+
+label morningnormal1:
         
     scene bedaliceday
     with fade
@@ -58,6 +192,45 @@ label normal:
     j talk "Now that you're done, what are you going to do the rest of the morning?"
     
     show jacques smile
+
+    $ interaction2 = null
+
+    if interaction1 == mary1:
+        menu:
+            "Go for a walk":
+                $ interaction2 = jacquesinterview
+                jump jacquesinterview
+            "Go to the music room":
+                $ interaction2 = musichall1
+                jump musichall1
+            "Go to the mall":
+                $ interaction2 = cherry1
+                jump cherry1
+
+    if interaction1 == musichall1:
+        menu:
+            "Go to the makeup room":
+                $ interaction2 = mary1
+                jump mary1
+            "Go for a walk":
+                $ interaction2 = jacquesinterview
+                jump jacquesinterview
+            "Go to the mall":
+                $ interaction2 = cherry1
+                jump cherry1
+
+    if interaction1 == cherry1:
+        menu:
+            "Go to the makeup room":
+                $ interaction2 = mary1
+                jump mary1
+            "Go to the music room":
+                $ interaction2 = musichall1
+                jump musichall1
+            "Go for a walk":
+                $ interaction2 = jacquesinterview
+                jump jacquesinterview
+
         
 
 label hopeful:
@@ -197,3 +370,54 @@ label tired:
     ann "{i}Now what should I do for the rest of the day before lunch?{/i}"
     
     #### call screen
+
+
+label morningtaylor:
+    scene dinnerday
+    with fade
+    
+    ann "{i}It's breakfast time again. Time to eat!{/i}"
+    
+    show t up frown at rightt
+    show j up smile at leftt
+    with dissolve
+
+    $ config.side_image_tag = ""
+    
+    t frowntalk "The food here is ridiculous. Can’t I just get a sandwich?"
+    
+    show taylor frown
+
+    j talk "You can. There’s the black truffle lobster sandwich topped with gold flakes."
+    
+    show jacques smile
+    
+    t "...Again, can't I just get a sandwich? Hello?"
+    
+    show taylor frown
+    
+    a talk "I suppose it does taste delicious."
+    
+    ann smile "{i}I order the \"sandwich\", but request that they take out the gold flakes. It feels like such a waste if they just pass right through my intestines.{/i}"
+    ann "{i}I guess I shouldn't be thinking about that when I'm eating...{/i}"
+        
+    j talk "I'm done. What about you two?"
+    
+    show jacques smile
+
+    t frowntalk "I’m in the process of dissecting my steak to make it more manageable for consumption."
+    
+    show taylor frown
+
+    an frown "Who eats a steak for breakfast-?!"
+
+    a talk "I’m almost done. There’s still much to do after all."
+        
+    ann smile "{i}So what am I going to do for the afternoon?{/i}"
+
+    ## end scene
+
+
+
+
+

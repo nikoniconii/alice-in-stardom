@@ -254,15 +254,16 @@ screen quick_menu():
         vbox:
             #style_prefix "quick"
 
-            xalign 0.98
-            yalign 0.945
+            xalign 0.97
+            yalign 0.975
 
-            spacing 17.5
+            spacing 11.5
 
-            textbutton _("History") action ShowMenu('history') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
-            textbutton _("Auto") action Preference("auto-forward", "toggle") text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
-            textbutton _("Save") action ShowMenu('save') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
-            textbutton _("Config") action ShowMenu('preferences') text_size 26 text_color "#ba4f6f" text_hover_color "#f6dce4" text_outlines [ (1, "#c7748d") ]
+            textbutton _("History") action ShowMenu('history') text_size 26 text_color "#56021b" text_hover_color "#f6dce4" text_outlines [ (1, "#ce7b9d") ]
+            textbutton _("Auto") action Preference("auto-forward", "toggle") text_size 26 text_color "#56021b" text_hover_color "#f6dce4" text_outlines [ (1, "#ce7b9d") ]
+            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True) text_size 26 text_color "#56021b" text_hover_color "#f6dce4" text_outlines [ (1, "#ce7b9d") ]
+            textbutton _("Save") action ShowMenu('save') text_size 26 text_color "#56021b" text_hover_color "#f6dce4" text_outlines [ (1, "#ce7b9d") ]
+            textbutton _("Config") action ShowMenu('preferences') text_size 26 text_color "#56021b" text_hover_color "#f6dce4" text_outlines [ (1, "#ce7b9d") ]
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -575,7 +576,11 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("\nLead Designer & Sprite Artist: {a=https://www.twitter.com/Violora_Art}Violora")
+
+            text _("\nLead Writer: {a=https://www.twitter.com/TuttyTheFruity}Kevin \"Tutty The Fruity\" Armstrong")
+
+            text _("\nThis game was made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 ## This is redefined in options.rpy to add text to the about screen.

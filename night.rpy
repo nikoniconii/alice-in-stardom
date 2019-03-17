@@ -11,7 +11,7 @@
 ############ Normal Night
 label normalnight:
 
-    if normalnight == 1:
+    label normalnight1:
             
         $ day += 1
         
@@ -28,7 +28,7 @@ label normalnight:
         ###### call screen
 
         
-    if normalnight == 2:
+    label normalnight2:
         
         $ day += 1
                 
@@ -50,7 +50,7 @@ label excited:
     
     $ excited = renpy.random.randint(1,5)
     
-    if excited == 1:
+    label excited1:
         
         $ day += 1
         
@@ -71,7 +71,7 @@ label excited:
         
         ###### call screen
         
-    if excited == 2:
+    label excited2:
         
         $ day += 1
                 
@@ -91,9 +91,11 @@ label excited:
         
 label sleepy:
     
-    $ sleepy = renpy.random.randint(1,5)
-    
-    if sleepy == 1:
+    ## $ sleepy = renpy.random.randint(1,5)
+
+
+    ############### Night 2
+    label sleepy1:
         
         $ day += 1
                 
@@ -109,10 +111,13 @@ label sleepy:
         ann "{i}I lie down on the bed, relieved that the soft mattress does help my body lose some of its tension.{/i}"
         ann "{i}I close my eyes and immediately stop thinking. The darkness envelops me, and before I know it, I fall asleep.{/i}"
         
-        ### call screen
+        jump week1contest
+
+
+
         
         
-    if sleepy == 2:
+    label sleepy2:
         
         $ day += 1
         
@@ -134,9 +139,10 @@ label sleepy:
         
 label insomnia:
     
-    $ insomnia = renpy.random.randint(1,5)
+    ##$ insomnia = renpy.random.randint(1,5)
     
-    if insomnia == 1:
+    ################# Night 1
+    label insomnia1:
         
         $ day += 1
                 
@@ -171,7 +177,8 @@ label insomnia:
         ann "{i}With the weight of all my pressures finally lifting away, I drift off into sleep.{/i}"
         
         
-        ##### call  screen
+        scene morningnormal1
+        with fadee
         
         
         

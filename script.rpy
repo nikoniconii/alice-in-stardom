@@ -495,26 +495,32 @@ label start:
     
     $ config.side_image_tag = ""
 
-    a "{i}I step onto the stage. The lights are so blinding, but when I stare out into the audience below, all is dark. It’s a bit intimidating until the squint of my eyes brings me a clearer view of the front row, then those behind them, and those behind them yet.{/i}"
-    a "{i}They’re all watching me. The teenage lovebirds, smiling seniors, parents with toddlers on their laps...{/i}"
-    a "{i}For a second, I thought I’d stop breathing. But once the intro of my favorite song cues my first note, I sing.{/i}"
-    a "{i}Completed my dream, Jacque said.{/i}"
-    a "{i}Yeah, he may be right. Boss may be right. I only didn’t dare admit it.{/i}"
-    a "{i}Who enters this industry without at least the slightest sliver of hope that we’d one day capture the crowd’s attention?{/i}"
-    a "{i}The audience members below aren’t the only ones watching. There are thousands, if not millions more watching behind television screens.{/i}"
-    a "{i}Just the thought that my voice is being projected from so many speakers nationwide is making me warm inside.{/i}"
-    a "{i}I can't disappoint them.{/i}"
-    a "{i}I may not have long, but with what little screen time I have been given, I will make it count!{/i}"
+    ann "{i}I step onto the stage. The lights are so blinding, but when I stare out into the audience below, all is dark. It’s a bit intimidating until the squint of my eyes brings me a clearer view of the front row, then those behind them, and those behind them yet.{/i}"
+    ann "{i}They’re all watching me. The teenage lovebirds, smiling seniors, parents with toddlers on their laps...{/i}"
+    ann "{i}For a second, I thought I’d stop breathing. But once the intro of my favorite song cues my first note, I sing.{/i}"
+
+    show concert1
+    with dissolve
+
+    ann "{i}Completed my dream, Jacque said.{/i}"
+    ann "{i}Yeah, he may be right. Boss may be right. I only didn’t dare admit it.{/i}"
+    ann "{i}Who enters this industry without at least the slightest sliver of hope that we’d one day capture the crowd’s attention?{/i}"
+    ann "{i}The audience members below aren’t the only ones watching. There are thousands, if not millions more watching behind television screens.{/i}"
+    ann "{i}Just the thought that my voice is being projected from so many speakers nationwide is making me warm inside.{/i}"
+    ann "{i}I can't disappoint them.{/i}"
+    ann "{i}I may not have long, but with what little screen time I have been given, I will make it count!{/i}"
     
 ########################## END OPENING SCENE #################################
 
     scene black
     with fadee
 
-    a "{i}After the show, we were herded onto a bus and shipped to a gigantic building on the city’s suburbs. At first, I thought it was a shopping centre. But that’s just the ground floor. The upper floors are all part of a huge private residence.{/i}"
-    a "{i}Is this real silk for curtains? No, the actual question should be is this real silk beneath my feet!? I can probably wear this rug as an exotic wedding dress and all my guests would be singing praises to its beauty!{/i}"
-    a "{i}And the faint scent coming from that cabinet in the corner... that’s agarwood, right? It’s now a threatened species, so there’s no way you can acquire such a big piece for furniture. The cabinet must then be a legit antique!{/i}"
-    a "{i}Holy shit... this is too much. My head hurts just thinking over how many digits went into the cost for the furnishings.{/i}"
+    $ config.side_image_tag = ""
+
+    ann "{i}After the show, we were herded onto a bus and shipped to a gigantic building on the city’s suburbs. At first, I thought it was a shopping centre. But that’s just the ground floor. The upper floors are all part of a huge private residence.{/i}"
+    ann "{i}Is this real silk for curtains? No, the actual question should be is this real silk beneath my feet!? I can probably wear this rug as an exotic wedding dress and all my guests would be singing praises to its beauty!{/i}"
+    ann "{i}And the faint scent coming from that cabinet in the corner... that’s agarwood, right? It’s now a threatened species, so there’s no way you can acquire such a big piece for furniture. The cabinet must then be a legit antique!{/i}"
+    ann "{i}Holy shit... this is too much. My head hurts just thinking over how many digits went into the cost for the furnishings.{/i}"
     
     scene fountainafternoon
     with fade
@@ -747,15 +753,9 @@ label start:
     
     $ day = 1
     
-    ##jump whatday
     
-    
-    "Thank you for playing the demo for Alice in Stardom!"
-    "Please send any feedback to our {a=https://lemmasoft.renai.us/forums/viewtopic.php?f=50&t=54124}LemmaSoft page{/a}, {a=https://twitter.com/CrystalGameWork}Twitter{/a}, or {a=https://discord.gg/vE2Yng4}Discord{/a}."
-    
-    
-    
-    
+
+    jump morning1
     
         
 
