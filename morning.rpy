@@ -231,7 +231,178 @@ label morningnormal1:
                 $ interaction2 = jacquesinterview
                 jump jacquesinterview
 
-        
+
+
+#######################################################################################################################
+########################################        Morning After Contest 1     ###########################################
+#######################################################################################################################
+
+
+
+label morning2: 
+
+    scene musicroom
+    with fade
+
+    $ config.side_image_tag = "alice"
+
+    an smile "It's a bold new day, full of opportunity. The director was insistent that we take today to work on our dance routine."
+    an frown "What he didn't mention was that Taylor would be in charge of the rehearsal. She led the pack, running us through the basic steps."
+    
+    show cherry up frown at left:
+        zoom 1.4
+        yalign 0.5
+    show mary up frown at right:
+        zoom 1.4
+        yalign 0.5
+    with dissolve
+
+    c frowntalk "Hey, um, guys, why is Taylor up front? Did the director get a teacher?"
+
+    show cherry frown
+
+    a frowntalk "Taylor {i}is{/i} the teacher..."
+
+    a frown "{nw}"
+
+    m down frowntalk "Tch. What's the producer thinking? This is probably some stunt to save money..."
+
+    show mary frown
+
+    show taylor up frown at center behind mary, cherry:
+        zoom 0.97
+        yalign 1.0
+    with moveinleft
+
+    t frowntalk "I hear a lot of gossip back there, and not a lot of dancing!"
+
+    show taylor frown
+
+    an "Taylor called out behind her. Mary rolled her eyes, and continued to practice the motions." 
+
+    show director at right behind mary:
+        zoom 1.1
+        xalign 1.2
+    with moveinright
+
+    di talk "Keep it up, girls! Being a star is more then having a good voice!"
+    di "You gotta have the looks! The body movement! The swagger and finesse!"
+    di "Work those hips! Wink to the crowd!"
+
+    show director smile
+
+    t up frowntalk "Mr. Director, um, please leave the instruction to me..."
+
+    show taylor frown
+
+    hide director with moveoutright
+
+    an "To her credit, Taylor was a good instructor. She made her rounds to the rest of us."
+
+    t frowntalk "Cherry, keep your legs like this. Try to keep them apart like that, and we'll work on the basic steps."
+
+    show taylor frown
+
+    c talk "Okay! ...Th-this is a little tricky..."
+
+    show cherry frown
+
+    t frowntalk "Mary, posture's important. Back straight, like this."
+
+    show taylor frown
+
+    m frowntalk "Oh come off it, I'm spent my entire childhood learning posture!" 
+
+    show mary frown
+
+    t talk "Well, give it a try. It's none of my business if the judges decide to cut you early..."
+
+    show taylor frown
+
+    m "...Hmph."
+
+    t frowntalk "Alice... you're looking a little stiff over here."
+
+    show taylor frown
+
+    a frowntalk "I-I'm still finding my feet over here."
+    a frown "{nw}"
+
+    t frowntalk "It's because you're going straight to the tricky routines. Let's dissect the steps a bit."
+
+    hide cherry with moveoutleft
+    hide mary with moveoutright
+
+    show taylor frown at center:
+        zoom 1.4
+        yalign 0.5
+    with dissolve
+
+    an "Taylor spent some time with me, making sure I understood the steps."
+    an "Her movements were so fluid, rippling with dynamic energy. She had a bounce to her step. I envied that..."
+
+    menu:
+        "Can you teach me more?":
+            jump morning2teach
+        "Were you always this talented?": 
+            jump morning2talent
+        "This is tricky...":
+            jump morning2tricky
+
+
+    label morning2teach:
+        a talk "Can you teach me more? I could use a tutor for this sort of thing."
+        a smile "{nw}"
+        t frowntalk "Oh, you never enrolled in a dance class? I suppose I could make some time when this whole competition is over..."
+        show taylor frown
+        a down frowntalk "When it's over!? But I won't need it then!"
+        a frown "{nw}"
+        t frowntalk "Ah, nonsense. You could be a showgirl in Vegas!"
+        show taylor frown
+        a up frowntalk "...That's implying I don't win this contest."
+        a frown "{nw}"
+        t frowntalk "Well, anything's possible."
+        t frowntalk "Until then, I'll give you the best advice I can. We're here to put on a show, yes?"
+        show taylor frown
+        an "Taylor seemed up to the task. I wondered briefly why she would put so much effort in teaching her competitors, but..."
+        an "I suppose that's just how she is. She likes the competition, the thrill of it all."
+        jump morning2merge
+
+    label morning2talent:
+        a frowntalk "Were you always this talented, Taylor?"
+        a frown "{nw}"
+        t frowntalk "...Tch, perish the thought. I had to work damn hard to get this far."
+        t "12 years as a competitive dancer, on theatre shows, choreography... it takes time and effort."
+        show taylor frown
+        a talk "Oh, wow! Then... then you've done this sort of thing before, huh?"
+        a smile "{nw}"
+        t frowntalk "Obviously. Now come on. You clearly don't have any natural aptitude, much as I loathe the term..."
+        t "So you'll just have to play catch-up like everyone else."
+        show taylor frown
+        an "I get the feeling I slighted Taylor a bit with my earlier question... yeesh."
+        jump morning2merge
+
+    label morning2tricky:
+        a frowntalk "This is tricky, is all. I keep mixing up my steps."
+        a frown "{nw}"
+        t frowntalk "You're overthinking it and using the same foot twice. That's why your legs keep getting tied up with each other."
+        t "It's fine, you'll figure it out. Wouldn't be particularly worthwhile if it wasn't hard in the first place, right?"
+        show taylor frown
+        a frowntalk "Heheh, true. Just feeling a biiiiiit inadequate right now."
+        a smile "{nw}"
+        t frowntalk "It's normal. That's why we're all working at it together."
+        t talk "Just between you and me, Mary's posture is muuuuch worse than your's."
+        show taylor smile
+        a smile "Pffft!"
+        an "Taylor was patient, to be sure. I was feeling better about all this."
+        jump morning2merge
+
+    label morning2merge:
+        an "The four of us kept at it until it was time to break for lunch. We then went our separate ways..."
+
+        ## end scene
+
+  
 
 label hopeful:
     

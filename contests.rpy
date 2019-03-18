@@ -605,7 +605,7 @@ label week1win:
 
     a smile "{nw}"
     
-    
+    jump morning2
     
     ######## end contest 1 WIN
 
