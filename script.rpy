@@ -6,9 +6,9 @@ define ann = Character(' ', color="#ee9dc6", image='alice')     #protag nar
 define na = Character('???', color="#fff")
 define k = Character('Katja', color="#e74969", image='katja')     #producer
 define j = Character('Jacque', color="#e19f69", image='jacques')    #host
-define m = Character('Mary', color="#9E6D9F", image='mary')      #mary-sue - darkskinned
-define t = Character('Taylor', color="#e7cc5a", image='taylor')    #slop
-define c = Character('Cherry', color="#e3a7d7", image='cherry')    #pale
+define m = Character('Mary', color="#c899c9", image='mary')      #mary-sue - darkskinned
+define t = Character('Taylor', color="#aac9e5", image='taylor')    #slop
+define c = Character('Cherry', color="#e5bdf6", image='cherry')    #pale
 
 
 define ma = Character('Makeup Artist', color="#fff")

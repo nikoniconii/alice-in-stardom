@@ -239,7 +239,8 @@ label week1contest:
     ann "{i}The bright lights shine down on Mary’s shining black hair. Her dark skin gleams while she waves at the audience, drawing roaring applause.{/i}"
     ann "{i}Charming, cheerful music blares out the speakers and Mary starts dancing along with it, her peach-colored dress whirling with the rhythm.{/i}"
     ann "{i}Though her performance last week was elegant and formal, she completely changed her style today. Her voice is one of joy and life, skipping easily with the beat of drums and cymbals.{/i}"
-    ann "{i}She’s smiling wide like the summer sun, absolutely stunning in her radiance. The crowd becomes more excited as the chorus takes her notes higher, their glow sticks pounding the air. I stare at the scene, only realizing then that I’ve been mouthing the words of her lyrics.{/i}"
+    ann "{i}She’s smiling wide like the summer sun, absolutely stunning in her radiance. The crowd becomes more excited as the chorus takes her notes higher, their glow sticks pounding the air.{/i}"
+    ann "{i}I stare at the scene, only realizing then that I’ve been mouthing the words of her lyrics.{/i}"
     
     t "Captivating."
 
@@ -262,7 +263,7 @@ label week1contest:
         yalign 0.5
     with dissolve
     
-    ann "{i}The simple piano accompaniment rolls through the air with Cherry’s soothing voice. There is also something youthful about her singing, but unlike Lis, it doesn’t have the excess energy.{/i}"
+    ann "{i}The simple piano accompaniment rolls through the air with Cherry’s soothing voice. There is also something youthful about her singing.{/i}"
     ann "{i}The song itself is of mid-tempo, soft and delicate, like the raindrops the lyrics describe. Cherry takes these raindrops from the skies, letting them drip onto shallow puddles, rippling lakes, great oceans.{/i}"
     ann "{i}There is both something small and relatable, and something larger and more meaningful in what she expresses.{/i}"
     
@@ -400,6 +401,8 @@ label week1contest:
     ann "{i}I don’t even get the chance to practice the first line of my song in my head before I get unceremoniously shoved onto the stage by my smirking boss.{/i}"
     ann "{i}Shit, shit, shit, shit... I’m so not prepared for this!{/i}"
     ann "{i}Oh God, please, somebody, save me!{/i}"
+
+    $ waitTime = 5
     
     call screen week1minigame
     
@@ -618,11 +621,11 @@ label week3contest:
 
     $ config.side_image_tag = ""
     
-    ann "{i}Today, the prep room is eerily quiet.{/i}"
+    ann winter "{i}Today, the prep room is eerily quiet.{/i}"
 
     $ config.side_image_tag = "alice"
         
-    a frowntalk winter "Another week already... I don't know if I'm ready."
+    a up frowntalk winter "Another week already... I don't know if I'm ready."
     a frown "{nw}"
 
     show mary up frown winter at center:
@@ -637,11 +640,11 @@ label week3contest:
     a frowntalk "I guess I’m not as strong-willed as you, Mary. I just don’t like this feeling of my friends leaving me one by one... that and I don’t really feel worthy of advancing."
     a frown "{nw}"
 
-    m frowntalk "Your earlier concern I can understand, but your second concern is unforgivable. By saying that you aren’t worthy, are you trying to tell me that the contestants who’ve been eliminated weren’t worthy either?"
+    m frowntalk "Your earlier concern I can understand, but your second concern is unforgivable. By saying that you aren’t worthy, are you trying to tell me that a contestant who’ll be eliminated isn’t worthy either?"
     
     show mary frown
 
-    a frowntalk "That’s not what I mean. I’m saying that they should be here and not me! I mean... if the professional judges’ votes count more than the lay audience, I’m sure I would’ve been the first to go."
+    a frowntalk "That’s not what I mean. I’m saying that they should be here and not me! I mean... if the professional judges’ votes count more than the lay audience, I’m sure I'll be the first to go."
     a frown "{nw}"
 
     m frowntalk "But are singers always judged in the kind of strict manner you’re suggesting?"
@@ -683,7 +686,8 @@ label week3contest:
     a frowntalk "Is that not just... being fake?"
     a frown "{nw}"
         
-    m talk "It’s all about giving the audience something to dream about. When they are watching you, they can forget about the harsh realities they face on a regular basis. You’re creating a temporary utopia for them. This is where they can just let go and have fun."
+    m talk "It’s all about giving the audience something to dream about. When they are watching you, they can forget about the harsh realities they face on a regular basis."
+    m "You’re creating a temporary utopia for them. This is where they can just let go and have fun."
     
     show mary frown
 
@@ -701,8 +705,11 @@ label week3contest:
 
     show mary smile
 
-    show mary frown at left
-    show taylor up frown winter at right
+    show mary frown at leftt:
+        zoom 1.3
+        yalign 0.4
+    show taylor up frown winter at right:
+        zoom 0.98
     with moveinright
     
     ann "{i}Before I get the chance to ask further, Taylor comes out of the change room with a green knitted hat on her head. Mary squints at her.{/i}"
@@ -757,7 +764,7 @@ label week3contest:
 
     ann "{i}With that, Taylor just turns around and heads for the stage, leaving all of us staring after her.{/i}"
 
-    show cherry up frown winter at right
+    show cherry up frown winter at rightt
     with dissolve
     
     c frowntalk "What did you guys just say to her to have her stomp out like that?"
@@ -807,7 +814,8 @@ label week3contest:
     ann "{i}It’s a whispery, sad tone, like withered branches struggling to withstand the cold. But as smooth, synth strings start filling in the shadows, Cherry’s voice thickens, rich with an entrancing power.{/i}"
     
     an "I thought she only sings children’s songs. Last week, she had to practise a lot to take on that techno pop, but why is she so... in command of this song this week?"
-    ann "{i}Cherry closes her eyes. I can see, I can hear that she has completely submerged herself into the melody. There’s probably nothing else on her mind now, just the lyrics of this song, the words she’s singing for one person, and one person only.{/i}"
+    ann "{i}Cherry closes her eyes. I can see, I can hear that she has completely submerged herself into the melody.{/i}"
+    ann "{i}There’s probably nothing else on her mind now, just the lyrics of this song, the words she’s singing for one person, and one person only.{/i}"
     
     show cherry up smile winter at center:
         zoom 1.3
@@ -852,23 +860,47 @@ label week3contest:
 
     ann "{i}Mary, who along with Taylor has been silent throughout Cherry’s performance, gets up to walk onto the stage.{/i}"
     ann "{i}The silver and diamond jewellery makes a strong contrast on her sun-kissed skin, giving her an even more noble look than usual. She’s like the queen of snow.{/i}"
-    ann "{i}But this just makes her slightly trembling hands seem even more humbling.{/i}"
+    ann winter "{i}But this just makes her slightly trembling hands seem even more humbling.{/i}"
+
+    scene stage4far
+    with dissolve
+
+    $ config.side_image_tag = "alice"
     
-    a "You okay?"
+    show mary unsure frown winter at center:
+        zoom 1.4
+        yalign 0.5
+    with dissolve
+
+    a frowntalk winter "You okay?"
+    a frown "{nw}"
     
     m frowntalk "O-of course. Why wouldn't I be?"
+
+    show mary frown
     
     ann "{i}I want to assure her that it’s okay to be nervous, but how can I do it? Maybe pointing out her current state would only worsen things.{/i}"
-    ann "{i}I take her hands in mine and give them an affirming squeeze instead.{/i}"
+    ann smile "{i}I take her hands in mine and give them an affirming squeeze instead.{/i}"
     
     m frowntalk "I..."
-    m frowntalk "It was... a shock, listening to Cherry sing like that. I almost doubted myself."
-    m frowntalk "But I guess, after all, she’s her, I’m me. I’ll have to do things my way."
+    m "It was... a shock, listening to Cherry sing like that. I almost doubted myself."
+    m "But I guess, after all, she’s her, I’m me. I’ll have to do things my way."
+
+    show mary frown
     
-    a "That's okay."
+    a talk "That's okay."
     a "I’ll root for you, no matter what style you choose for your performance."
+
+    a smile "{nw}"
     
-    m frowntalk "Thanks."
+    m up talk "Thanks."
+
+    show mary smile
+
+    $ config.side_image_tag = ""
+
+    scene stage4close
+    with dissolve
     
     ann "{i}Harps sound in the background, strings plucked one by one. They form a beautiful melody, but it’s thin and sparse, like something is lacking. Mary’s voice fills the gaps, humming, crying.{/i}"
     ann "{i}Her voice, deep, colorful, paints the night sky with the moon and stars. The calm light unveils snowflakes that have been dancing in the frigid air all along, falling upon our shoulders to dust a soft layer of white.{/i}"
@@ -879,32 +911,68 @@ label week3contest:
     ann "{i}I wonder, if Mary were not standing on a stage, but just by a bus stop, waiting as snow falls on her umbrella, what kind of tune will she let slip from her lips?{/i}"
     ann "{i}But that is just a pointless musing. Perhaps this is the real Mary. Of course she’s not truly perfect. But she’s a person who tries very hard to be so. She may be nervous this moment. She may be lost. But she doesn’t let it show.{/i}"
     ann "{i}To give the audience a dream to experience, huh?{/i}"
-    ann "{i}In her own way, Mary may be a gentle person afterall.{/i}"
+    ann "{i}In her own way, Mary may be a gentle person after all.{/i}"
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.35
+    with dissolve
     
-    j "A most beautiful performance from Mary Viswanathan once again. She sang of snow falling under moonlight, calm and entrancing."
+    j talk "A most beautiful performance from Mary Viswanathan once again. She sang of snow falling under moonlight, calm and entrancing."
     
-    t "It’s a shame you still haven’t opened up your heart, Mary. Such a beautiful voice, only to come to waste."
+    show jacques smile
+
+    scene stage4far
+    with dissolve
+
+    show taylor up frown winter at rightt
+    show mary up frown winter at leftt
+    with dissolve
+
+    t frowntalk "It’s a shame you still haven’t opened up your heart, Mary. Such a beautiful voice, only to come to waste."
     
-    m frowntalk "You are one to say. If you don’t get serious soon, you’ll be eliminated."
+    show taylor frown
+
+    m down frowntalk "You are one to say. If you don’t get serious soon, you’ll be eliminated."
+
+    show mary frown
     
-    t "I don't know if I'd care..."
+    t frowntalk "I don't know if I'd care..."
+
+    show taylor frown
+
+    scene stage4close
+    with dissolve
     
-    ann "{i}Taylor doesn’t let the tense atmosphere get to her. The moment he’s on-stage, she’s the cool, collected singer again. The broad theme opens in the background, her voice easily blending into it along with the bell-like rings of a second melody.{/i}"
+    ann "{i}Taylor doesn’t let the tense atmosphere get to her. The moment she’s on-stage, she’s the cool, collected singer again.{/i}"
+    ann "{i}The broad theme opens in the background, her voice easily blending into it along with the bell-like rings of a second melody.{/i}"
     ann "{i}Taylor doesn’t force too much air into her singing, but somehow, she manages to project the clear sounds into the audience. It’s like it doesn’t take any effort. But at the same time, I know that’s just a show of her skills.{/i}"
-    ann "{i}I know Taylor is very skilful from day one. However, that skill never actually translates to enhancing the mood of songs that she sings. Instead, she warps every song into something of her own, feeding it with hopeless melancholy.{/i}"
+    ann "{i}I know Taylor is very skillful from day one. However, that skill never actually translates to enhancing the mood of songs that she sings. Instead, she warps every song into something of her own, feeding it with hopeless melancholy.{/i}"
     ann "{i}She does the same with this wintery music. What originally sounds like an innocent walk down a snow-lined sidewalk becomes a walk down memory lane.{/i}"
-    ann "{i}I can almost feel my hand, numb from cold, taken in her and led down a path where her steps leave the snow dented. I follow her into the dark, reliving vague regrets threatening to swallow our meagre presence.{/i}"
-    ann "{i}Summer, techno, winter...all just minor twists to her bleak mentality.{/i}"
+    ann "{i}I can almost feel my hand, numb from cold, taken in her and led down a path where her steps leave the snow dented. I follow her into the dark, reliving vague regrets threatening to swallow our meager presence.{/i}"
+    ann "{i}Summer, techno, winter... all just minor twists to her bleak mentality.{/i}"
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.35
+    with dissolve
     
-    j "Thank you, Taylor. You have expressed a desolate face of winter in your song. That was a unique take."
+    j talk "Thank you, Taylor. You have expressed a desolate face of winter in your song. That was a unique take."
     j "Now, our last contestant, Alice Carroll, will have her take on the theme. Alice, the stage is now yours."
     
+    show jacques smile
+
     ann "{i}Indeed, what is it that I want to express?{/i}"
     ann "{i}What is it that I want to sing?{/i}"
+
+    $ currentScreen = "week3minigame"
+    $ waitTime = 4.5
     
-    jump week3minigame
+    call screen week3minigame
     
 label week3win:
+
+    $ config.side_image_tag = ""
     
     ann "{i}Should I be like Cherry, sing for a person who means a lot to her?{/i}"
     ann "{i}Or be like Mary, sing for the crowd that watches her?{/i}"
@@ -927,8 +995,10 @@ label week3win:
     ann "{i}When I just let go, the song takes me exactly where I should be.{/i}"
     ann "{i}Maybe it’s a sad thing...not having a style that’s mine. I don’t have anything in particular that I want to express. You know, I really wish I could lead my audience, just like Cherry, Mary, and Taylor.{/i}"
     ann "{i}But maybe being led by the song itself isn’t so bad?{/i}"
-    ann "{i}The melody takes me deep into someone’s reminiscence. Young days, going to parties, having fun - there are so few constraints to limit her. Like a caterpillar building its cocoon, everything seems possible. But once locked inside, fear churns.{/i}"
-    ann "{i}What if she can’t become anything? What if she always remain an ugly worm while everybody else becomes bright butterflies and take flight into the wide skies above? Those are the dark nights and cold winters - metaphorical, yes, but so real in her mind.{/i}"
+    ann "{i}The melody takes me deep into someone’s reminiscence. Young days, going to parties, having fun - there are so few constraints to limit her.{/i}"
+    ann "{i}Like a caterpillar building its cocoon, everything seems possible. But once locked inside, fear churns.{/i}"
+    ann "{i}What if she can’t become anything? What if she always remain an ugly worm while everybody else becomes bright butterflies and take flight into the wide skies above?{/i}"
+    ann "{i}Those are the dark nights and cold winters - metaphorical, yes, but so real in her mind.{/i}"
     ann "{i}Then someone takes her hand.{/i}"
     ann "{i}She can’t see, but she can feel the warmth holding her. She’s being dragged out into the light. She can feel her new wings flutter off remnants of her old coat and broaden to their full span.{/i}"
     ann "{i}She is now engulfed in sunlight. It is no longer cold - it is spring. The scent of flowers fills her nostrils. By instinct, she flaps those wings.{/i}"
@@ -937,7 +1007,8 @@ label week3win:
     ann "{i}She, too, has flown away.{/i}"
     ann "{i}I, too, fly away.{/i}"
     ann "{i}I blink.{/i}"
-    ann "{i}The snow is gone. No caterpillars, no cocoon, no butterflies. They were all my imagination, built from the melody of the song, the words that form the lyrics. I didn’t have a “self” when I was singing. I became the protagonist, the story becomes mine.{/i}"
+    ann "{i}The snow is gone. No caterpillars, no cocoon, no butterflies. They were all my imagination, built from the melody of the song, the words that form the lyrics.{/i}"
+    ann "{i}I didn’t have a \"self\" when I was singing. I became the protagonist, the story becomes mine.{/i}"
     ann "{i}Who is the audience? I don’t know. The ones in the seats? Behind the TV? My boss, friends, family? Myself?{/i}"
     ann "{i}I don’t think it matters in the end. To me, singing is singing. It’s fun, using my voice to bring meaning to notes and words that aren’t my own.{/i}"
     ann "{i}By singing, I connect with the thoughts of others. I feel what I cannot under normal circumstances.{/i}"
@@ -945,212 +1016,473 @@ label week3win:
     ann "{i}It’s something that transcends all boundaries of society. It is art that helps us empathize with each other, brings harmony despite our differences.{/i}"
     ann "{i}Knowing this gives me purpose to continue. I can’t help but smile at the audience, who finally claps after my performance has ended.{/i}"
     
-    j "Another nice performance by Alice Carroll. I’m sure we can all relate a little to the themes expressed in this song."
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
+
+    j talk "Another nice performance by Alice Carroll. I’m sure we can all relate a little to the themes expressed in this song."
     j "But with four wonderful performances from our contestants, it’ll be a difficult choice to eliminate one of them. Let’s decide during the commercial break. Stay tuned. We’ll be back with the results!"
     
-    k "You’re actually smiling, Kid."
+    show jacques smile
+
+    scene stage4far
+    with dissolve
+
+    show katja smile at center:
+        zoom 1.3
+        yalign 0.4
+    with dissolve
+
+    $ config.side_image_tag = "alice"
+
+    k talk "You’re actually smiling, Kid."
+
+    show katja smile
     
-    ann "{i}My boss waits for me at the doorway to the prep room, making me nearly jump in surprise.{/i}"
+    ann winter "{i}My boss waits for me at the doorway to the prep room, making me nearly jump in surprise.{/i}"
     
-    a "I suppose I’m actually happy with my performance?"
+    a talk "I suppose I’m actually happy with my performance?"
     
-    k "Well, it really isn’t bad."
+    a smile "{nw}"
+
+    k talk "Well, it really isn’t bad."
+
+    show katja smile
     
-    ann "{i}And here I was feeling good about myself - her cold statement doesn’t give me much hope, huh?{/i}"
+    ann frown "{i}And here I was feeling good about myself - her cold statement doesn’t give me much hope, huh?{/i}"
     
-    k "Were you perhaps expecting me to praise you?"
+    k frowntalk "Were you perhaps expecting me to praise you?"
+
+    show katja frown
     
-    a "It wouldn’t hurt, haha."
+    a frowntalk "It wouldn’t hurt, haha."
     
-    ann "{i}I notice that even my boss’ harsh comments aren’t doing much to sway my mood. I know I did well. It isn’t something that needs to be verified by others.{/i}"
+    ann frown "{i}I notice that even my boss’ harsh comments aren’t doing much to sway my mood. I know I did well. It isn’t something that needs to be verified by others.{/i}"
     
-    k "Rather than your performance, I think your mindset is even more worthy of praising."
+    k frowntalk "Rather than your performance, I think your mindset is even more worthy of praising."
+
+    show katja frown
     
-    a "Mindset?"
+    a frowntalk "Mindset?"
+    a frown "{nw}"
     
-    k "In my opinion, an idol is a marketed phenomenon. An idol can be ugly, can lack talent, but so long as you promote her to a divine status, she’ll be loved. The only thing is, she first has to believe this to be possible."
+    k frowntalk "In my opinion, an idol is a marketed phenomenon. An idol can be ugly, can lack talent, but so long as you promote her to a divine status, she’ll be loved. The only thing is, she first has to believe this to be possible."
     
-    a "You mean... no matter how poor your abilities are, objectively speaking, to still believe you are the best of the best?"
+    show katja frown
+
+    a frowntalk "You mean... no matter how poor your abilities are, objectively speaking, to still believe you are the best of the best?"
+    a frown "{nw}"
+
+    k frowntalk "Something like that. A person with the belief that he is omnipotent can become a god. A god who doesn’t believe himself to be omnipotent, on the other hand, will cease to be revered."
     
-    k "Something like that. A person with the belief that he is omnipotent can become a god. A god who doesn’t believe himself to be omnipotent, on the other hand, will cease to be revered."
+    show katja frown
+
+    a frowntalk "That's... philosophical..."
+    a frown "{nw}"
+
+    k talk "When you get to my age, you’ll start having some theories about life."
+
+    show katja smile
     
-    a "That's... philosophical..."
-    
-    k "When you get to my age, you’ll start having some theories about life."
-    
-    ann "{i}I don’t know if I appreciate that kind of philosophy, but regardless, I’ll try harder.{/i}"
+    ann smile "{i}I don’t know if I appreciate that kind of philosophy, but regardless, I’ll try harder.{/i}"
+
+    hide katja with dissolve
+
     ann "{i}I want to be loved by the audience because of my ability to engage them, not because of some artificial promotion designed to specifically target the crowd’s psych or whatever...{/i}"
-    ann "{i}After my conversation with Boss, I join the others in the prep room to wait for the results. Mary and Taylor are still staying quiet from their previous conflict, while Cherry is making some idle chatter with Lis.{/i}"
+    ann "{i}After my conversation with Boss, I join the others in the prep room to wait for the results. Mary and Taylor are still staying quiet from their previous conflict, while Cherry is making some idle chatter with a stage director.{/i}"
     
-    a "So... umm... everybody did well in the performances just now."
+    show mary unsure frown winter at left
+    show cherry up smile winter at center
+    show taylor up frown winter at right
+    with dissolve
+
+    a talk "So... umm... everybody did well in the performances just now."
+    a smile "{nw}"
+
+    m frowntalk "I don’t know about that. I think I could’ve done better."
     
-    l "That’s great, right? So proud of you guys!"
+    show mary frown
+
+    t down "Strange to say, but I’m in agreement regarding my own performance."
     
-    m frowntalk "I don’t know about doing great. I think I could’ve done better."
+    show taylor frown
+
+    c frowntalk "You don’t have to say that about yourselves..."
     
-    t "Strange to say, but I’m in agreement regarding my own performance."
-    
-    c "You don’t have to say that about yourselves..."
-    
-    j "I’m sure we all have had a tough time deciding who will advance, who will be eliminated this week. The results now lie in my hands, and I must say, they are close. Very close!"
+    show cherry frown
+
+    scene stage4close
+    with dissolve
+
+    $ config.side_image_tag = ""
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
+
+    j talk "I’m sure we all have had a tough time deciding who will advance, who will be eliminated this week. The results now lie in my hands, and I must say, they are close. Very close!"
     j "The winner of this week is... Raisa Cherenkov!"
     j "Our professional judges and the lay audience on our comment boards both comment on the strong, genuine emotions you’ve expressed in your heartfelt ballad. Congratulations, Raisa. You’ve advanced."
     j "Coming in second place is... well, this is a little unexpected..."
-    j "This just goes on to prove how much she has improved… Congratulations, Alice Carroll, you’ve also advanced! The simple take on a highly relatable song has resonated strongly with our audience."
+    j "This just goes on to prove how much she has improved... Congratulations, Alice Carroll, you’ve also advanced! The simple take on a highly relatable song has resonated strongly with our audience."
     j "Over the weeks, you’ve developed a unique charm, making you now a forerunner for victory rather than the underdog from when we first started. Great job, Alice!"
     
+    show jacques smile
+
     ann "{i}I don't think I heard him right.{/i}"
-    ann "{i}For the first time in these three weeks, I will not be standing on the stage of elimination.{/i}"
+    ann "{i}For the first time, I will not be standing on the stage of elimination.{/i}"
     ann "{i}I actually made it to second place. I don’t know how to feel about this.{/i}"
+
+    scene stage4far
+    with dissolve
+
+    $ config.side_image_tag = "alice"
+
+    an winter frown "{nw}"
+
+    show mary up smile winter at rightt
+    show taylor up frown winter at leftt
+    with dissolve
     
-    m frowntalk "Be proud, Alice. You deserve it."
+    m talk "Be proud, Alice. You deserve it."
+
+    show mary smile
     
-    a "I... I don't know about that..."
+    a frowntalk "I... I don't know about that..."
+    a frown "{nw}"
     
-    t "Mary is actually right this time. I can feel the confidence in you. You don’t need to hide it."
+    t frowntalk "Mary is actually right this time. I can feel the confidence in you. You don’t need to hide it."
     
+    show taylor frown
+
     m frowntalk "Do we look like the type of people to be upset by being jealous?"
+
+    show mary frown
     
-    a "Of course not!"
+    a down frowntalk "Of course not!"
+    a up frown "{nw}"
     
-    m frowntalk "Then all you have to say is “Thank you for your support. I’ll continue to work hard."
+    m talk "Then all you have to say is \"Thank you for your support. I’ll continue to work hard\"."
+
+    show mary smile
     
-    a "I... thank you for your support... I’ll continue... I’ll get better... I’ll work very, very hard in the future."
+    a talk "I... thank you for your support... I’ll continue... I’ll get better... I’ll work very, very hard in the future."
     
-    ann "{i}Taylor puts her large hand on my head and ruffles my hair, giving me a rare smile I hardly know he’s capable of showing.{/i}"
+    ann smile "{i}Taylor puts her large hand on my head and ruffles my hair, giving me a rare smile I hardly know she’s capable of showing.{/i}"
     
-    t "Good. I look forward to seeing your improvement."
+    t talk "Good. I look forward to seeing your improvement."
+
+    show taylor smile
+
+    $ config.side_image_tag = ""
+
+    scene stage4close
+    with dissolve
+
+    show jacques up smile at center:
+        zoom 0.96
+    show mary up frown winter at left:
+        zoom 1.2
+        yalign 0.3
+    show taylor up frown winter at right:
+        zoom 1.1
+        yalign 0.35
+    with dissolve
     
-    j "And today, the two facing elimination are our week 1 winner, Taylor Warren, and week 2 winner, Mary Viswanathan. Please come onto the stage, Taylor and Mary."
+    j talk "And today, the two facing elimination are our week 1 winner, Taylor Warren, and week 2 winner, Mary Viswanathan. Please come onto the stage, Taylor and Mary."
     j "How do you feel about standing here today?"
     
-    t "Do I really have to answer this question?"
+    show jacques smile
+
+    t frowntalk "Do I really have to answer this question?"
+
+    show taylor frown
     
     ann "{i}Taylor may not be speaking to the mic, but I can still tell that’s exactly what she’s saying. After all, that fits her personality perfectly.{/i}"
     ann "{i}Mary delivers her a glare and takes the mic into her own hands instead.{/i}"
     
-    m frowntalk "I thank everybody for the chance to be here..."
+    m talk "I thank everybody for the chance to be here..."
     m frowntalk "...is what I should say. I guess at this point, I have revisited my strategy of acting like the idol I have thought people like to see."
-    m frowntalk "In all honesty, I’ve always felt confident about winning. I know I’m skilful and there shouldn’t be anything stopping me. What I haven’t considered is the true meaning of being here."
-    m frowntalk "What are my own feelings about the words I sing? What are the feelings that the songwriters are trying to express? I think maybe those are also things I should’ve considered."
-    m frowntalk "If I were to have the chance to return to this stage, that’s what I would like to answer. I know this sounds...idealistic, impractical, but that’s what I really think at this moment."
+    m "In all honesty, I’ve always felt confident about winning. I know I’m skillful and there shouldn’t be anything stopping me. What I haven’t considered is the true meaning of being here."
+    m "What are my own feelings about the words I sing? What are the feelings that the songwriters are trying to express? I think maybe those are also things I should’ve considered."
+    m talk "If I were to have the chance to return to this stage, that’s what I would like to answer. I know this sounds... idealistic, impractical, but that’s what I really think at this moment."
     
+    show mary smile
+
     ann "{i}Considering how Mary is, I can only imagine how much it took for her to say all this.{/i}"
     ann "{i}She has always valued professionalism above all else. I’m sure at this moment, she probably feels selfish to be using the opportunity to express her thoughts.{/i}"
     ann "{i}Still, she has gathered the courage to say it. She has gathered the courage to revisit her own ideas of what being an idol should be. This truthful side of her can only be described as admirable.{/i}"
     
     m frowntalk "I want to become an idol not just cut out from the same mold as all others. I want to bring something new to the industry."
-    m frowntalk "This may be arrogant of me, but I think there would be no reason for me to become an idol if I have nothing new to offer."
-    m frowntalk "Facing elimination made me realize this. For that alone, I’m glad. You guys have given me a wake-up call. I would have no regrets even if I were the one to step down from the stage today."
+    m "This may be arrogant of me, but I think there would be no reason for me to become an idol if I have nothing new to offer."
+    m talk "Facing elimination made me realize this. For that alone, I’m glad. You guys have given me a wake-up call. I would have no regrets even if I were the one to step down from the stage today."
     
-    j "Thank you, Mary. That was very motivational. Do you have anything to add, Taylor?"
+    show mary frown
+
+    j talk "Thank you, Mary. That was very motivational. Do you have anything to add, Taylor?"
     
-    t "No. That was perfect."
+    show jacques smile
+
+    t talk "No. That was perfect."
     
+    show taylor smile
+
     ann "{i}Taylor looks over to Mary, offering Mary her hand. Mary widens her eyes, but takes it in her grasp.{/i}"
     
-    m frowntalk "One of us will have to go, but this friendship is something that’ll stay."
+    m frowntalk "One of us will have to go, but the memories is something that’ll stay."
+
+    show mary smile
     
-    t "Agreed."
+    t talk "Agreed."
     
-    j "Alright. Now, I must announce who will be eliminated from week 3 of Supernova. I’m sorry to say..."
-    j "{cps=40}...{/cps}"
-    j "Mary Viswanathan, you have been eliminated."
+    show taylor smile
+
+    j talk "Alright. Now, I must announce who will be eliminated from week 3 of Supernova. I’m sorry to say..."
+    j smile "{cps=40}...{/cps}"
+
+    show mary frown
+
+    j frowntalk "Mary Viswanathan, you have been eliminated."
     
+    show jacques smile
+
     ann "{i}Mary doesn’t look too upset. She calmly steps down the stage.{/i}"
+
+    hide mary with dissolve
+
+    $ renpy.pause(0.5)
+
+    hide taylor
+    hide jacques
+    with dissolve
+
     ann "{i}Really, she’s like a queen. She may have lost, but she is not lost. If anything, she knows what she wants even better now.{/i}"
     ann "{i}I wish I could be like that.{/i}"
-    ann "{i}If Mary becomes an idol in the future, she’ll be an inspiration for many.{/i}"
+    ann "{i}If- no, when- Mary becomes an idol in the future, she’ll be an inspiration for many.{/i}"
     
     ###### end contest 3 win
     
 label week4contest:
-    
-    ann "{i}If the prep room was quiet last week, then it’s silent this week.{/i}"
 
-    di "Intie sure looks sad today. Has your friend ditched you?"
+    scene stage5far
+    with fadee
+
+    $ config.side_image_tag = "alice"
     
-    a "I’m not sad. I’m just thinking."
+    ann frown edgy "{i}If the prep room was quiet last week, then it’s silent this week.{/i}"
+
+    show director smile at center:
+        zoom 1.2
+        yalign 0.8
+    with dissolve
+
+    di talk "Intie sure looks sad today. Has your friend ditched you?"
+
+    show director smile
     
-    di "Thinking about what to do now that your friend is not here to help?"
+    a frowntalk "I’m not sad. I’m just thinking."
+    a frown "{nw}"
     
+    di talk "Thinking about what to do now that your friend is not here to help?"
+    
+    show director smile
+
     ann "{i}I would like to rebuke him, but maybe there is some truth to what he is saying. Even if Mary hasn’t been directly guiding me, she still has given me motivation and inspiration. It’s strangely... depressing with her gone.{/i}"
     
-    t "I think it's a good thing."
+    show taylor up frown edgy at right:
+        zoom 0.97
+        yalign 0.2
+    with moveinright
+
+    t frowntalk "I think it's a good thing."
+
+    show taylor frown
     
-    di "Easier for you to win?"
+    di talk "Easier for you to win?"
+
+    show director smile
+
+    show director at leftt:
+        zoom 1.2
+        yalign 0.8
+    with moveinright
+
+    show taylor at right:
+        zoom 1.1
+        yalign 0.4
+    with dissolve
     
-    t "Oh please. Do I look like I care about that?"
+    t frowntalk "Oh please. Do I look like I care about that?"
+
+    show taylor frown
+
+    show director at left:
+        yalign 0.8
+    with moveinleft
+
+    show cherry up frown edgy at center:
+        zoom 1.2
+        yalign 0.45
+    with dissolve
     
-    c "I know Mary is trying to get Alice and I to become more independent, but..."
+    c frowntalk "I know Mary is trying to get Alice and I to become more independent, but..."
+
+    show cherry frown
     
-    a "It's hard, right?"
+    a frowntalk "It's hard, right?"
+    a frown "{nw}"
     
-    c "I really only joined because Lis wanted to..."
+    c down frowntalk "I really only joined because I thought I could watch the show..."
+
+    show cherry frown
     
-    di "Well, Intie here only joined because she had to."
+    di talk "Well, Intie here only joined because she had to."
+
+    show director smile
     
     ann "{i}I roll my eyes in response.{/i}"
     
-    a "Yeah, that’s right. So please don’t give me an excuse to bail out of this right before the show starts."
+    a frowntalk "Yeah, that’s right. So please don’t give me an excuse to bail out of this right before the show starts."
+    a frown "{nw}"
+
+    di talk "As though you can afford to lose your job and pay for the damages."
+
+    show director smile
     
-    di "As though you can afford to lose your job and pay for the damages."
+    a talk "Who knows? I have a rich friend after all. Maybe she’d lend me money."
     
-    a "Who knows? I have a rich friend after all. Maybe she’d lend me money."
-    
-    ann "{i}Taylor chuckles, clearly amused by how I turned the director’s words back at him.{/i}"
+    show taylor smile
+
+    ann smile "{i}Taylor chuckles, clearly amused by how I turned the director’s words back at him.{/i}"
+
+    hide director with dissolve
+
     ann "{i}I guess that really leaves me no choice but to win this and make sure I don’t have to go back to being an intern...{/i}"
     
-    c "It isn’t that I don’t want to become more self-reliant... but it’s easier said than done, huh?"
+    show cherry at leftt:
+        yalign 0.45
+    with moveinright
+
+    c up frowntalk "It isn’t that I don’t want to become more self-reliant... but it’s easier said than done, huh?"
     
-    t "Maybe it's the process that matters."
+    show cherry frown
+
+    t frowntalk "Maybe it's the process that matters."
     
-    a "Process?"
+    show taylor frown
+
+    a frowntalk "Process?"
+    a frown "{nw}"
+
+    t frowntalk "You should know all about this, Alice. We’ve all seen your growth throughout the past few weeks."
+
+    show taylor frown
     
-    t "You should know all about this, Alice. We’ve all seen your growth throughout the past few weeks."
+    a frowntalk "I admit I have a bit more confidence in my abilities now, but I really have no systematic way of ensuring my own improvement."
+    a "I don’t know if I’ll just stall one day, and find that I can’t go further even though I have yet to climb to the top."
+    a frown "{nw}"
+
+    c talk "It’s like how my Mom says it’d be impossible for me to cook no matter how much I try."
     
-    a "I admit I have a bit more confidence in my abilities now, but I really have no systematic way of ensuring my own improvement. I don’t know if I’ll just stall one day, and find that I can’t go further even though I have yet to climb to the top."
+    show cherry smile
+
+    t frowntalk "No. You just have to take the eggs out of the carton and crack the shell before it’s fried."
     
-    c "It’s like how Lis says it’d be impossible for me to cook no matter how much I try."
-    
-    t "No. You just have to take the eggs out of the carton and crack the shell before it’s fried."
-    
-    ann "{i}Both Taylor and I can recall the disaster of Cherry trying to make an omelette back at our residence.{/i}"
+    show taylor frown
+
+    ##ann "{i}Both Taylor and I can recall the disaster of Cherry trying to make an omelette back at our residence.{/i}"
     ann "{i}How can one think that tossing the entire carton of eggs, cardboard and all, onto the pan and assume it’d miraculously cook into anything edible is beyond me.{/i}"
     ann "{i}Lucky thing was, Cherry didn’t even remember (or know how) to turn on the stove. Thank God.{/i}"
     
-    k "The show’s about to start. Ready to head over, guys?"
+    show katja smile at left behind cherry:
+        xalign -0.1
+    with moveinleft
+
+    k talk "The show’s about to start. Ready to head over, guys?"
     
+    show katja smile
+
     ann "{i}What can I say? I never feel ready anyway.{/i}"
     
-    a "Yes, Boss."
+    a talk "Yes, Boss."
+    a smile "{nw}"
+
+    scene stage5close
+    with dissolve
+
+    $ config.side_image_tag = ""
     
-    with fade
-    
-    j "Welcome to week 4 of Supernova. With only three contestants left, today we will decide who gets the ticket to the grand finale, who will be left behind. Are you ready for the cruel battle to come?"
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
+
+    j talk "Welcome to week 4 of Supernova. With only three contestants left, today we will decide who gets the ticket to the grand finale, who will be left behind. Are you ready for the cruel battle to come?"
     j "Of course you are! We have all been waiting for this day since the very beginning. It’s only right that we have a suitable theme to set the stage. Presenting to you the theme of this week..."
     j "Darkness! Yes, darkness will be the theme of this week. How will our contestants portray it with their voices? Let us lend our applause to our first contestant to take on the challenge: Raisa Cherenkov!"
     
+    show jacques smile
+
+    hide jacques with dissolve
+
     ann "{i}A lonely, depressing melody sounds as Cherry takes to the stage, her dark, layered dress dragging behind her. She sings as her heels click down the stage, her voice thin, airy, like an eerie fog drawn across a rural night.{/i}"
-    ann "{i}Her skin, so white it’s as though blood doesn’t run beneath it, and eyes a blue that reminds me of the planet Uranus, Cherry gives off the impression of an ice witch from folklore, immortalized as a marble figurine twirling on an old music box.{/i}"
-    ann "{i}With each repetition of the main theme, this illusion becomes more like reality. This is the power of Cherry’s singing. She possesses a unique timbre and wide vocal range, giving her much needed flexibility for expressing whatever emotions she desires.{/i}"
+    ann "{i}Her skin, so white it’s as though blood doesn’t run beneath it, and eyes a deep blue, Cherry gives off the impression of an ice witch from folklore, immortalized as a marble figurine twirling on an old music box.{/i}"
+    ann "{i}With each repetition of the main theme, this illusion becomes more like reality. This is the power of Cherry’s singing.{/i}"
+    ann "{i}She possesses a unique timbre and wide vocal range, giving her much needed flexibility for expressing whatever emotions she desires.{/i}"
     ann "{i}She can turn the simplest of melodies to something different and outstanding. It’s like she is some kind of god, shaping the world with mud and giving it life with her breath.{/i}"
     
-    t "But it’s like... something is lacking today. Motivation?"
+    scene stage5far
+    with dissolve
+
+    $ config.side_image_tag = "alice"
+
+    an frown edgy "{nw}"
+
+    show taylor up frown edgy at rightt
+    show katja frown at leftt
+    with dissolve
+
+    t frowntalk "But it’s like... something is lacking today. Motivation?"
     
-    a "Sorry?"
+    show taylor frown
+
+    a frowntalk "Sorry?"
+    a frown "{nw}"
+
+    k frowntalk "More like inspiration, Taylor."
     
-    k "More like inspiration, Taylor."
+    show katja frown
+
+    t frowntalk "Ah... I can relate to that."
     
-    t "Ah... I can relate to that."
+    show taylor frown
+
+    a frowntalk "I... can't?"
+    a frown "{nw}"
+
+    t frowntalk "If anything, that has always been your strong point, Alice. You may not realize it, but inspiration just flows within you. Overflows, really. That’s how we can all sense it."
     
-    a "I... can't?"
-    
-    t "If anything, that has always been your strong point, Alice. You may not realize it, but inspiration just flows within you. Overflows, really. That’s how we can all sense it."
-    
-    j "Thank you, Raisa."
+    show taylor frown
+
+    scene stage5close
+    with dissolve
+
+    $ config.side_image_tag = ""
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
+
+    j talk "Thank you, Raisa."
     j "Next, we have Alice Carroll. Just listening to this opening should be enough to tell us that she’s going to put a different spin to this week’s theme, right? Alright, Alice. I’ll leave things in your hands."
     
+    show jacques smile
+
+    hide jacques with dissolve
+
     ann "{i}I don’t know if what Taylor said really applies to me. I don’t have time to think over it either.{/i}"
     ann "{i}But the music is on. The game’s mine.{/i}"
     ann "{i}I head onto the stage, a grin filling my face.{/i}"
@@ -1173,7 +1505,8 @@ label week4win:
     ann "{i}But even if that were the case, I’m starting to figure out a solution to my dissatisfaction.{/i}"
     ann "{i}When I think I can’t do something, tell myself I can.{/i}"
     ann "{i}When I can’t see an opportunity, go find it.{/i}"
-    ann "{i}Standing here on this stage makes me remember all the dreams I’ve tossed out because of my old cowardice. I thought I was just being realistic when I gave up on pursuing them. In the end, I was just hiding from the possibility of failure.{/i}"
+    ann "{i}Standing here on this stage makes me remember all the dreams I’ve tossed out because of my old cowardice.{/i}"
+    ann "{i}I thought I was just being realistic when I gave up on pursuing them. In the end, I was just hiding from the possibility of failure.{/i}"
     ann "{i}Who cares if I fail, really? Myself?{/i}"
     ann "{i}So if I can forgive myself in the case I fail, nobody else would have a problem with it, right?{/i}"
     ann "{i}What is there to fear, then?{/i}"
@@ -1183,36 +1516,81 @@ label week4win:
     ann "{i}I pull my hand back, dissolving the imaginary cobwebs, holding the new energy to my chest as my body loses rigidity, moving into an easy, lively dance. Despite the black teardrops painted beneath my eyes, I’m smiling.{/i}"
     ann "{i}I take my voice to a bright climax, giving it all my radiance. The waves of glow sticks beneath the stage follow my lead. We’re breaking through the night, bringing in a new dawn.{/i}"
     ann "{i}It's a celebration!{/i}"
+
+    show jacques up smile at center:
+        zoom 1.3
+        yalign 0.3
+    with dissolve
     
-    j "Beautiful, beautiful work from Alice Carroll. A big hand for her, please!"
+    j talk "Beautiful, beautiful work from Alice Carroll. A big hand for her, please!"
+
+    show jacques smile
+
+    hide jacques with dissolve
     
-    ann "{i}I leave the stage with heart pounding, breath shaking. I have never been so tired, but at the same time, I’ve never been so satisfied with my work. I’m feeling absolutely wonderful.{/i]"
+    scene stage5far
+    with dissolve
+
+    show taylor up smile edgy at center:
+        zoom 1.12
+        yalign 0.2
+    with dissolve
+
+    $ config.side_image_tag = "alice"
+
+    an smile edgy "I leave the stage with heart pounding, breath shaking. I have never been so tired, but at the same time, I’ve never been so satisfied with my work. I’m feeling absolutely wonderful."
     
-    t "That was great, Alice. Really great."
+    t talk "That was great, Alice. Really great."
     
-    a "Thanks. I really liked it as well."
+    show taylor smile
+
+    a talk "Thanks. I really liked it as well."
+    a smile "{nw}"
+
+    show director smile at right with moveinright
+
+    show taylor frown
+
+    di talk "Finally tossing aside your fake modesty?"
     
-    di "Finally tossing aside your fake modesty?"
+    show director smile
+
+    a frowntalk "Do you really have to say it like that?"
+
+    ann frown "{i}The director gives a chiding snort.{/i}"
     
-    a "Do you really have to say it like that?"
+    di talk "I like it better when people like you just say exactly what you’re really thinking."
     
-    ann "{i}The director gives a chiding snort.{/i}"
+    show director smile
+
+    t frowntalk "So you won’t feel left out for being a rude ass?"
+
+    show taylor frown
     
-    di "I like it better when people like you just say exactly what you’re really thinking."
+    di talk "You’re one to speak."
     
-    t "So you won’t feel left out for being a rude ass?"
-    
-    di "You’re one to speak, Boy."
-    
+    show director smile
+
     j "Now, please lend your warm applause to our final contestant for this evening, Taylor Warren."
     
-    t "I don’t have time to argue with you anymore. It’s my turn."
-    t "Alice, just want to give you my thanks. I didn’t really care for this contest at first, hated it even...but now I want to actually try to participate."
-    t "I feel inspired just listening to you."
+    t frowntalk "I don’t have time to argue with you anymore. It’s my turn."
+
+    hide director with moveoutright
+
+    t "Alice, just want to give you my thanks. I didn’t really care for this contest at first, hated it even... but now I want to actually try to participate."
+    t talk "I feel inspired just listening to you."
+
+    show taylor smile
+
+    $ config.side_image_tag = ""
+
+    scene stage5close
+    with dissolve
     
-    ann "{i}Taylor still hasn’t changed much. While Cherry and I both went with the clothes chosen by our production staff, she just put on a simple grey shirt to match her pants. I wasn’t under the impression that she would be taking this seriously.{/i}"
+    ann "{i}Taylor still hasn’t changed much.{/i}"
+    ann "{i}While Cherry and I both went with the clothes chosen by our production staff, she just put on a simple grey shirt to match her pants. I wasn’t under the impression that she would be taking this seriously.{/i}"
     ann "{i}But the breath she takes to compose herself in front of her audience makes me aware of how wrong I was.{/i}"
-    ann "{i}Just the way he’s carrying herself is telling me that he’s going to offer a real, amazing performance this time.{/i}"
+    ann "{i}Just the way she’s carrying herself is telling me that she’s going to offer a real, amazing performance this time.{/i}"
     ann "{i}The clicking beats sound. She lifts her head, eyes snapping open while she starts singing.{/i}"
     ann "{i}In all the previous weeks, she has just been venting her sadness with her voice. Tonight, she is different.{/i}"
     ann "{i}There is no hidden grief in the wispy tone she uses. I don’t know how she does it, but she gives a mysterious vibe to the way it rings - I hear it echoing across the room.{/i}"
@@ -1220,82 +1598,173 @@ label week4win:
     ann "{i}That’s not all. Taylor layers her voice with vibrato. The first hearing tells a mystery, yes, but that’s only the beginning. The pulses afterwards give some sort of answer, but no resolution.{/i}"
     ann "{i}I feel like I’m tossed into some kind of futuristic conspiracy, a confusing new world order, beautiful on the outside, dystopian within.{/i}"
     ann "{i}The song descends into a rap verse. Her pitch dips down with it, low, whispering.{/i} They’re watching you. They’re all-seeing. They’re listening to your words of despair. There is no praying."
-    ann "{i}The melody returns with a fire of change. Taylor cracks a glow stick in her hand to draw an arc of blue-green above her. There is defiance in her voice. There is strength and determination. I sense the hope within her, like a light in the dark.{/i}"
+    ann "{i}The melody returns with a fire of change. Taylor cracks a glow stick in her hand to draw an arc of blue-green above her.{/i}"
+    ann "{i}There is defiance in her voice. There is strength and determination. I sense the hope within her, like a light in the dark.{/i}"
     ann "{i}She whips the light down like a sword, or maybe it’s more like a gun, ready to shoot laser through an enemy of evil. I’ve been reduced to a little fangirl. I just want to tell her how \"cool\" she looks and sounds!{/i}"
-    ann "{i}But beneath the story he’s telling through the melody and lyrics, I sense something more personal. Is this Taylor’s own growth?{/i}"
+    ann "{i}But beneath the story she’s telling through the melody and lyrics, I sense something more personal. Is this Taylor’s own growth?{/i}"
     ann "{i}Is this...what I’ve inspired her to become?{/i}"
-    ann "{i}The darkness she had previously drowned herself in is actually more like a cocoon. Tonight, she has broken free. It’s like the dystopian society of her song, so established that you cannot take it down in one go else humanity itself would crumble.{/i}"
+    ann "{i}The darkness she had previously drowned herself in is actually more like a cocoon. Tonight, she has broken free.{/i}"
+    ann "{i}It’s like the dystopian society of her song, so established that you cannot take it down in one go else humanity itself would crumble.{/i}"
     ann "{i}But awareness will allow mankind to rationalize right and wrong, bring perception to society’s suffering, thus evolving the world into a better place.{/i}"
     ann "{i}In Taylor’s case, she has begun to evolve towards a more meaningful way of expressing herself.{/i}"
-    ann "{i}Whatever her pain is, the way she was venting it wouldn’t go anywhere. We felt what she was trying to portray, but we couldn’t connect with it. Singing is an art, and art is not only a mode of expression, but also a way to communicate.{/i}"
+    ann "{i}Whatever her pain is, the way she was venting it wouldn’t go anywhere. We felt what she was trying to portray, but we couldn’t connect with it.{/i}"
+    ann "{i}Singing is an art, and art is not only a mode of expression, but also a way to communicate.{/i}"
     ann "{i}It seems that Taylor has finally figured it out. She’s still herself, but she’s also using her inner feelings as motivation towards expressing other ideas, to tell stories that may not be her own.{/i}"
     ann "{i}She’s aware of what’s troubling her, and in singing about them, she comes to confront them on her own will. She ends up defeating them with her song, changing the mindset she originally had.{/i}"
     
+    show taylor up frowntalk edgy at center:
+        zoom 1.6
+        subpixel True
+        yalign 1.0
+        linear 4.0 yalign 0.2
+    with dissolve
+
     t "In order for the light to shine so brightly, the darkness must be present."
     
-    ann "{i}Is this what he’s trying to say about this week’s theme? Is this also her personal discovery?{/i}"
-    
-    j "An intriguing performance by Taylor Warren. There’s an elegance to the simplicity of her voice, and yet she manages to convey ideas far deeper and profound. It certainly leaves me with many thoughts."
+    ann "{i}Is this what she’s trying to say about this week’s theme? Is this also her personal discovery?{/i}"
+
+    hide taylor with Dissolve(1.5)
+
+    $ renpy.pause(0.5)
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
+
+    j talk "An intriguing performance by Taylor Warren. There’s an elegance to the simplicity of her voice, and yet she manages to convey ideas far deeper and profound. It certainly leaves me with many thoughts."
     j "It looks to be another tough decision this week, my audience. Let us cast our votes during the commercial break, and we’ll be back with the results. Who will make it to the final showdown? We shall see in a moment!"
     
-    with fade
-    
+    show jacques smile
+
+    hide jacques with dissolve
+
+    scene stage5far
+    with dissolve
+
     ann "{i}The three of us wait anxiously at the prep room for the results. One of us will have to go while the other two make it to the finals. Would I be the one eliminated?{/i}"
     ann "{i}I don’t want to be the one. I want to stay.{/i}"
     ann "{i}But even if I lose here, I don’t think I’d have any regrets. If not for this show, I wouldn’t have met all these great people. I wouldn’t have met the real me. How else would I be able to face my dreams head-on?{/i}"
     ann "{i}I didn’t think I had the talent to pursue this road, but now, I know talent is something shaped by hard work and circumstances.{/i}"
-    ann "{i}To hone a talent, you must seek out a platform for training it, then study and practice till it’s sharp as a sword, shine like a diamond. I know I’ve done it this time, all thanks to the unforeseen opportunity and my own resilience from backing down.{/i}"
+    ann "{i}To hone a talent, you must seek out a platform for training it, then study and practice till it’s sharp as a sword, shine like a diamond.{/i}"
+    ann "{i}I know I’ve done it this time, all thanks to the unforeseen opportunity and my own resilience from backing down.{/i}"
     ann "{i}I’m not afraid of failing, because that doesn’t make me a failure. I still succeeded in many things, for which I should be proud.{/i}"
     
-    di "Time for you three to go."
+    show director smile at center:
+        zoom 1.4
+        yalign 0.7
+    with dissolve
+
+    $ config.side_image_tag = "alice"
+
+    an frown edgy "Why do I hate that look on his face...?"
+
+    di talk "Time for you three to go."
+
+    show director smile
+
+    show cherry up frown edgy at right:
+        zoom 0.97
+        yalign 0.4
+    show taylor up frown edgy at leftt behind director
+    with dissolve
     
-    c "All three of us?"
+    c frowntalk "All three of us?"
+
+    show cherry frown
     
-    di "Yeah. It's more exciting that way, heh."
+    di talk "Yeah. It's more exciting that way, heh."
+
+    show director smile
     
-    with fade
+    scene stage5close
+    with dissolve
+
+    show taylor up frown edgy at right
+    show cherry up smile edgy at left
+    show jacques up smile at center:
+        zoom 0.98
+    with dissolve
     
-    j "And we’re back with the results! How do you feel about this, Taylor?"
+    j talk "And we’re back with the results! How do you feel about this, Taylor?"
+
+    show jacques smile
     
-    t "How should I feel about it?"
+    t frowntalk "How should I feel about it?"
+
+    show taylor frown
     
-    a "I'm nervous."
+    a frowntalk "I'm nervous."
+    a frown "{nw}"
     
-    c "Me too."
+    c frowntalk "Me too."
+
+    show cherry frown
     
-    j "You, Taylor? Are you nervous?"
+    j talk "You, Taylor? Are you nervous?"
+
+    show jacques smile
     
-    t "Who wouldn't be?"
+    t frowntalk "Who wouldn't be?"
     
-    j "But you look awfully calm about it. What’s your secret?"
+    show taylor frown
+
+    j talk "But you look awfully calm about it. What’s your secret?"
     
-    t "Satisfaction."
-    t "This show was more than I bargained for. To have learned so much from the others, learned so much about myself...I think it’s already worth it. Going to the final is just icing on the cake."
+    show jacques smile
+
+    t talk "Satisfaction."
+    t "This show was more than I bargained for. To have learned so much from the others, learned so much about myself... I think it’s already worth it. Going to the final is just icing on the cake."
     
-    j "Still an enticing icing though, is it not?"
+    show taylor frown
+
+    j talk "Still an enticing icing though, is it not?"
     
-    t "I don't mind sweets."
+    show jacques smile
+
+    t talk "I don't mind sweets."
     
-    j "And Raisa, Alice, do you agree with Taylor too?"
+    show taylor smile
+
+    j talk "And Raisa, Alice, do you agree with Taylor too?"
     
-    a "Yeah. I’m just happy to be here. Even if I have to step down before the final, I think I’ve already gained a lot from this experience."
+    show jacques smile
+    show cherry smile
+
+    a talk "Yeah. I’m just happy to be here. Even if I have to step down before the final, I think I’ve already gained a lot from this experience."
     
-    ann "{i}Cherry looks at me and grins, the nervousness finally parting a little to show her inner joy.{/i}"
+    ann smile "{i}Cherry looks at me and grins, the nervousness finally parting a little to show her inner joy.{/i}"
     
-    c "Uhm... it has been... really nice."
+    c talk "Uhm... it has been... really nice."
     c "I’ve always just sung for a single person. This is the first time I’ve sung for somebody else, for strangers I’ve never met."
     c "And though I still don’t know how to do it well, I think I’ve had fun just trying it out."
     c "I’ll try harder in the future! I want to sing for more people, and sing not just about myself, but about other people, other stories."
     
-    j "Alright, and the person who will be eliminated from week 4 of Supernova is..."
+    show cherry smile
+
+    j talk "Alright, and the person who will be eliminated from week 4 of Supernova is..."
     
+    show jacques smile
+
+    hide jacques
+    hide cherry
+    hide taylor
+    with dissolve
+
+    $ config.side_image_tag = ""
+
     ann "{i}{cps=30}The next moment is unreal.{/cps}{/i}"
     ann "{i}{cps=50}It’s all silent in my world as I watch Cherry bow and step down from the stage, leaving Taylor and I standing.{/cps}{/i}"
     ann "{i}{cps=50}I've made it to the finals.{/cps}{/i}"
     ann "{i}I... I...{/i}"
     ann "{i}...I don't know what you say...{/i}"
+
+    show taylor up smile edgy at center:
+        zoom 1.5
+        yalign 0.3
+    with dissolve
     
-    t "Pleased to be your opponent in the grand finale. I look forward to our battle of voices, Alice."
+    t talk "Pleased to be your opponent in the grand finale. I look forward to our battle of voices, Alice."
     
     ######### end week 4 WIN
     
@@ -1447,7 +1916,7 @@ label finalwin:
     ann "{i}I wish this moment could last forever. I’ve never been so happy.{/i}"
     ann "{i}Thank you, everybody. Thank you for letting me stand here before you. Thank you for giving me your attention.{/i}"
     ann "{i}Thank you for letting me discover myself.{/i}"
-    ann "{i}Just being here, singing for you…{/i}"
+    ann "{i}Just being here, singing for you...{/i}"
     ann "{i}It's all I desire now.{/i}"
     
     jump credits
@@ -1468,7 +1937,7 @@ label epilogue:
     
     m frowntalk "Then again, if you weren’t so nervous, the makeup artist would be able to do this in my stead. Seriously, when have I become your personal assistant?"
     
-    a "Sorry to always rely on you, Mary. But...you’re the only one who can calm me down, you see, so…"
+    a "Sorry to always rely on you, Mary. But...you’re the only one who can calm me down, you see, so..."
     
     m frowntalk "I know, I know. Now just sit back and stop curling up like a pillbug. I’ll finish this in no time."
     
@@ -1486,7 +1955,7 @@ label epilogue:
     
     a "I think it’s good. Both brows are even."
     
-    m frowntalk "Aren’t your expectations low…"
+    m frowntalk "Aren’t your expectations low..."
     
     a "Can’t help it. I’ve gotta go!"
     
@@ -1503,7 +1972,7 @@ label epilogue:
     j "Yes! I know I’m ready! And she is too! Introducing our winner from season one - she will start us off with the first song of this new festival!"
     
     ann "{i}I make my way up the steps. The familiar light falls upon me.{/i}"
-    ann "{i}Tay, Lis, Cherry, Grant...they’re all watching. I wave to them, feeling their cheers pour energy into my heart.{/i}"
+    ann "{i}Tay, Mary, Cherry... they’re all watching. I wave to them, feeling their cheers pour energy into my heart.{/i}"
     
     j "This is your idol, Alice Carroll......"
     
@@ -1522,7 +1991,7 @@ label finallose:
     ann "{i}How can she find the strength to not only overcome her own personal obstacles, but to also shoulder the audience’s dreams on her back?{/i}"
     ann "{i}I... don't know.{/i}"
     ann "{i}The music comes off easily from my tongue. I feel its melody. I feel its beat. I echo my idealized version of the song into the crowd.{/i}"
-    ann "{i}It should be perfect, but for some reason, I still find it lacking…{/i}"
+    ann "{i}It should be perfect, but for some reason, I still find it lacking...{/i}"
     ann "{i}Where have I gone wrong?{/i}"
     
     j "Thank you, Alice. That was another beautiful performance from you."
@@ -1574,7 +2043,9 @@ label finallose:
 ######################################################################################################################
 
 
+###################################     Week 1
 
+default currentScreen = "week1minigame"
 
 screen week1minigame:
     textbutton _("Hello my love") xalign 0.05 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
@@ -1584,11 +2055,14 @@ screen week1minigame:
 
     timer 8.0 action Jump("failed")
 
+
 label week1round2:
     $ phrase1 = False
     $ phrase2 = False
     $ phrase3 = False
     $ phrase4 = False
+
+    $ currentScreen = "week1minigame2"
 
     call screen week1minigame2
 
@@ -1608,6 +2082,8 @@ label week1round3:
     $ phrase3 = False
     $ phrase4 = False
 
+    $ currentScreen = "week1minigame3"
+
     call screen week1minigame3
 
 
@@ -1618,7 +2094,6 @@ screen week1minigame3:
     textbutton _("Then I'll leave you in the rain") xalign 0.9 yalign 0.85 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week1win"), false = Jump("failed"))
 
     timer 8.0 action Jump("failed")
-
 
 
 label failed:
@@ -1634,17 +2109,71 @@ label failed:
         if rand == 2:
             an "No, no, not the right order!"
         if rand == 3:
-            an "Crap, maybe they didn't notice that slipup-"
+            an "Crap, maybe they didn't notice that slip-up-"
         if rand == 4:
             an "Let me try that again!"
         if rand == 5:
             an "Wait, wrong line!"
 
-        call screen testMinigame1
+        call screen currentScreen
 
 
 
+######      Week 2 was deleted to cut scope
 
+
+##############################      Week 3
+
+
+
+screen week3minigame:
+    textbutton _("The sun has hidden") xalign 0.25 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
+    textbutton _("The skies are gray") xalign 0.05 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
+    textbutton _("I can feel the chill coming") xalign 0.65 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
+    textbutton _("But I'll brace through it all") xalign 0.15 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week3round2"), false = Jump("failed"))
+
+    timer 8.0 action Jump("failed")
+
+
+label week3round2:
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
+
+    $ currentScreen = "week3minigame2"
+
+    call screen week3minigame2
+
+
+screen week3minigame2:
+    textbutton _("I can still hear your voice") xalign 0.1 yalign 0.8 text_size 40 at word1 action SetVariable("phrase1", True)
+    textbutton _("Whispering through the wind") xalign 0.7 yalign 0.6 text_size 40 at word2 action SetVariable("phrase2", True)
+    textbutton _("The cold air reminds me") xalign 0.15 yalign 0.4 text_size 40 at word3 action SetVariable("phrase3", True)
+    textbutton _("Even if we don't meet again...") xalign 0.7 yalign 0.2 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week3round3"), false = Jump("failed"))
+
+    timer 8.0 action Jump("failed")
+
+
+label week3round3:
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
+
+    $ currentScreen = "week3minigame3"
+
+    call screen week3minigame3
+
+
+screen week3minigame3:
+    textbutton _("When the snow falls") xalign 0.1 yalign 0.1 text_size 40 at word1 action SetVariable("phrase1", True)
+    textbutton _("My heart will skip again") xalign 0.25 yalign 0.25 text_size 40 at word2 action SetVariable("phrase2", True)
+    textbutton _("I will remember all our days again") xalign 0.1 yalign 0.50 text_size 40 at word3 action SetVariable("phrase3", True)
+    textbutton _("Those memories will be with me") xalign 0.35 yalign 0.75 text_size 40 at word4 action SetVariable("phrase4", True)
+    textbutton _("Until I'm old") xalign 0.1 yalign 0.95 text_size 40 at word5 action SetVariable("phrase5", True), If(phrase1 and phrase2 and phrase3 and phrase4, true = Jump("week3win"), false = Jump("failed"))
+
+    timer 8.0 action Jump("failed")
 
 
 
@@ -1652,6 +2181,10 @@ label failed:
 
 #######################################################################################################################
 #######################################################################################################################
+#######################################################################################################################
+#######################################################################################################################
+
+
 
 
 
@@ -1659,8 +2192,11 @@ default phrase1 = False
 default phrase2 = False
 default phrase3 = False
 default phrase4 = False
+default phrase5 = False
+
 
 default slow = 0
+default waitTime = 5
 
 transform word1:
     alpha 0
@@ -1669,7 +2205,7 @@ transform word1:
 
     ease 1 alpha 1.0
 
-    pause 5
+    pause waitTime
 
     ease 1 alpha 0
 
@@ -1680,7 +2216,7 @@ transform word2:
 
     ease 1 alpha 1.0
 
-    pause 5
+    pause waitTime
 
     ease 1 alpha 0
 
@@ -1691,7 +2227,7 @@ transform word3:
 
     ease 1 alpha 1.0
 
-    pause 5
+    pause waitTime
 
     ease 1 alpha 0
 
@@ -1702,7 +2238,18 @@ transform word4:
 
     ease 1 alpha 1.0
 
+    pause waitTime
+
+    ease 1 alpha 0
+
+transform word5:
+    alpha 0
+
     pause 5
+
+    ease 1 alpha 1.0
+
+    pause waitTime
 
     ease 1 alpha 0
 
@@ -1753,95 +2300,95 @@ label testfailed:
 
 
 
-label testMinigame2:
-    $ ui.timer(8.0, ui.jumps("too_slow"))
+# label testMinigame2:
+#     $ ui.timer(8.0, ui.jumps("too_slow"))
     
-    python:
-        line = renpy.input("Hello my love")
-        line = line.strip()
+#     python:
+#         line = renpy.input("Hello my love")
+#         line = line.strip()
         
-    if line == 'Hello my love':
-        jump line1C
+#     if line == 'Hello my love':
+#         jump line1C
         
-    if line == 'hello my love':
-        jump line1C
+#     if line == 'hello my love':
+#         jump line1C
         
-    else:
-        jump testMinigame
+#     else:
+#         jump testMinigame
 
 
-label line1C:
-    $ ui.timer(8.0, ui.jumps("too_slow"))
+# label line1C:
+#     $ ui.timer(8.0, ui.jumps("too_slow"))
     
-    python:
-        line = renpy.input("Goodbye my friend")
-        line = line.strip()
+#     python:
+#         line = renpy.input("Goodbye my friend")
+#         line = line.strip()
         
-    if line == 'Goodbye my friend':
-        jump line2C
+#     if line == 'Goodbye my friend':
+#         jump line2C
         
-    if line == 'goodbye my friend':
-        jump line2C
+#     if line == 'goodbye my friend':
+#         jump line2C
         
-    else:
-        jump line1C
+#     else:
+#         jump line1C
 
 
-label line2C:
-    $ ui.timer(8.0, ui.jumps("too_slow"))
+# label line2C:
+#     $ ui.timer(8.0, ui.jumps("too_slow"))
     
-    python:
-        line = renpy.input("Hello new world")
-        line = line.strip()
+#     python:
+#         line = renpy.input("Hello new world")
+#         line = line.strip()
         
-    if line == 'Hello new world':
-        jump line3C
+#     if line == 'Hello new world':
+#         jump line3C
         
-    if line == 'hello new world':
-        jump line3C
+#     if line == 'hello new world':
+#         jump line3C
         
-    else:
-        jump line2C
+#     else:
+#         jump line2C
 
 
-label line3C:
-    #timer 10 action Jump("too_slow")
-    $ ui.timer(8.0, ui.jumps("too_slow"))
+# label line3C:
+#     #timer 10 action Jump("too_slow")
+#     $ ui.timer(8.0, ui.jumps("too_slow"))
     
-    python:
-        line = renpy.input("Will I see you again?")
-        line = line.strip()
+#     python:
+#         line = renpy.input("Will I see you again?")
+#         line = line.strip()
         
-    if line == 'Will I see you again?':
-        jump done
+#     if line == 'Will I see you again?':
+#         jump done
         
-    if line == 'will I see you again?':
-        jump done
+#     if line == 'will I see you again?':
+#         jump done
         
-    if line == 'Will I see you again':
-        jump done
+#     if line == 'Will I see you again':
+#         jump done
         
-    if line == 'will I see you again':
-        jump done
+#     if line == 'will I see you again':
+#         jump done
 
-    else:
-        jump line3C
+#     else:
+#         jump line3C
 
-label too_slow:
-    $ slow += 1
+# label too_slow:
+#     $ slow += 1
 
-    if slow < 3:
-        a "Ack, I stumbled!"
+#     if slow < 3:
+#         a "Ack, I stumbled!"
 
-        jump testMinigame
+#         jump testMinigame
 
-    else:
-        a "Oh no.... I completely failed...."
+#     else:
+#         a "Oh no.... I completely failed...."
 
-        $ renpy.quit()
+#         $ renpy.quit()
 
 
-label done:
-    a "I... I can't believe it..... I finished the song perfectly!"
+# label done:
+#     a "I... I can't believe it..... I finished the song perfectly!"
 
 
