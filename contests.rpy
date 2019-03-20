@@ -1775,6 +1775,8 @@ label week4win:
 ################ Contest Elimination (weeks 1-4)
 
 label eliminated:
+
+    with fade
     
     ann "{i}Our performances have ended. Here I am, standing on the stage, facing elimination.{/i}"
     ann "{i}I have worked hard these past weeks. Even though it was an unexpected opportunity to participate in this contest, I think I’ve made the most out of it.{/i}"
@@ -1782,17 +1784,29 @@ label eliminated:
     ann "{i}A little more skill? A little more enthusiasm? A little more...of myself?{/i}"
     ann "{i}I have yet to find a unique path to the top. There must be something that only my voice can express.{/i}"
     ann "{i}I just haven't found it yet.{/i}"
+
+    show jacques up frown at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
     
-    j "And the person who will be eliminated this week is..."
+    j talk "And the person who will be eliminated this week is..."
     j "Sorry, Alice. You have been eliminated."
     
+    show jacques frown
+
     ann "{i}As I thought, I'm the one to go.{/i}"
+
+    hide jacques with Dissolve(1.5)
+
     ann "{i}I calmly step down from the stage, its bright lights falling behind me as I move into the darkness.{/i}"
     ann "{i}I would be lying if I say I have no regrets. I do, actually. I know I could’ve done better.{/i}"
     ann "{i}But it’s too late. There’s nothing I can do about this now.{/i}"
     ann "{i}Still, that doesn’t mean I will give up. This experience has made me realize that my dream of becoming an idol is still real as ever.{/i}"
     ann "{i}I clench my fist. I will be back.{/i}"
     ann "{i}I will make my dream come true someday!{/i}"
+
+    jump credits
     
     ##### end elimination weeks 1-4
     
@@ -1802,22 +1816,48 @@ label eliminated:
 
 label finalcontest:
 
+    scene stage5close
+    with fadee
+
+    $ config.side_image_tag = ""
+
     ann "{i}I'm finally here.{/i}"
     ann "{i}The end of the road, the last showdown of this contest.{/i}"
+
+    show jacques up frown at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
     
-    j "Welcome to week 5 of the Supernova idol contest, the final stage of the competition for the coveted throne of your next superstar!"
+    j talk "Welcome to day 5 of the Supernova idol contest, the final stage of the competition for the coveted throne of your next superstar!"
     j "Taylor Warren, a veteran in the music industry. While she has stayed behind the scenes till now, she is a well-known composer of many songs."
     j "Her audience is spread across the globe, many praising the strong emotions she manages to evoke in her colorful melodies and driving rhythms."
     j "By entering this contest, she has taken off on what she describes as a path of self-discovery. Now, she is not only writing music for us, but also performing it live, showing us exactly the messages she wishes to convey."
     j "What are her inspirations? What are her motivations? Now, she will lay her soul before us. Taylor, the stage is yours!"
     
+    show jacques smile
+
+    hide jacques with dissolve
+
     ann "{i}We have walked a long way.{/i}"
-    ann "{i}Jacque is right. It really has been a month of sweat and tears. We have met many people along the way, but now, this is a path that we must take alone.{/i}"
+    ann "{i}Jacques is right. It really has been a month of sweat and tears. We have met many people along the way, but now, this is a path that we must take alone.{/i}"
     ann "{i}The audience is watching us. Our friends and family are watching us. We are surrounded, but the moment you set foot on the stage, you are by yourself. You are in a place where they can’t reach you.{/i}"
     ann "{i}Still, you must shine for them, like the sun and moon, stars and meteors. You are high above the people, but you must make them gravitate towards you, show them the flame that burns in your heart, and use it to warm their hearts too.{/i}"
     ann "{i}That's what Taylor is doing now.{/i}"
+
+    show taylor upprince frown prince at center
+    with dissolve
+
     ann "{i}This is the first time I’ve seen her like this. She is no longer the quiet, sarcastic personality she once was, hiding behind a mop of dirty blond and thick glasses.{/i}"
     ann "{i}The creased shirt, pressed collar, crisp, clean lines of her suit - she is positively radiant today. And that’s just her appearance. Her demeanor, her voice, they are all bright and powerful.{/i}"
+    
+    show taylor upprince frowntalk prince at center:
+        zoom 1.8
+        subpixel True
+        yalign 1.0
+        linear 20.0 yalign 0.2
+    with dissolve
+
     ann "{i}She has left her shell far behind her. This is the new Taylor. The real Taylor. And the talent she is showcasing is absolutely amazing!{/i}"
     ann "{i}The guitar riffs are sick. The drums are pounding with my heartbeat. Her voice starts deep and rises like a bird taking flight. Not just any bird. He’s an eagle, soaring high, spreading its wings to glide the azure skies.{/i}"
     ann "{i}The floodlights, reflecting golden off her hair, are like sunshine crowning eagle feathers. It’s so bright that I must squint against her light. This surely is proof of her kingship over the heavens.{/i}"
@@ -1836,23 +1876,43 @@ label finalcontest:
     ann "{i}Taylor screams her hopes into the audience. They roar with her, captured by her brilliance. We all want a better world. It is what we as humans are wired to wish for.{/i}"
     ann "{i}Taylor connects these dreams together and gives sound to it, amplifies it for more and more people to hear. It is no longer her personal strength that is sustaining her, but the strength of many, many more of her supporters.{/i}"
     ann "{i}That is what an idol should be. She is not afraid of her own dreams. She shows them to us. She shoulders our dreams along with his.{/i}"
-    ann "{i}She makes us one. United by our common desires.{/i}"
     
-    j "Thank you very much for your performance, Taylor. A most fitting climax for her month-long journey here at Supernova."
+    hide taylor with Dissolve(2.0)
+
+    ann "{i}She makes us one. United by our common desires.{/i}"
+
+    $ renpy.pause(0.5)
+
+    show jacques up frown at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
+    
+    j talk "Thank you very much for your performance, Taylor. A most fitting climax for her month-long journey here at Supernova."
     j "Our remaining contestant is Alice Carroll. Unlike Taylor, she has little formal musical training. That is not to say she is unfamiliar with the industry. According to her, she has always been fascinated with idol groups, just like you and me."
     j "She would sing to their songs and dance to their moves, dress like them and hold her own secret concerts from the top of her bed. Her audience? No one but herself."
     j "Like any rational young person, she saw little chances of succeeding in this competitive industry. Instead of pursuing a career on the stage, she resigned herself to one behind it, interning at a television production company."
-    j "Her work was hard, but very mundane and underappreciated. She carried camera cables and lifted heavy equipment, she ran whatever errands were requested of her."
-    j "What could prompt her to do all this for the meagre pay she was offered, if not for the slight glimmer of hope that she would one day stand atop the stage for an audience other than herself?"
+    j "Her work was hard, but very mundane and under-appreciated. She carried camera cables and lifted heavy equipment, she ran whatever errands were requested of her."
+    j "What could prompt her to do all this for the meager pay she was offered, if not for the slight glimmer of hope that she would one day stand atop the stage for an audience other than herself?"
     j "Finally, she realized that she must grasp this hope else it too would eventually fade. Thus, this is why she is now here to sing for us. Alice, this is now your stage. Please make the most out of it!"
     
-    ann "{i}Jacque smiles at me. It’s a little hard to believe that he has made such an impressive speech from the little blurb he requested for me to submit.{/i}"
+    show jacques smile
+
+    ann "{i}Jacques smiles at me. It’s a little hard to believe that he has made such an impressive speech from the little blurb he requested for me to submit.{/i}"
     ann "{i}Of course, this is his job, but I also know that he managed to speak to my heart because that’s what I’ve shown him with my hard work, with my performances. I’ve spoken to everybody with my voice.{/i}"
+   
+    hide jacques with dissolve
+    
     ann "{i}Today, the last fireworks will be set. Regardless of outcome, this will be my last performance at Supernova, but I know it will not be my last public performance ever. I’ve already made up my mind.{/i}"
     ann "{i}No matter what, I’ll not bat down my own dream again. I will pursue it. I will shine for all my fans beneath this stage!{/i}"
     
+
+    ## TODO call screen contest5minigame
+
 ##########################
 ############### WIN FINALE
+default win = False
+
 label finalwin:
 
     ann "{i}I feel more at ease on this stage than I have ever before.{/i}"
@@ -1884,23 +1944,55 @@ label finalwin:
     ann "{i}Pink and white, violet and orange, warm colors fill the room with feelings of spring, a season of new encounters, new beginnings.{/i}"
     ann "{i}The flowers may be imaginary, but the little squares of colored tissue paper that rain down into my hands are not.{/i}"
     
-    k "Aren’t you being biased here? I thought you didn’t like her."
+    scene stage5far
+    with fade
+
+    show katja smile at leftt
+    show director smile at rightt:
+        zoom 1.2
+        yalign 0.7
+    with dissolve
+
+    k talk "Aren’t you being biased here? I thought you didn’t like her."
+
+    show katja smile
     
-    di "I’m just giving the audience exactly what they want to see."
+    di talk "I’m just giving the audience exactly what they want to see."
     
-    k "It is beautiful, seeing the final result of your own creation."
+    show director smile
+
+    k talk "It is beautiful, seeing the final result of your own creation."
     
-    di "I won’t be so arrogant to call her my creation."
+    show katja smile
+
+    di talk "I won’t be so arrogant to call her my creation."
     
-    k "Not just my sole creation, of course. Idols are created by all their supporters."
+    show director smile
+
+    k talk "Not just my sole creation, of course. Idols are created by all their supporters."
     k "Our wishes, our aspirations, all embodied in her very being. We see a piece of ourselves in her, which is why we can’t help but fall in love with her image."
     
-    di "Typical self-centered thinking from you, Katja."
+    show katja smile
+
+    di talk "Typical self-centered thinking from you, Katja."
     
-    k "As though you’re one to speak."
+    show director smile
+
+    k talk "As though you’re one to speak."
     
-    di "You know me too well."
+    show katja smile
+
+    di talk "You know me too well."
     
+    show director smile
+
+    hide director
+    hide katja
+    with dissolve
+
+    scene stage5close
+    with dissolve
+
     ann "{i}There is no performance that belongs to a single person. To perform, there must be a recipient of what you’re trying to express. Otherwise, it is nothing but an inner musing.{/i}"
     ann "{i}This performance here is not really mine. At least not mine alone. The stage crew, the audience, the makeup artist, the organizers...everybody plays a part.{/i}"
     ann "{i}Then what's my role?{/i}"
@@ -1918,6 +2010,8 @@ label finalwin:
     ann "{i}Thank you for letting me discover myself.{/i}"
     ann "{i}Just being here, singing for you...{/i}"
     ann "{i}It's all I desire now.{/i}"
+
+    $ win = True
     
     jump credits
     
@@ -1926,55 +2020,111 @@ label finalwin:
 ###################### After Credits
     
 label epilogue:
+
+    $ config.side_image_tag = "alice"
+
+    scene black
+    with fadee
     
-    ann "{i}Oh shit, I'm gonna be late!{/i}"
+    ann down frown summer "{i}Oh shit, I'm gonna be late!{/i}"
     ann "{i}It’s all my own fault. I shouldn’t have been so damn excitable that I couldn’t fall asleep all night, then ended up dozing off on my chair just three hours before showtime!{/i}"
     ann "{i}Boss is so gonna kill me.{/i}"
+
+    scene makeuproom
+    with fade
     
-    m frowntalk "Relax, Alice. You fidgeting around like this makes it hard for me to draw your brows."
+    show mary up smile at center:
+        zoom 1.35
+        yalign 0.4
+    with dissolve
+
+    m talk "Relax, Alice. You fidgeting around like this makes it hard for me to draw your brows."
+
+    show mary smile
     
-    a "Sorry... I'll try not to."
+    a frowntalk "Sorry... I'll try not to."
+    a frown "{nw}"
     
     m frowntalk "Then again, if you weren’t so nervous, the makeup artist would be able to do this in my stead. Seriously, when have I become your personal assistant?"
     
-    a "Sorry to always rely on you, Mary. But...you’re the only one who can calm me down, you see, so..."
+    show mary frown
+
+    a talk "Sorry to always rely on you, Mary. But... you’re the only one who can calm me down, you see, so..."
+    a frown "{nw}"
+
+    m talk "I know, I know. Now just sit back and stop curling up like a pillbug. I’ll finish this in no time."
+
+    show mary smile
+
+    show director smile at right:
+        zoom 1.2
+        yalign 0.8
+    with moveinright
     
-    m frowntalk "I know, I know. Now just sit back and stop curling up like a pillbug. I’ll finish this in no time."
+    di talk "You girls done?"
     
-    di "You girls done?"
-    
+    show director frown
+
     m frowntalk "Just a moment."
     
+    show mary frown
+
     di "Yeah, yeah, Superstar. Hurry it up, alright?"
     
-    m frowntalk "I'm trying!"
+    m down frowntalk "I'm trying!"
     
-    a "I'm so sorry..."
+    show mary frown
+
+    a frowntalk "I'm so sorry..."
     
-    ann "{i}Shortly after the director leaves us, Mary finishes lining my right brow.{/i}"
+    hide director with moveoutright
+
+    show mary up
+
+    ann frown "{i}Shortly after the director leaves us, Mary finishes lining my right brow.{/i}"
     
-    a "I think it’s good. Both brows are even."
+    a up talk "I think it’s good. Both brows are even."
+    a smile "{nw}"
     
-    m frowntalk "Aren’t your expectations low..."
+    m unsure frowntalk "Aren’t your expectations low..."
     
-    a "Can’t help it. I’ve gotta go!"
+    show mary frown
+
+    a talk "Can’t help it. I’ve gotta go!"
     
-    ann "{i}I give Mary’s hands a squeeze and dash off for the stage, leaving her sighing in exasperation.{/i}"
+    show mary up smile
+
+    ann smile "{i}I give Mary’s hands a squeeze and dash off for the stage, leaving her sighing in exasperation.{/i}"
     ann "{i}I know she just wants the best for me. I’m so lucky to have someone like her by my side.{/i}"
     
+    scene black
     with fade
     
     a "Is it starting?"
     
     k "Made it just before I was about to send out my lackeys to hunt you down, dead or alive."
+
+    scene stageclose
+    with fade
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
     
-    j "Welcome to season two of your favorite idol show, Supernova! Are you ready for another month of heart-wrenching, blood-boiling struggles for the throne of your next superstar?"
+    j talk "Welcome to season two of your favorite idol show, Supernova! Are you ready for another month of heart-wrenching, blood-boiling struggles for the throne of your next superstar?"
     j "Yes! I know I’m ready! And she is too! Introducing our winner from season one - she will start us off with the first song of this new festival!"
     
+    show jacques smile
+
     ann "{i}I make my way up the steps. The familiar light falls upon me.{/i}"
     ann "{i}Tay, Mary, Cherry... they’re all watching. I wave to them, feeling their cheers pour energy into my heart.{/i}"
     
-    j "This is your idol, Alice Carroll......"
+    j talk "This is your idol, Alice Carroll......"
+
+    show jacques smile
+
+    return
     
     ###### end epilogue
     
@@ -1993,37 +2143,71 @@ label finallose:
     ann "{i}The music comes off easily from my tongue. I feel its melody. I feel its beat. I echo my idealized version of the song into the crowd.{/i}"
     ann "{i}It should be perfect, but for some reason, I still find it lacking...{/i}"
     ann "{i}Where have I gone wrong?{/i}"
+
+    show jacques up smile at center:
+        zoom 1.35
+        yalign 0.3
+    with dissolve
     
-    j "Thank you, Alice. That was another beautiful performance from you."
+    j talk "Thank you, Alice. That was another beautiful performance from you."
     j "Now, we shall hear from the audience. Who is the idol in their hearts? Voting starts now!"
     
+    show jacques smile
+
     ann "{i}My heart beats heavily. I can hardly breathe as I watch the people in the stands press on their keypads. I’m sure thousands more are currently casting their votes online.{/i}"
     ann "{i}It is a strange feeling, because you know what? I actually already know the result before it is announced.{/i}"
-    ann "{i}I’m part of the audience too, afterall. I know what they are thinking.{/i}"
+    ann "{i}I’m part of the audience too, after all. I know what they are thinking.{/i}"
     
-    j "And now, the results are in my hands. The winner of your favorite idol show, Supernova, is..."
+    j talk "And now, the results are in my hands. The winner of your favorite idol show, Supernova, is..."
     j "Taylor Warren!"
+
+    show jacques smile
+
+    show taylor upprince frown prince at rightt
+    with dissolve
+
+    $ config.side_image_tag = "alice"
     
-    ann "{i}I hear the crowd roar in approval. I nod, clapping with them. They have made the right decision.{/i}"
+    ann up frown princess "{i}I hear the crowd roar in approval. I nod, clapping with them. They have made the right decision.{/i}"
     
-    a "That was amazing, Taylor. What you did out here was absolutely amazing."
+    a talk "That was amazing, Taylor. What you did out here was absolutely amazing."
+    a smile "{nw}"
+
+    t talk "I couldn’t have done it without you."
     
-    t "I couldn’t have done it without you."
-    
+    show taylor smile
+
+    hide jacques with moveoutleft
+
+    show taylor at center:
+        zoom 1.4
+        yalign 0.3
+    with dissolve
+
     ann "{i}She grabs my hand and shakes it hard. Her smile is a bright one, but there is something strange about her eyes... is it perhaps disappointment?{/i}"
-    ann "{i}At what?{/i}"
+    ann frown "{i}At what?{/i}"
     
-    a "Taylor, are you okay?"
+    a frowntalk "Taylor, are you okay?"
+    a frown "{nw}"
+
+    t frowntalk "Ahh... I was just thinking about your... nevermind."
+    t talk "I think it was close, the competition between you and me. One day, I’m sure you’ll become a wonderful idol."
     
-    t "Ahh... I was just thinking about your... nevermind."
-    t "I think it was close, the competition between you and me. One day, I’m sure you’ll become a wonderful idol."
-    
+    show taylor smile
+
     ann "{i}That one day is just not today.{/i}"
     
-    a "I will try harder from now on. I’m sure I’ll succeed in the future."
+    a talk "I will try harder from now on. I’m sure I’ll succeed in the future."
+    a smile "{nw}"
+
+    t talk "Yeah. I have faith in you."
     
-    t "Yeah. I have faith in you."
-    
+    show taylor smile
+
+    hide taylor with Dissolve (1.0)
+
+    $ config.side_image_tag = ""
+
     ann "{i}I calmly step down from the stage, its bright lights falling behind me as I move into the darkness.{/i}"
     ann "{i}I would be lying if I say I have no regrets. I do, actually. I know I could’ve done better.{/i}"
     ann "{i}But it’s too late. There’s nothing I can do about this now.{/i}"
@@ -2032,7 +2216,6 @@ label finallose:
     ann "{i}I will make my dream come true someday!{/i}"
     
     jump credits
-    with fade
 
 
 

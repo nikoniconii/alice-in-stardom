@@ -16,290 +16,286 @@
     
         
 label maryroom1:
+
+    $ mary_stat += 1
     
-    $ int3 = renpy.random.randint(1,5)
+    scene hallday
+    with fade
     
-    if mary >= 8:
+    $ config.side_image_tag = ""
+    
+    ann "{i}The stress is really eating me away. I feel sick.{/i}"
+    ann "{i}It’s weird, because I keep trying to convince myself that I have nothing to lose. I should stop caring so much. After all, Boss got the backup contestant she wanted.{/i}"
+    ann "{i}Even if I were to get eliminated, I would’ve fulfilled the purpose. It’s not as though I would be punished or anything.{/i}"
+    ann "{i}Life will go on as it always has. I get to keep my job. I get to keep the old roof atop my head. All is good, right? This month will just be a little vacation - and it’s for free too! Like what else could I have hoped for?{/i}"
+    ann "{i}But saying all this isn’t making my heart feel any easier. I don’t want to give myself any false hopes, but it just keeps coming to me either way.{/i}"
+    ann "{i}Truth is, I do want to win, huh? Even if it were impossible.{/i}"
+    ann "{i}The contradiction leaves me in my current state. I’m just too preoccupied with these thoughts to focus on training.{/i}"
+    ann "{i}And yet, who can I talk to about all this? My mom? She’d just say I’m silly. It’s not that she really wants to chide me, but she’d think that putting it lightly would make me feel better.{/i}"
+    ann "{i}Guess where I inherited these genes of idiocy from? They obviously have to come from somewhere...{/i}"
+    ann "{i}Sorry, Mom.{/i}"
+    ann "{i}So I end up just wandering around the mansion, trying to keep my mind off things. I mean, just look at everything here, so ridiculously lavish.{/i}"
+    ann "{i}I’m sure some exotic vase from some distant Chinese dynasty or whatnot would be enough to keep me preoccupied... maybe...{/i}"
+    ann "{i}Before I know it, I’m here, in front of Mary’s room. The door is left open.{/i}"
+    ann "{i}Why am I even here? I mean, I’ve been hanging out with Mary a little, but that doesn’t mean I intend to confide my problems with her!{/i}"
+    ann "{i}I was about to walk away when something within her room captures my gaze. It’s a painting. Mary is busily working on it - probably the reason why she has yet to notice my presence.{/i}"
+    ann "{i}The painting is not clean and neat. I can’t exactly pinpoint what she is painting at all. But the turbulent colors resonate with my heart.{/i}"
+    ann "{i}Blazing hues evoke pride and confidence, lighter yellows speak of a more subdued hope. Then all of this mingles and clashes, forming darker streaks at their interface, just like the doubts I am feeling.{/i}"
+    
+    m "Alice...?"
+    
+    $ config.side_image_tag = "alice"
 
-        $ mary_stat += 1
-        
-        scene hallday
-        with fade
-        
-        $ config.side_image_tag = ""
-        
-        ann "{i}The stress is really eating me away. I feel sick.{/i}"
-        ann "{i}It’s weird, because I keep trying to convince myself that I have nothing to lose. I should stop caring so much. After all, Boss got the backup contestant she wanted.{/i}"
-        ann "{i}Even if I were to get eliminated, I would’ve fulfilled the purpose. It’s not as though I would be punished or anything.{/i}"
-        ann "{i}Life will go on as it always has. I get to keep my job. I get to keep the old roof atop my head. All is good, right? This month will just be a little vacation - and it’s for free too! Like what else could I have hoped for?{/i}"
-        ann "{i}But saying all this isn’t making my heart feel any easier. I don’t want to give myself any false hopes, but it just keeps coming to me either way.{/i}"
-        ann "{i}Truth is, I do want to win, huh? Even if it were impossible.{/i}"
-        ann "{i}The contradiction leaves me in my current state. I’m just too preoccupied with these thoughts to focus on training.{/i}"
-        ann "{i}And yet, who can I talk to about all this? My mom? She’d just say I’m silly. It’s not that she really wants to chide me, but she’d think that putting it lightly would make me feel better.{/i}"
-        ann "{i}Guess where I inherited these genes of idiocy from? They obviously have to come from somewhere...{/i}"
-        ann "{i}Sorry, Mom.{/i}"
-        ann "{i}So I end up just wandering around the mansion, trying to keep my mind off things. I mean, just look at everything here, so ridiculously lavish.{/i}"
-        ann "{i}I’m sure some exotic vase from some distant Chinese dynasty or whatnot would be enough to keep me preoccupied... maybe...{/i}"
-        ann "{i}Before I know it, I’m here, in front of Mary’s room. The door is left open.{/i}"
-        ann "{i}Why am I even here? I mean, I’ve been hanging out with Mary a little, but that doesn’t mean I intend to confide my problems with her!{/i}"
-        ann "{i}I was about to walk away when something within her room captures my gaze. It’s a painting. Mary is busily working on it - probably the reason why she has yet to notice my presence.{/i}"
-        ann "{i}The painting is not clean and neat. I can’t exactly pinpoint what she is painting at all. But the turbulent colors resonate with my heart.{/i}"
-        ann "{i}Blazing hues evoke pride and confidence, lighter yellows speak of a more subdued hope. Then all of this mingles and clashes, forming darker streaks at their interface, just like the doubts I am feeling.{/i}"
-        
-        m "Alice...?"
-        
-        $ config.side_image_tag = "alice"
+    show mary unsure frown at center:
+        zoom 1.4
+        yalign 0.35
+    with dissolve
+    
+    a frowntalk "Ah! I'm sorry! I didn't mean to peak!"
+    
+    ann frown "{i}Well, I already did. Like my denial amounts to anything.{/i}"
+            
+    m up talk "I don't mind an audience."
 
-        show mary unsure frown at center:
-            zoom 1.4
-            yalign 0.35
-        with dissolve
-        
-        a frowntalk "Ah! I'm sorry! I didn't mean to peak!"
-        
-        ann frown "{i}Well, I already did. Like my denial amounts to anything.{/i}"
-                
-        m up talk "I don't mind an audience."
+    show mary smile
 
-        show mary smile
+    a frowntalk "I see..."
 
-        a frowntalk "I see..."
+    a frown "{nw}"
+    
+    m frowntalk "It means that you can come in and take a seat if you want."
+    
+    show mary frown
 
-        a frown "{nw}"
-        
-        m frowntalk "It means that you can come in and take a seat if you want."
-        
-        show mary frown
+    a talk "Thanks."
+    
+    ann smile "{i}It’d be rude if I refused. Plus, I do actually want to take a closer look at the painting.{/i}"
+    
+    scene bedmaryday
+    with fade
+    
+    show mary up smile at center:
+        zoom 1.4
+        yalign 0.35
+    with dissolve
+    
+    a frowntalk "You're so good at everything you do, Mary."
+    
+    ann frown "{i}I can’t help but utter this sentence. It may sound like a praise to Mary, but maybe I’m just saying it to myself to reaffirm my own incompetence.{/i}"
+    
+    m frowntalk "This is just a random splatter of paint. I’m sure anybody can do it."
 
-        a talk "Thanks."
-        
-        ann smile "{i}It’d be rude if I refused. Plus, I do actually want to take a closer look at the painting.{/i}"
-        
-        scene bedmaryday
-        with fade
-        
-        show mary up smile at center:
-            zoom 1.4
-            yalign 0.35
-        with dissolve
-        
-        a frowntalk "You're so good at everything you do, Mary."
-        
-        ann frown "{i}I can’t help but utter this sentence. It may sound like a praise to Mary, but maybe I’m just saying it to myself to reaffirm my own incompetence.{/i}"
-        
-        m frowntalk "This is just a random splatter of paint. I’m sure anybody can do it."
+    show mary smile
+    
+    a frowntalk "You've got to be kidding."
 
-        show mary smile
-        
-        a frowntalk "You've got to be kidding."
+    a frown "{nw}"
+    
+    m unsure frowntalk "Why would I be? Do you see anything distinct here?"
+    
+    show mary frown
+    
+    a frowntalk "Well... no..."
 
-        a frown "{nw}"
-        
-        m unsure frowntalk "Why would I be? Do you see anything distinct here?"
-        
-        show mary frown
-        
-        a frowntalk "Well... no..."
+    a frown "{nw}"
+    
+    m talk "That’s because I’m not an artist. I merely enjoy the feel of putting paint on canvas."
+    
+    show mary smile
+    
+    a frowntalk "But... it looks good."
+    
+    a frown "{nw}"
+    
+    m "The paint is good quality, I suppose."
+    
+    show mary smile
+    
+    ann frown "{i}I don’t know what to say. Mary does sound serious here. So she hasn’t ever had any formal artistic training?{/i}"
+    
+    a frowntalk "You must be really talented then."
+    
+    a frown "{nw}"
+    
+    m frowntalk "Or I just have the guts to waste high quality paint on high quality canvas? What makes you think you can’t do the same?"
+    
+    show mary frown
+    
+    a down frowntalk "I didn’t get very high grades whenever painting is concerned."
+    
+    a frown "{nw}"
+    
+    m frowntalk "I didn’t get any grades on painting because I never took a class. Now kill me."
+    
+    show mary smile
+    
+    ann up smile "{i}I enjoy a little laugh with Mary. She then hands her brush over to me.{/i}"
+    
+    m "Here, give it a try."
+    
+    show mary smile
+    
+    a frowntalk "You mean... on your painting?"
+    
+    a frown "{nw}"
+    
+    m frowntalk "Why not? It’s not as though I’m trying to sell it. And who knows, maybe after your expert fine-tuning, it’d really be worthy of sale."
+    
+    show mary smile
+    
+    ann "{i}I reluctantly take up the brush and wonder how should I start. What color should I use? Where should I paint?{/i}"
+    ann "{i}Mary’s painting is already perfect without my tampering, perfect just like her.{/i}"
+            
+    m frowntalk "Why are you hesitating?"
+    
+    show mary frown
+    
+    a frowntalk "I... I don't want to make it worse."
+    
+    a frown "{nw}"
+    
+    m frowntalk "What do you mean worse?"
+    
+    show mary frown
+    
+    a frowntalk "I... don't really know. If I knew, I wouldn't mess it up, right?"
+    
+    ann frown "{i}Mary sighs, coming around behind me. She clasps onto my hand that is holding the brush.{/i}"
+    
+    m talk "Now paint. If I don’t like what you do, I’d be able to stop you. I bear the final responsibility here."
+    
+    show mary smile
+    
+    a frowntalk "Mary?"
+    
+    a frown "{nw}"
+    
+    m frowntalk "Look, Alice. You need to be more confident."
+    
+    show mary frown
+    
+    a frowntalk "I know. I'm trying."
+    
+    a frown "{nw}"
+    
+    m frowntalk "But you think the problem of your wavering is that you’re not good enough to be confident?"
+    
+    show mary frown
+    
+    a frowntalk "How did you..."
+    
+    a frown "{nw}"
+    
+    m frowntalk "It's all over your face. At the show, while you're practicing here, heck, while you are walking these halls - you just give off the aura of \"I'm not good enough\"."
+    
+    show mary frown
+    
+    a frowntalk "But I'm {i}not{/i} good enough. I'm not like you."
+    
+    a frown "{nw}"
+    
+    m frowntalk "Not as rich as me? Being rich doesn’t make you a better singer."
+    
+    show mary frown
+    
+    a frowntalk "But you were born in this kind of environment. You know how to act in this kind of environment."
+    
+    a frown "{nw}"
+    
+    m frowntalk "Which is what? To act like what common people like you would call snobs? I am well-aware of what people call me behind my back."
+    
+    show mary frown
 
-        a frown "{nw}"
-        
-        m talk "That’s because I’m not an artist. I merely enjoy the feel of putting paint on canvas."
-        
-        show mary smile
-        
-        a frowntalk "But... it looks good."
-        
-        a frown "{nw}"
-        
-        m "The paint is good quality, I suppose."
-        
-        show mary smile
-        
-        ann frown "{i}I don’t know what to say. Mary does sound serious here. So she hasn’t ever had any formal artistic training?{/i}"
-        
-        a frowntalk "You must be really talented then."
-        
-        a frown "{nw}"
-        
-        m frowntalk "Or I just have the guts to waste high quality paint on high quality canvas? What makes you think you can’t do the same?"
-        
-        show mary frown
-        
-        a down frowntalk "I didn’t get very high grades whenever painting is concerned."
-        
-        a frown "{nw}"
-        
-        m frowntalk "I didn’t get any grades on painting because I never took a class. Now kill me."
-        
-        show mary smile
-        
-        ann up smile "{i}I enjoy a little laugh with Mary. She then hands her brush over to me.{/i}"
-        
-        m "Here, give it a try."
-        
-        show mary smile
-        
-        a frowntalk "You mean... on your painting?"
-        
-        a frown "{nw}"
-        
-        m frowntalk "Why not? It’s not as though I’m trying to sell it. And who knows, maybe after your expert fine-tuning, it’d really be worthy of sale."
-        
-        show mary smile
-        
-        ann "{i}I reluctantly take up the brush and wonder how should I start. What color should I use? Where should I paint?{/i}"
-        ann "{i}Mary’s painting is already perfect without my tampering, perfect just like her.{/i}"
-                
-        m frowntalk "Why are you hesitating?"
-        
-        show mary frown
-        
-        a frowntalk "I... I don't want to make it worse."
-        
-        a frown "{nw}"
-        
-        m frowntalk "What do you mean worse?"
-        
-        show mary frown
-        
-        a frowntalk "I... don't really know. If I knew, I wouldn't mess it up, right?"
-        
-        ann frown "{i}Mary sighs, coming around behind me. She clasps onto my hand that is holding the brush.{/i}"
-        
-        m talk "Now paint. If I don’t like what you do, I’d be able to stop you. I bear the final responsibility here."
-        
-        show mary smile
-        
-        a frowntalk "Mary?"
-        
-        a frown "{nw}"
-        
-        m frowntalk "Look, Alice. You need to be more confident."
-        
-        show mary frown
-        
-        a frowntalk "I know. I'm trying."
-        
-        a frown "{nw}"
-        
-        m frowntalk "But you think the problem of your wavering is that you’re not good enough to be confident?"
-        
-        show mary frown
-        
-        a frowntalk "How did you..."
-        
-        a frown "{nw}"
-        
-        m frowntalk "It's all over your face. At the show, while you're practising here, heck, while you are walking these halls - you just give off the aura of \"I'm not good enough\"."
-        
-        show mary frown
-        
-        a frowntalk "But I'm {i}not{/i} good enough. I'm not like you."
-        
-        a frown "{nw}"
-        
-        m frowntalk "Not as rich as me? Being rich doesn’t make you a better singer."
-        
-        show mary frown
-        
-        a frowntalk "But you were born in this kind of environment. You know how to act in this kind of environment."
-        
-        a frown "{nw}"
-        
-        m frowntalk "Which is what? To act like what common people like you would call snobs? I am well-aware of what people call me behind my back."
-        
-        show mary frown
+    a frowntalk "That's... I don't mean to put it that way..."
+    
+    a frown "{nw}"
+    
+    m frowntalk "And I do not take offense. People react differently to the environment around them. There is no right or wrong. Why can’t you gawk at the beautiful furnishings and call it a waste of societal resources like Taylor does?"
+    
+    show mary frown
+    
+    a frowntalk "I suppose I can... but that’s not the issue here, right? The rich thing... yes. I guess I have felt a little inferior because of it and come to think of it, it is stupid. But rich or not, you and the others are better singers. I can’t change that!"
+    
+    a frown "{nw}"
 
-        a frowntalk "That's... I don't mean to put it that way..."
-        
-        a frown "{nw}"
-        
-        m frowntalk "And I do not take offense. People react differently to the environment around them. There is no right or wrong. Why can’t you gawk at the beautiful furnishings and call it a waste of societal resources like Taylor does?"
-        
-        show mary frown
-        
-        a frowntalk "I suppose I can... but that’s not the issue here, right? The rich thing... yes. I guess I have felt a little inferior because of it and come to think of it, it is stupid. But rich or not, you and the others are better singers. I can’t change that!"
-        
-        a frown "{nw}"
+    m frowntalk "Yes you can. If you work harder. If you pour your heart into it."
+    
+    show mary frown
 
-        m frowntalk "Yes you can. If you work harder. If you pour your heart into it."
-        
-        show mary frown
+    a frowntalk "I don't believe I...{w=1.0}{nw}"
+    
+    a frown "{nw}"
+    
+    m talk "Then believe."
+    
+    show mary smile
+    
+    ann "{i}Mary plunges the brush into pure red paint and presses it against the canvas.{/i}"
+    
+    a down frowntalk "No!"
+    
+    a frown "{nw}"
+    
+    m talk "It's not too late to change what I'm doing. Fight me for control over the brush."
+    
+    show mary smile
+    
+    ann "{i}I finally strengthen my grip and drag the brush in a curve down the left side of the painting, then with the remainder of the paint, I draw a similar curve down the right side.{/i}"
+    ann "{i}It’s a heart, my heart, bleeding red.{/i}"
+    
+    a frowntalk "These are my feelings. I want to have hope, but whenever I feel it, it’s accompanied by darkness. I’m worried that I won’t succeed. It’s stupid, because I have no right to be asking for success to begin with!"
+    
+    a frown "{nw}"
+    
+    m talk "You have every right."
+    m "Didn’t I draw this because it’s exactly what I felt, too?"
+    m "You may think that I’m confident and proud, but like you said, whenever you have hope, you’d have the worry of not fulfilling the hope. It’s like wherever there is light, a shadow would be cast."
+    
+    show mary smile
+    
+    ann "{i}I can’t quite believe Mary would have such mundane worries too. She should have no doubts that she’d at least be a finalist!{/i}"
+    
+    m talk "I think the heart you painted really completes the picture. It shows that anybody with a heart can be bothered by these conflicting emotions."
+    m "It may be so painful that it’s like our hearts are bleeding! But look, isn’t the red so vivid? This must be what it means to be alive."
+    
+    show mary smile
+    
+    a frowntalk "You make everything sound so sentimental, Mary..."
+    
+    a frown "{nw}"
+    
+    m talk "You’re the one who painted it."
+    
+    show mary smile
+    
+    a up talk "Didn’t you say you were gonna bear the final responsibility?"
+    
+    ann smile "{i}We laugh together again. Mary pats my shoulder, smiling.{/i}"
+    
+    m talk "Look, Alice. We’re all on the same boat. Don’t doubt yourself. All of us should have the right to want to win. That’s why we are here."
+    
+    show mary smile
+            
+    ann "{i}I don’t know what to say. Maybe Mary is right. Even if I don’t stand a chance of winning, I can still dream, right?{/i}"
+    
+    a talk "Thanks. I think I feel better now."
+    
+    a smile "{nw}"
+    
+    m talk "Knowing that you aren’t the only one who thinks badly of yourself?"
+    
+    show mary smile
+    
+    a talk "Well... it came as a surprise that you’d also have these thoughts... and I hate to admit it, but yeah, I guess I do feel better knowing I’m not alone."
+    
+    a smile "{nw}"
+    
+    m frowntalk "Asshole."        
+    m talk "But I feel better too. I don’t like being alone either."
+    
+    show mary smile
 
-        a frowntalk "I don't believe I...{w=1.0}{nw}"
-        
-        a frown "{nw}"
-        
-        m talk "Then believe."
-        
-        show mary smile
-        
-        ann "{i}Mary plunges the brush into pure red paint and presses it against the canvas.{/i}"
-        
-        a down frowntalk "No!"
-        
-        a frown "{nw}"
-        
-        m talk "It's not too late to change what I'm doing. Fight me for control over the brush."
-        
-        show mary smile
-        
-        ann "{i}I finally strengthen my grip and drag the brush in a curve down the left side of the painting, then with the remainder of the paint, I draw a similar curve down the right side.{/i}"
-        ann "{i}It’s a heart, my heart, bleeding red.{/i}"
-        
-        a frowntalk "These are my feelings. I want to have hope, but whenever I feel it, it’s accompanied by darkness. I’m worried that I won’t succeed. It’s stupid, because I have no right to be asking for success to begin with!"
-        
-        a frown "{nw}"
-        
-        m talk "You have every right."
-        m "Didn’t I draw this because it’s exactly what I felt, too?"
-        m "You may think that I’m confident and proud, but like you said, whenever you have hope, you’d have the worry of not fulfilling the hope. It’s like wherever there is light, a shadow would be cast."
-        
-        show mary smile
-        
-        ann "{i}I can’t quite believe Mary would have such mundane worries too. She should have no doubts that she’d at least be a finalist!{/i}"
-        
-        m talk "I think the heart you painted really completes the picture. It shows that anybody with a heart can be bothered by these conflicting emotions."
-        m "It may be so painful that it’s like our hearts are bleeding! But look, isn’t the red so vivid? This must be what it means to be alive."
-        
-        show mary smile
-        
-        a frowntalk "You make everything sound so sentimental, Mary..."
-        
-        a frown "{nw}"
-        
-        m talk "You’re the one who painted it."
-        
-        show mary smile
-        
-        a up talk "Didn’t you say you were gonna bear the final responsibility?"
-        
-        ann smile "{i}We laugh together again. Mary pats my shoulder, smiling.{/i}"
-        
-        m talk "Look, Alice. We’re all on the same boat. Don’t doubt yourself. All of us should have the right to want to win. That’s why we are here."
-        
-        show mary smile
-                
-        ann "{i}I don’t know what to say. Maybe Mary is right. Even if I don’t stand a chance of winning, I can still dream, right?{/i}"
-        
-        a talk "Thanks. I think I feel better now."
-        
-        a smile "{nw}"
-        
-        m talk "Knowing that you aren’t the only one who thinks badly of yourself?"
-        
-        show mary smile
-        
-        a talk "Well... it came as a surprise that you’d also have these thoughts... and I hate to admit it, but yeah, I guess I do feel better knowing I’m not alone."
-        
-        a smile "{nw}"
-        
-        m frowntalk "Asshole."        
-        m talk "But I feel better too. I don’t like being alone either."
-        
-        show mary smile
-
-        ## end scene
+    ## end scene
 
     
 label mary1:
@@ -682,22 +678,173 @@ label taylorroom:
             ### end scene
 
 
-label cherryroom:
+label cherry1:
+
+    scene bedaliceday
+    with fade
+
+    an "I wonder what Cherry's up to? I'll call her."
+    ## TODO sfx ringtone
+    "{cps=40}... ... ...{/cps}"
+    c "Hello?"
+    a "Heyyy, Cherry, it's Alice. You up to anything?"
+    c "Oh, Alice! I'm getting my hair done in the makeup room! You should come over, we can get matching styles!"
+    c "...What? Oh, the hairstylist says we're not allowed it. Producer says something something, blah blah blah."
+    a "Well, sure! Be right over."
+
+    scene black
     
-    $ int6 = renpy.random.randint(1,5)
-    
-    if int6 == 1:
-        
-        scene bedcherryday
-        
-        ann "{i}I wanted to ask Cherry for some advice, but it seems like she is not in her room. Maybe next time.{/i}"
-        
- 
- 
+    an "I make a beeline to the makeup room. I don't know if Cherry was almost done..."
+
+    scene makeuproom
+    with fade
+
+    $ config.side_image_tag = "alice"
+
+    an "...When I arrived, though, it looks like they had barely started. The hairstylist looked flustered."
+    hs "Alice, honey, can you talk some sense into this girl? She's driving me up the wall..."
+    an "Heaving a sigh, the hair stylist stepped out the back. Presumably to get a smoke - she reeked of tobacco."
+    a frowntalk "Uhhhh... okay."
+    a frown "{nw}"
+
+    show cherry up smile at center:
+        zoom 1.4
+        yalign 0.4
+    with dissolve
+
+    c talk "Aliceee! What's up?"
+    show cherry smile
+    a talk "Not much, I just... figured I'd catch you at the tail end of your appointment."
+    a smile "{nw}"
+    c frowntalk "Ohhh, I'm still deciding what I wanna do. I wanted a beehive, but the hairstylist said no..."
+    show cherry frown
+    a frowntalk "A beehive? From, like, the fifties? ...Why?"
+    a frown "{nw}"
+    c talk "Well, it'd make me look taller, and more mature... and the bees would have a home too!"
+    show cherry smile
+    a down frowntalk "Wh... i-it's not a {i}literal beehive{/i}, Cherry!"
+    a frown "{nw}"
+    c down frowntalk "Wha? Oh no... then they won't have a home. You know they're all dying, right?"
+    show cherry frown
+    a up frowntalk "I can't imagine they'd fair any better inside your hair. Hair spray's probably another chemical that's bad for them."
+    a frown "{nw}"
+    c frowntalk "Ah, really? ...Maybe I could use honey..."
+    show cherry frown
+    a talk "Okay! How about we pick out a style for you that {i}doesn't{/i} drive the hairstylist to drink?"
+    a smile "{nw}"
+    c talk "Mm... okay! I don't really see the point though..."
+    c "Iiiiiii'm thinkingggg... Long hair. Or no hair."
+    show cherry smile
+    a frowntalk "...Okay, I'll bite. Why would you want to go bald?"
+    a frown "{nw}"
+    c talk "I could wear a wig like my mum, before she went into chemo! Then my hair could be {i}whatever I want!{/i} It could be pink, or white, or shamrock green..."
+    show cherry smile
+    a frown "!"
+    an "...Should I ask her about that?"
+
+    menu:
+        "Ask about it":
+            a frowntalk "Your mom had cancer...?"
+            a frown "{nw}"
+            c talk "Ah, yeah. But she's better now! She's in town, actually."
+            show cherry smile
+            a talk "Oh, really? Thank god..."
+            a smile "{nw}"
+            c talk "Mmhm! When the producer heard about it, she paid out of her own pocket to fly her out. She's gonna be in the front row!"
+            c "So I gotta look really good for Mom. I love her a lot..."
+            show cherry smile
+            a talk "...Well, let's see if we can't get this figured out."
+            an smile "Cherry revealed something close to her heart to me. For someone as flighty as her, she's uncompromisingly caring about the people around her."
+            jump cherry1merge
+
+        "Don't ask about it":
+            an frown "Might be a painful talk. I opt to change topics."
+            a talk "I think the producer would prefer long hair, at least."
+            a smile "{nw}"
+            c talk "Mmmm, okidoke. Lesse..."
+            show cherry smile
+            jump cherry1merge
+
+    label cherry1merge:
+        hide cherry with dissolve
+
+        an "Cherry and I spend some time looking over hairstyles."
+        an "Before long, Cherry has something picked out... and the hairstylist boots me out so she can work. Rude..."
+
+        ## end scene
+
+
+
+label cherry2:
+
+    scene hallway
+    with fade
+
+    an "Cherry said she was working on something over in the dining room. Maybe I'll head over there to check on her."
+
+    scene dinnerday
+    with fade
+
+    $ config.side_image_tag = "alice"
+
+    an "I catch her at a table by herself. She's surrounded by emptied bottles of store-bought cappuccinos."
+    c "Alice! Over here!"
+
+    show cherry up smile at center:
+        zoom 1.4
+        yalign 0.4
+    with dissolve
+
+    a talk "Hey!! ...What are you doing over here?"
+    a smile "{nw}"
+    c talk "Aaaah, I have to work on my speech. The director wants me to answer a bunch of questions for the next episode but..."
+    c "....I'm a little blocked over here. Everything I'm thinking of, is... kinda boring."
+    show cherry smile
+    a frowntalk "Mm? What kind of questions?"
+    a smile "{nw}"
+    c talk "Ohhh, just... personal questions. Like... what my dream job was gonna be. My inspirations..."
+    c "My favourite animal? I thought that was kinda obvious. Oh, you think they'd let me have like twenty rabbits on stage to perform? Can you train rabbits to dance??"
+    show cherry smile
+    a frowntalk "What?? I... I really doubt that."
+    a frown "{nw}"
+    c frowntalk "...Awwww..."
+    show cherry frown
+    an "Cherry deflated, flopping over the table."
+    a talk "...Well, if you're stuck, maybe I can help? Do you have anything written down?"
+    a smile "{nw}"
+    c frowntalk "Mmmmm. I went with my gut on some of these."
+    show cherry smile
+    an "Cherry slid some papers over to me."
+    a talk "Alright, lesse... when you were growing up, you wanted to be a..."
+    a frowntalk "...Veterinarian?"
+    a frown "{nw}"
+    c talk "Yeah! I wanna work with animals, and help at a zoo, and stuff!"
+    c "I guess it's not as interesting as, well... Mary wants to be a fashion tycoon, and Taylor, um... I don't know, she wouldn't tell me."
+    show cherry smile
+    an smile "It sounds like Cherry already talked with the other two about this."
+    a talk "Well, hey, that's a good idea, Cherry! Everyone loves animals! But... don't you have to go to school for that?"
+    a smile "{nw}"
+    c talk "Yeah, you do. I was thinking of getting into university for that, but... I ended up auditioning for this show instead."
+    show cherry smile
+    a frowntalk "Oh, is that how that happened? I guess they put us all through those nationwide auditions."
+    a "I just wanted to see how far I'd go, honestly. I'm not even really sure where I'll end up by the end of it."
+    a smile "{nw}"
+    c talk "Mmhm... my friends kinda dared me to do it, and I wasn't really sure I was good enough."
+    show cherry smile
+    a talk "Heh! Well you sure showed them, right? You're in the finals!"
+    a smile "{nw}"
+    c talk "...Hehe. I guess so. It's a little reassuring I'm not the only one just kinda riding along."
+    show cherry smile
+
+
+    ## end scene
+
+
+
+
         
 label musicroom:
     
-    $ int11 = renpy.random.randint(1,5)
     
     label musichall2:
         scene musicroom
@@ -831,6 +978,12 @@ label musicroom:
         a smile "{nw}"
 
         $ mary_stat += 1
+
+        hide mary with dissolve
+
+        $ config.side_image_tag = ""
+
+        an "Mary and I end up practicing for a couple of hours before eventually changing it to karaoke."
         
         ## end scene
 
@@ -1075,8 +1228,7 @@ label lounge:
 
             if day == 2:
                 jump sleepy1
-            elif day == 3:
-                jump 
+
 
 
 
