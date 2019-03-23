@@ -213,7 +213,12 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            $ choiceimage = i.kwargs.get("choiceimage", None)
+            textbutton i.caption:
+                action i.action
+                if choiceimage:
+                    foreground Transform(choiceimage + "face.png", xpos=600, yalign=0.5)
+
 
 
 ## When this is true, menu captions will be spoken by the narrator. When false,
@@ -227,10 +232,10 @@ style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos 270
+    ypos 400
     yanchor 0.5
 
-    spacing gui.choice_spacing
+    spacing 100
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
@@ -298,12 +303,14 @@ screen navigation():
         style_prefix "navigation"
 
         # xpos gui.navigation_xpos
+
         yalign 0.25
         xalign 0.03
 
         spacing gui.navigation_spacing
 
         if main_menu:
+
 
             imagebutton auto "gui/start_%s.png" action Start() xalign 0.03 yalign 0.10 at dissolvemm
             imagebutton auto "gui/load_%s.png" action ShowMenu("load") xalign 0.03 yalign 0.20 at dissolvemm
@@ -315,23 +322,23 @@ screen navigation():
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("History") yalign 0.35 action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Save") action ShowMenu("save") yalign 0.40
 
-            textbutton _("Load") action ShowMenu("load")
+            textbutton _("Load") action ShowMenu("load") yalign 0.45
 
-            textbutton _("Preferences") action ShowMenu("preferences")
+            textbutton _("Preferences") action ShowMenu("preferences") yalign 0.50
 
         if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            textbutton _("End Replay") action EndReplay(confirm=True)  yalign 0.70
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Main Menu") action MainMenu()  yalign 0.55
 
-            textbutton _("About") action ShowMenu("about")
+            textbutton _("About") action ShowMenu("about")  yalign 0.60
 
         # if renpy.variant("pc"):
 
@@ -351,7 +358,7 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
-    size 38
+    size 34
     color "#560134"
     hover_color "#a92856"
 
@@ -362,6 +369,15 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
+label before_main_menu:
+    show mmconcert
+    show logomm:
+        yalign 1.0
+        xalign 0.5
+
+    $ renpy.pause(9)
+
+
 screen main_menu():
 
     ## This ensures that any other menu screen is replaced.
@@ -369,7 +385,7 @@ screen main_menu():
 
     style_prefix "main_menu"
 
-    add gui.main_menu_background
+    #add gui.main_menu_background
 
     ## This empty frame darkens the main menu.
     frame:
@@ -380,7 +396,7 @@ screen main_menu():
     use navigation
 
     #add "images/logo.png" yalign 1.0 xalign 0.5
-    add "logomm" yalign 1.0 xalign 0.5
+    #add "logomm" yalign 1.0 xalign 0.5
 
     if gui.show_name:
 
@@ -402,7 +418,7 @@ style main_menu_frame:
     xsize 280
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    #background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -535,7 +551,8 @@ style game_menu_side:
     spacing 10
 
 style game_menu_label:
-    xpos 50
+    xpos 30
+    ypos -15
     ysize 120
 
 style game_menu_label_text:
@@ -576,9 +593,11 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("\nLead Designer & Sprite Artist: {a=https://www.twitter.com/Violora_Art}Violora")
+            text _("\nLead Designer & Sprite Artist: {a=https://www.twitter.com/Violora_Art}Violora{/a}")
 
-            text _("\nLead Writer: {a=https://www.twitter.com/TuttyTheFruity}Kevin \"Tutty The Fruity\" Armstrong")
+            text _("\nLead Writer: {a=https://www.twitter.com/TuttyTheFruity}Kevin \"Tutty The Fruity\" Armstrong{/a}")
+
+            text _("\nWriter: {a=https://twitter.com/VitaminHPanels}Kidd \"The Maniac\" Bowyer{/a}")
 
             text _("\nThis game was made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
@@ -620,7 +639,7 @@ screen load():
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
+    default page_name_value = FilePageNameInputValue(pattern=_("Page #{}"), auto=_("Automatic Saves"), quick=_("Quick Saves"))
 
     use game_menu(title):
 
@@ -723,6 +742,7 @@ style page_label_text:
     text_align 0.5
     layout "subtitle"
     hover_color gui.hover_color
+    size 30
 
 style page_button:
     properties gui.button_properties("page_button")
@@ -750,84 +770,80 @@ screen preferences():
 
     use game_menu(_("Preferences"), scroll="viewport"):
 
-        vbox:
+        hbox:
 
-            hbox:
-                box_wrap True
-
-                if renpy.variant("pc"):
-
-                    vbox:
-                        style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Window") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+            if renpy.variant("pc"):
 
                 vbox:
                     style_prefix "radio"
-                    label _("Rollback Side")
+                    label _("Display")
+                    textbutton _("Window") action Preference("display", "window")
+                    textbutton _("Fullscreen") action Preference("display", "fullscreen")
+
+            if renpy.variant("mobile"):
+                vbox:
+                    style_prefix "radio"
+                    label _("Touchscreen Rollback Side")
                     textbutton _("Disable") action Preference("rollback side", "disable")
                     textbutton _("Left") action Preference("rollback side", "left")
                     textbutton _("Right") action Preference("rollback side", "right")
 
-                vbox:
-                    style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+            vbox:
+                style_prefix "check"
+                label _("Skip")
+                textbutton _("Unseen Text") action Preference("skip", "toggle")
+                textbutton _("After Choices") action Preference("after choices", "toggle")
+                textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
+            ## Additional vboxes of type "radio_pref" or "check_pref" can be
+            ## added here, to add additional creator-defined preferences.
+        hbox:
+            label _(" ")
+        hbox:
 
-            null height (4 * gui.pref_spacing)
+            style_prefix "slider"
 
-            hbox:
+            vbox:
+
+                label _("\nText Speed")
+
+                bar value Preference("text speed")
+
+                label _("\nAuto-Forward Time")
+
+                bar value Preference("auto-forward time")
+
+                label _("\nTextbox Opacity")
+            
+                bar value FieldValue(persistent, 'say_window_alpha', 1.0, max_is_zero=False, style="slider", offset=0, step=1)
+
+            vbox:
                 style_prefix "slider"
                 box_wrap True
 
-                vbox:
+                if config.has_music:
+                    label _("\nMusic Volume")
 
-                    label _("Text Speed")
+                    hbox:
+                        bar value Preference("music volume")
 
-                    bar value Preference("text speed")
+                if config.has_sound:
 
-                    label _("Auto-Forward Time")
+                    label _("\nSound Volume")
 
-                    bar value Preference("auto-forward time")
+                    hbox:
+                        bar value Preference("sound volume")
 
-                    label _("Textbox Opacity")
-                
-                    bar value FieldValue(persistent, 'say_window_alpha', 1.0, max_is_zero=False, style="slider", offset=0, step=1)
-
-            hbox:
-                vbox:
-                    style_prefix "slider"
-                    box_wrap True
-
-                    if config.has_music:
-                        label _("Music Volume")
-
-                        hbox:
-                            bar value Preference("music volume")
-
-                    if config.has_sound:
-
-                        label _("Sound Volume")
-
-                        hbox:
-                            bar value Preference("sound volume")
-
-                            if config.sample_sound:
-                                textbutton _("Test") action Play("sound", config.sample_sound)
+                        if config.sample_sound:
+                            textbutton _("Test") action Play("sound", config.sample_sound)
 
 
-                    if config.has_music or config.has_sound or config.has_voice:
-                        null height gui.pref_spacing
+                if config.has_music or config.has_sound or config.has_voice:
+                    null height gui.pref_spacing
 
-                        textbutton _("Mute All"):
-                            action Preference("all mute", "toggle")
-                            style "mute_all_button"
+                    textbutton _("Mute All"):
+                        action Preference("all mute", "toggle")
+                        style "mute_all_button"
 
 
 style pref_label is gui_label
@@ -862,6 +878,7 @@ style pref_label:
 
 style pref_label_text:
     yalign 1.0
+    size 26
 
 style pref_vbox:
     xsize 225

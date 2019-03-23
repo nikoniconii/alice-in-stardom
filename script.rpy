@@ -227,7 +227,8 @@ label start:
     ann "{i}Is the director pulling a prank on me or something? Even if he hates me, he can't be thinking of digging me a hole so I'd get fired, right?{/i}"
     
     hide taylor
-    hide sparkles
+    hide sparkles1
+    hide sparkles2
     with dissolve
 
     k talk "Are you the water-bearer?"
@@ -460,7 +461,7 @@ label start:
     
     ann "{i}I don’t think I can argue with Boss about this. She won’t understand.{/i}"
     
-    k frowntalk "You gonna delude yourself into thinking you’re satisfied running errands backstage? Suit yourself. I’m not your councillor."
+    k frowntalk "You gonna delude yourself into thinking you’re satisfied running errands backstage? Suit yourself. I’m not your counselor."
     k "But let me tell ya this - you miss this chance? You won’t get another one. The world doesn’t stop spinning so you can be absorbed in your self-pity."
     k "You think you aren’t good enough for this? Who gives. Sitting here thinking ain’t gonna make you better. Go out there and just do whatever you can."
     k "If you suck, a producer somewhere might still spot your comedic talents. Not everybody can pull off an epic failure, ya know?"
@@ -496,14 +497,24 @@ label start:
     
     $ config.side_image_tag = ""
 
-    ann "{i}I step onto the stage. The lights are so blinding, but when I stare out into the audience below, all is dark. It’s a bit intimidating until the squint of my eyes brings me a clearer view of the front row, then those behind them, and those behind them yet.{/i}"
+    ann "{i}I step onto the stage. The lights are so blinding, but when I stare out into the audience below, all is dark.{/i}"
+    ann "{i}It’s a bit intimidating until the squint of my eyes brings me a clearer view of the front row, then those behind them, and those behind them yet.{/i}"
     ann "{i}They’re all watching me. The teenage lovebirds, smiling seniors, parents with toddlers on their laps...{/i}"
     ann "{i}For a second, I thought I’d stop breathing. But once the intro of my favorite song cues my first note, I sing.{/i}"
+
+label firstConcert:
+    $ quick_menu = False
+
+    call screen firstTry
+
+label firstDone:
+    $ quick_menu = True
+    $ config.side_image_tag = ""
 
     show concert1
     with dissolve
 
-    ann "{i}Completed my dream, Jacque said.{/i}"
+    ann "{i}Complete my dream, Jacques said.{/i}"
     ann "{i}Yeah, he may be right. Boss may be right. I only didn’t dare admit it.{/i}"
     ann "{i}Who enters this industry without at least the slightest sliver of hope that we’d one day capture the crowd’s attention?{/i}"
     ann "{i}The audience members below aren’t the only ones watching. There are thousands, if not millions more watching behind television screens.{/i}"
@@ -518,7 +529,8 @@ label start:
 
     $ config.side_image_tag = ""
 
-    ann "{i}After the show, we were herded onto a bus and shipped to a gigantic building on the city’s suburbs. At first, I thought it was a shopping centre. But that’s just the ground floor. The upper floors are all part of a huge private residence.{/i}"
+    ann "{i}After the show, we were herded onto a bus and shipped to a gigantic building on the city’s suburbs.{/i}"
+    ann "{i}At first, I thought it was a shopping center. But that’s just the ground floor. The upper floors are all part of a huge private residence.{/i}"
     ann "{i}Is this real silk for curtains? No, the actual question should be is this real silk beneath my feet!? I can probably wear this rug as an exotic wedding dress and all my guests would be singing praises to its beauty!{/i}"
     ann "{i}And the faint scent coming from that cabinet in the corner... that’s agarwood, right? It’s now a threatened species, so there’s no way you can acquire such a big piece for furniture. The cabinet must then be a legit antique!{/i}"
     ann "{i}Holy shit... this is too much. My head hurts just thinking over how many digits went into the cost for the furnishings.{/i}"
@@ -678,7 +690,8 @@ label start:
     show cherry up smile at center
     with Dissolve(0.5)
     
-    j talk "As you should all know, your faces and bodies are no less important than your voices. You’ve gotta keep up your appearances when you’re working in this business. Here’s the place to keep fit, with certified instructors to aid your training everyday, 9 to 5."
+    j talk "As you should all know, your faces and bodies are no less important than your voices. You’ve gotta keep up your appearances when you’re working in this business."
+    j "Here’s the place to keep fit, with certified instructors to aid your training everyday, 9 to 5."
     
     show jacques smile
     

@@ -295,6 +295,9 @@ label maryroom1:
     
     show mary smile
 
+    if day == 3:
+        jump excited1
+
     ## end scene
 
     
@@ -464,7 +467,7 @@ label mary1:
         
 label taylorroom:
     
-    label taylorint1:
+    label taylor1:
         scene hallday
         with fade
 
@@ -675,6 +678,9 @@ label taylorroom:
 
             an "It was strange. I kinda kept my distance, thinking she was so serious and aloof, but... she's nicer than I gave her credit for!"
 
+            if day == 3:
+                jump excited1
+
             ### end scene
 
 
@@ -682,6 +688,8 @@ label cherry1:
 
     scene bedaliceday
     with fade
+
+    $ cherry_stat += 1
 
     an "I wonder what Cherry's up to? I'll call her."
     ## TODO sfx ringtone
@@ -771,6 +779,8 @@ label cherry1:
         an "Cherry and I spend some time looking over hairstyles."
         an "Before long, Cherry has something picked out... and the hairstylist boots me out so she can work. Rude..."
 
+        if day == 3:
+            jump excited1
         ## end scene
 
 
@@ -839,6 +849,139 @@ label cherry2:
 
     ## end scene
 
+
+label cherry3:
+    an "The next contest is coming up soon. I should probably get some practice in ahead of time."
+    an "Cherry's probably in her room. Out of all the girls, she's definitely the most approachable."
+    an "I'll go see what she's up to."
+
+    scene hallwayday
+    with fade
+    ## TODO sfx doorknock
+
+    an "I knock on her door."
+    $ config.side_image_tag = "alice"
+    a talk "Hey, Cherry, it's Alice! Are you free right now?"
+    a smile "{nw}"
+    c "..."
+    a talk "I figured we can practice together! How does that sound?"
+    a smile "{nw}"
+    c "...Okaay."
+    a frown "...?"
+    an "Cherry didn't seem all that enthused about it. Which was weird, because it's... Cherry."
+    a frowntalk "May I come in?"
+    a frown "{nw}"
+    c "...Okaaay."
+    a "...Mm."
+    an "At least the door was unlocked. I let myself in."
+
+    scene bedcherryday
+    with fade
+
+    show cherry up frown at center:
+        zoom 1.4
+        yalign 0.4
+    with dissolve
+
+    an "I didn't usually get to see the inside of Cherry's room. The mood was more anxious than I expected."
+    an "Cherry was sitting at a table by herself. She had a bowl of corn flakes - it looked like she hadn't touched them in a while."
+    an "And the expression on her face was pretty miserable. I should say something."
+    a frowntalk "Hey, Cherry, you okay?"
+    a frown "{nw}"
+    c frowntalk "...I dunno."
+    show cherry frown
+    an "Yeah, something was up. Normally it was difficult to get Cherry to quiet down for a second. Now it was a struggle for her to string together more than two words."
+    a frowntalk "Did something happen? ...Oh no, did your mom-"
+    a frown "{nw}"
+    c frowntalk "No, no, nothing like that, I... sorry, I'm not really feeling it today."
+    c "...Feeling really self-conscious today, that's all."
+    show cherry frown
+    a frowntalk "Oh. Sorry, I... d-do you wanna talk about it?"
+    a frown "{nw}"
+    c frowntalk "...I guess it can't hurt."
+    show cherry smile
+    an "I talke a seat across from her. I give her a gentle nod, encouraging her to speak her mind."
+    c frowntalk "...I feel like I'm in over my head here. Like I'm... not good enough?"
+    c "Like... Everyone else is way smarter, and they were working towards this way longer, and I kinda feel like... like I don't belong."
+    show cherry frown
+    an "She seemed pretty bummed about this. I should say something..."
+
+    menu:
+        "That's not true!":
+            jump cherry3negative
+        "I can relate":
+            jump cherry3neutral
+        "You're not wrong, but...":
+            jump cherry3positive
+
+    label cherry3negative:
+        a frowntalk "That's not true, Cherry! You won a lot of other contests to get this far!"
+        a "And everyone thinks - no, they {i}know{/i} you're super talented."
+        a frown "{nw}"
+        c frowntalk "Yeah, but... sometimes it feels like it's a trick, like..."
+        c "Like I'm really a fraud, and nobody else knows that, and it just makes this loop in my head and..."
+        show cherry frown
+        a frowntalk "...Ah."
+        a frown "{nw}"
+        c frowntalk "Sorry, this is my fault, when I get depressed, it's hard to... turn it off."
+        show cherry frown
+        an "I have a feeling I ended up making Cherry feel worse."
+        jump cherry3merge
+
+    label cherry3neutral:
+        a frowntalk "If it helps, you aren't the only one. Mary and Taylor are in a whole other world, but..."
+        a "We're still here, and we can tough it out. I think it just helps to do the best that we can."
+        a frown "{nw}"
+        c frowntalk "Yeah. I-I agree. I guess that's how you made it this far."
+        c "I wish I could be as determined as you are. At least I'm not alone in feeling a little... weird."
+        show cherry frown
+        a talk "...Yeah. You aren't alone."
+        an smile "I think I helped Cherry feel a little bit better."
+        jump cherry3merge
+
+    label cherry3positive:
+        a frowntalk "You feel like you're not good enough, and I get that, it... self-comparisons are really hard."
+        a frown "{nw}"
+        c frowntalk "...Yeah..."
+        show cherry frown
+        a frowntalk "I don't wanna disregard your feelings. I just want you to know that..."
+        a talk "...I think you're incredible, and I know you can work past this."
+        a smile "{nw}"
+        c "...!"
+        c frowntalk "Y-you really think so?"
+        show cherry frown
+        a talk "You came this far, right? I believe in you."
+        a smile "{nw}"
+        c talk "...Hehe. I'll try not to let you down."
+        show cherry smile
+        an "It seems like Cherry was really happy to hear that someone believes in her."
+        jump cherry3merge
+
+    label cherry3merge:
+        c talk "...Maybe I just need a distraction. We can go practice if you like."
+        show cherry smile
+        a talk "Yeah. That might help. We could probably just do it here if you like."
+        a smile "{nw}"
+        c talk "Like, some voice exercises? Taylor does some weird ones from someplace far away, and it's like, {i}wawawawaaaa...!{/i}"
+        show cherry smile
+        a frowntalk "...What {i}is{/i} that? Is it like yodelling?"
+        a frown "{nw}"
+        c frowntalk "No, with the throat, like, {i}wawaWAAAA!{/i}"
+        show cherry smile
+        a frowntalk "...Wha...?"
+        a frown "{nw}"
+        c frowntalk "No, lower!"
+        show cherry frown
+        a frowntalk "...wawawa..."
+        a frown "{nw}"
+        c talk "Hehe! Closer!"
+        show cherry smile
+        an "I'm not sure what Mongolian throat vocalization had to do with idol practice, and we both looked like idiots trying to emulate it..."
+        
+        $ config.side_image_tag = ""
+        hide cherry with dissolve
+        an "But it cheered Cherry up. I think that's a net positive."
+        ## end scene
 
 
 
@@ -935,6 +1078,8 @@ label musicroom:
         scene musicroom
         with fade
         
+        $ mary_stat += 1
+
         ann "{i}I should really get some practicing done. I'm still not very confident about my skills.{/i}"
         ann "{i}I head down to the music room. Seems like Mary is already there.{/i}"
         
@@ -976,8 +1121,6 @@ label musicroom:
         a talk "Alright. Let's start!"
         
         a smile "{nw}"
-
-        $ mary_stat += 1
 
         hide mary with dissolve
 
@@ -1243,6 +1386,8 @@ label rooftop:  ## garden
         scene fountainday
         with fade
         
+        $ mary_stat += 1
+        
         ann "{i}I really need a breath of fresh air. I head upstairs to the rooftop garden.{/i}"        
         ann "{i}Seems like I’m not the only one. Mary is also at the garden, practicing.{/i}"
         
@@ -1277,9 +1422,8 @@ label rooftop:  ## garden
         
         ann "{i}Mary continues practicing, projecting her voice into the crisp, morning air. I have fun watching her, even learning a bit along the way.{/i}"
         
-        $ mary_stat += 1
         
-        
+
         
 label shopping:
     

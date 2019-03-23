@@ -11,7 +11,7 @@
 label morning1:
 
     scene dinnerday
-    with fade
+    with fadee
 
     $ config.side_image_tag = ""
 
@@ -125,18 +125,17 @@ label morning1:
     an smile "It looks like we're all going to be spending a lot more time together. Better fill up here - the next few days are going to be big."
     an "Now, where should I spend the day?"
 
-    $ interaction1 = null
 
     menu:
-        "Go to the makeup room":
-            $ interaction1 = mary1
+        "Go to the makeup room" (choiceimage="mary"):
+            $ interaction1 = "mary1"
             jump mary1
-        "Go to the music room":
-            $ interaction1 = musichall1
+        "Go to the music room" (choiceimage="director"):
+            $ interaction1 = "musichall1"
             jump musichall1
-        "Go to the mall":
-            $ interaction1 = cherry1
-            jump cherry1
+        "Go to the mall" (choiceimage="cherry"):
+            $ interaction1 = "cherry1"
+            jump mall1
 
 
 
@@ -146,7 +145,7 @@ label morning1:
 label morningnormal1:
         
     scene bedaliceday
-    with fade
+    with fadee
     
     ann "{i}Ahh, it's morning.{/i}"
     ann "{i}I can't recall my dreams, so I must've had some decent sleep. I feel rested enough.{/i}"
@@ -162,6 +161,8 @@ label morningnormal1:
     with dissolve
     
     t frowntalk "Good morning."
+
+    show taylor frown
     
     a talk "Morning."
     
@@ -193,42 +194,42 @@ label morningnormal1:
     
     show jacques smile
 
-    $ interaction2 = null
+    $ interaction2 = "null"
 
-    if interaction1 == mary1:
+    if interaction1 == "mary1":
         menu:
-            "Go for a walk":
-                $ interaction2 = jacquesinterview
+            "Go for a walk" (choiceimage="jacques"):
+                $ interaction2 = "jacquesinterview"
                 jump jacquesinterview
-            "Go to the music room":
-                $ interaction2 = musichall1
+            "Go to the music room" (choiceimage="director"):
+                $ interaction2 = "musichall1"
                 jump musichall1
-            "Go to the mall":
-                $ interaction2 = cherry1
-                jump cherry1
+            "Go to the mall" (choiceimage="cherry"):
+                $ interaction2 = "cherry1"
+                jump mall1
 
-    if interaction1 == musichall1:
+    if interaction1 == "musichall1":
         menu:
-            "Go to the makeup room":
-                $ interaction2 = mary1
+            "Go to the makeup room" (choiceimage="mary"):
+                $ interaction2 = "mary1"
                 jump mary1
-            "Go for a walk":
-                $ interaction2 = jacquesinterview
+            "Go for a walk" (choiceimage="jacques"):
+                $ interaction2 = "jacquesinterview"
                 jump jacquesinterview
-            "Go to the mall":
-                $ interaction2 = cherry1
-                jump cherry1
+            "Go to the mall" (choiceimage="cherry"):
+                $ interaction2 = "cherry1"
+                jump mall1
 
     if interaction1 == cherry1:
         menu:
-            "Go to the makeup room":
-                $ interaction2 = mary1
+            "Go to the makeup room" (choiceimage="mary"):
+                $ interaction2 = "mary1"
                 jump mary1
-            "Go to the music room":
-                $ interaction2 = musichall1
+            "Go to the music room" (choiceimage="director"):
+                $ interaction2 = "musichall1"
                 jump musichall1
-            "Go for a walk":
-                $ interaction2 = jacquesinterview
+            "Go for a walk" (choiceimage="jacques"):
+                $ interaction2 = "jacquesinterview"
                 jump jacquesinterview
 
 
@@ -242,7 +243,7 @@ label morningnormal1:
 label morning2: 
 
     scene musicroom
-    with fade
+    with fadee
 
     $ config.side_image_tag = "alice"
 
@@ -400,6 +401,17 @@ label morning2:
     label morning2merge:
         an "The four of us kept at it until it was time to break for lunch. We then went our separate ways..."
 
+        menu:
+            "Go to Mary's room" (choiceimage="mary"):
+                $ interaction3 = "mary"
+                jump maryroom1
+            "Go to the music room" (choiceimage="taylor"):
+                $ interaction3 = "taylor"
+                jump taylor1
+            "Go to Cherry's room" (choiceimage="cherry"):
+                $ interaction3 = "cherry"
+                jump cherry1
+
         ## end scene
 
   
@@ -407,7 +419,7 @@ label morning2:
 label hopeful:
     
     scene bedaliceday
-    with fade
+    with fadee
     
     ann "{i}I awake to the first light of day streaming through my curtains.{/i}"
     ann "{i}My alarm has yet to sound. I turn it off, feeling rested enough that I don't need to sleep in any longer.{/i}"
@@ -441,7 +453,230 @@ label hopeful:
     show cherry smile
     
     #### call screen
+
+
+label morning5:
+
+    scene musicroom
+    with fade
+
+    an "Hoo! I should've put my phone away during the morning drills. It's been buzzing all morning."
+    an "We're all wrapping up right about now. It took all of my willpower not to sneak a look."
+    an "Of course, the director's watchful eye was keeping tabs on me all morning. I dunno if he had, I dunno, bat hearing or whatever. Like, he was bitten by a radioactive bat and developed sonar vision or something."
+    an "...Better stop going down this rabbit hole. Taking a break, I look over my phone."
+    $ config.side_image_tag = "alice"
+    a frowntalk "Oh, crap! Look at all these messages!"
+    a talk "Aww, Mom sent me cat photos. ...Oh no, they dressed up Vicky in a cheerleader outfit."
+    a "Oh, she looks piiiiissed, hahaha! I gotta share this!"
+    an smile "I open up my messages and start to draft a message for the accompanying photo..."
+    an frown "...Ah, crap, my finger slipped. I was gonna send that to my bestie back home, Marge, but..."
+    ## TODO sfx: phone ping
+    an down "A phone's chiming broke my concentration."
+
+    a frowntalk "! ....Oh no."
+    a frown "{nw}"
+    m "...Alice?"
+    an "Craaaap, I sent it to the wrong person..."
+
+    show mary up frown at center:
+        zoom 1.3
+        yalign 0.4
+    with moveinright
+
+    m frowntalk "What is this you sent me?"
+    show mary frown
+    a talk "T, that's my cat, Vicky! My, my mom dressed him up, see? Cuz he's... rooting for me, eheh..."
+    a smile "{nw}"
+    m frowntalk "...You should think of sending this to the director's phone instead of mine."
+    show mary frown
+    a frowntalk "Oh, no, God no, he'd flip his shit if I was texting during practice...!"
+    a frown "{nw}"
+    m talk "Hm. I wonder."
+    show mary smile
+
+    hide mary with moveoutleft
+
+    an "Without any further comment, Mary walked off as if nothing happened."
+    a up frowntalk "...Is she... gonna keep the photo on her phone?"
+    a frown "{nw}"
+
+    show cherry up smile at center:
+        zoom 1.55
+        yalign 0.5
+    with moveinbottom
+
+    c talk "OH! ARE YOU SHARING CAT PHOTOS!?"
+    show cherry smile
+    a frowntalk "AH! Cherry!?"
+    a frown "{nw}"
+    c talk "I got a ton of photos! Bunnies are my favourite! I got, like, twenty of the lil guys!!"
+    show cherry smile
+
+    show taylor up frown at right:
+        zoom 0.98
+        yalign 0.3
+    with moveinright
+
+    t frowntalk "Maybe you should start keeping them in separate cages..."
+    show taylor frown
+    a talk "Taylor! D, do you have any pets?"
+    a smile "{nw}"
+    t frowntalk "Eh, low maintenance ones, sure. I have a small aquarium at home. Has some loaches, some angelfish..."
+    t talk "Don't have enough time to raise anything else. I came to win, after all."
+    show taylor frown
+    a talk "Yeah... right."
+    a smile "{nw}"
+    c talk "FOUND THEM!"
+    show cherry smile
+    a frowntalk "O-oh no..."
+    a talk "...Oh, they're really fuzzy...!"
+    a smile "{nw}"
+    c talk "I KNOW, RIGHT!?"
+    show cherry smile
+
+    hide cherry
+    hide taylor
+    with dissolve
+
+    an "Cherry proceeded to bombard me with bunny photos for the better part of half an hour. I thin Taylor managed to wriggled free in the ensuing chaos."
+    an "Only when she was satisfied did Cherry finally release me from her grip..."
+
+    ## end scene
+
+
         
+label morning3:
+    scene dinerday
+    with fadee
+
+    an "And then it was down to three. After the show last night, it still doesn't really feel real."
+    an "It's just the three of us - Cherry, Taylor, and myself - at breakfast together."
+    $ config.side_image_tag = "alice"
+
+    show cherry up frown at rightt:
+        zoom 1.2
+        yalign 0.3
+    with easeinright
+
+    c frowntalk "Haah... it's so much quieter here without Mary around."
+    show cherry frown
+    a frowntalk "Aw, Cherry, don't take it so hard. Somebody needed to get eliminated."
+    a frown "{nw}"
+    c frowntalk "It's so... final, though. Like we're gonna be torn apart from each other!"
+    
+    show cherry frown
+    show taylor up frown at leftt:
+        zoom 1.2
+        yalign 0.3
+    with easeinleft
+
+    t frowntalk "Yeeeeah. That's kind of the point of an elimination competition. Last one standing wins."
+    show taylor frown
+    a frowntalk "Taylor, you could be a bit more sympathetic..."
+    a frown "{nw}"
+    t frowntalk "Why? It's how the business goes. She didn't make the cut, so we all move on."
+    t "I don't know why y'all are so torn up about it. It's not like she up and died."
+    show taylor frown
+    c frowntalk "Wah! I don't want her to die!!"
+    show cherry frown
+    an "Yeesh. The sight of Cherry... it reminds me of a puppy crying for its owner."
+    a talk "L-look on the bright side! They'll probably invite us all for some kind of, uh, reunion dinner, or something!"
+    a smile "{nw}"
+    t frowntalk "Yeah. Probably at some cheap dive though. Producer's stingy as hell."
+    show taylor frown
+    c frowntalk "...That sounds nice..."
+    show cherry frown
+    t frowntalk "Also, there's probably gonna be cameos for future seasons in store for us."
+    show taylor frown
+    c talk "...Wow, I didn't even think of that! That makes me feel like... like I'm part of the show family! Or something..."
+    show cherry smile
+    a talk "...Y'all think we should take a picture together? We can use it for a Christmas card."
+    a smile "{nw}"
+    t frowntalk "...Y'know what. Sure. Why not? Let's just track down Mary and we'll get it done."
+    t "There's probably a costume department around here somewhere too if we really wanted to accessorize..."
+    show taylor frown
+    c talk "Can we dress up as Santa's reindeer?? Ooh, I wanna be Cupid! I wanna be Cupid!!"
+    show cherry smile
+    a frowntalk "I-I dunno, if... if they have that sort of thing?"
+    an frown "I wonder what Mary was up to. Last night must've been rougher for her than she's been letting on."
+    $ config.side_image_tag = ""
+
+    hide taylor
+    hide cherry
+    with dissolve
+
+    an "I got another big day ahead. Maybe I'll find time to check up on her."
+    an "Still, though, I gotta get time to practice on my own routine. Or they might cut me next..."
+    
+    ## end scene
+
+
+label morning4:
+
+    scene dinerday
+    with fadee
+    an "Man, having breakfast first thing in the morning used to be so light and breezy. Now with half of the girls cut from the competition, it was down to me and Taylor. Normally, I'd be ecstatic, but..."
+    an "Right now, it just felt... weird. Just sitting here between the two of us. It was so weird."
+    an "Taylor wasn't a talkative sort. She didn't lose sleep over the fates of the other girls. She was just... keeping to herself."
+    an "I wanna say something. I'm {i}going{/i} to say something."
+    
+    $ config.side_image_tag = "alice"
+    show taylor up frown at center:
+        zoom 1.3
+        yalign 0.4
+    with dissolve
+
+    a frowntalk "...So it's just us now."
+    a frown "{nw}"
+    t frowntalk "...Yup."
+    show taylor frown
+    a frowntalk "Big show last night. Hope Cherry's feeling better today."
+    a frown "{nw}"
+    t "Mmhm."
+    a frowntalk "She just... kind of seems like the lonely sort. Maybe I'll see her later."
+    a frown "{nw}"
+    t frowntalk "You do you, girl."
+    show taylor frown
+    a down frowntalk "...What's your problem??"
+    a frown "{nw}"
+    t frowntalk "I have a problem?"
+    show taylor frown
+    a frowntalk "Yeah. I'm trying to have a conversation here!"
+    a frown "{nw}"
+    a frowntalk "Look, Alice, I like you. We practice together, we perform together, and hell, maybe we'll end up working together someday. Maybe on some collab album."
+    t "But today? These next few days? We're competitors. And it's coming down to the wire now."
+    t "I got better things to worry about than making hapless smalltalk. And I know you do too."
+    show taylor frown
+    a up frowntalk "...Ah."
+    an frown "Well. That was decidedly decisive. Taylor didn't seem all that eager to hold a conversation."
+    a frowntalk "...I was just hoping we'd all still be friends by the end."
+    a frown "{nw}"
+    t frowntalk "...I dunno."
+    show taylor frown
+    an "Taylor sighed to herself, poking at her scrambled eggs."
+    t frowntalk "It's the messed up American model of competition, not us, it... it just kind of stirs up drama like this."
+    t "Like... it's not enough that you win. Others have to lose."
+    show taylor frown
+    a frowntalk "...Do you really believe that?"
+    a frown "{nw}"
+    t frowntalk "I kinda have to. I'm not here to lose."
+    t "And I'm sure as hell not going to waste the opportunities I'm given here. That I earned."
+    t "...I'm aiming to crush this competition. No hard feelings, Alice."
+    show taylor frown
+    an "Taylor talked a big game. She was determined to win it all."
+    a frowntalk "...Yeah. No hard feelings."
+    a talk "Besides, I know you'd never admit it. I'm glad we're friends. And that we got to know each other."
+    a smile "{nw}"
+    t talk "...Heh. Ditto."
+    show taylor smile
+    an "Even through her thick armour, she still cared. She was smiling earnestly, she couldn't hide her real feelings."
+    a talk "Let's do our best. I'm going into the finals prepared."
+    a smile "{nw}"
+    t talk "Good to hear. It'll make obliterating you all the more satisfying!"
+    show taylor smile
+    a frowntalk "Awww, c'mon Taylor..."
+    a frown "{nw}"
+    ## end scene
 
 
 

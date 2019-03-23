@@ -270,6 +270,28 @@ image concert1:
     yalign 1.0
     linear 10.0 yalign 0.0
 
+image concert2:
+    subpixel True
+    size (1200, 800)
+    xalign .5
+    yalign .5
+
+    parallel:
+        "images/mm.png"
+
+        crop (92, 444, 231, 152)
+        pause 0.5
+        easeout 2.5 crop (100, 290, 535, 345)
+
+        crop (393, 4, 157, 98)
+        easeout 1.6 crop (372, 6, 373, 248)
+
+        crop (1015, 8, 171, 114)
+        easein 2.6 crop (538, 7, 605, 397)
+
+        pause 1.0
+
+        easein 4.5 crop (0, 0, 1200, 800)
 
 
 image logomm:
@@ -284,6 +306,6 @@ image logomm:
 transform dissolvemm:
     alpha 0
 
-    pause 9
+    pause 0.4
 
     ease 1 alpha 1.0

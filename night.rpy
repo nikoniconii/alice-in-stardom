@@ -48,8 +48,7 @@ label normalnight:
     
 label excited:
     
-    $ excited = renpy.random.randint(1,5)
-    
+    ############################# Night 3
     label excited1:
         
         $ day += 1
@@ -68,8 +67,8 @@ label excited:
         ann "{i}I tug myself into bed and empty out my thoughts. The unknown future is always scary, but if we were to know everything that would befall us, what fun is life?{/i}"
         ann "{i}It’s okay to step into the dark. We’ll find our way eventually.{/i}"
         
+        jump morning5
         
-        ###### call screen
         
     label excited2:
         
@@ -160,7 +159,8 @@ label insomnia:
         scene fountainnight
         with fade
                 
-        ann "{i}I take the elevator to the roof where a garden stands. At this hour, it’s quite dark, but parts of the garden remain lighted with panels of LED lights. The fountain looks stunning with colors playing on the rippling water surface.{/i}"
+        ann "{i}I take the elevator to the roof where a garden stands.{/i}"
+        ann "{i}At this hour, it’s quite dark, but parts of the garden remain lighted with panels of LED lights. The fountain looks stunning with colors playing on the rippling water surface.{/i}"
         ann "{i}I sit down on the stone by the fountain, hearing the water rise and fall. Looking upwards, I can faintly make out the stars above me.{/i}"
         ann "{i}It’s too bright here in the city to see star curtains, but the few twinkling in the dark, heavenly seas still look beautiful as rare gems.{/i}"
         ann "{i}It’s weird that I prefer this view over the view overlooking the rest of the city. We’re easily on the tallest building in town, but there is something more enticing about nature, especially at a time like this.{/i}"
@@ -177,8 +177,7 @@ label insomnia:
         ann "{i}With the weight of all my pressures finally lifting away, I drift off into sleep.{/i}"
         
         
-        scene morningnormal1
-        with fadee
+        jump morningnormal1
         
         
         

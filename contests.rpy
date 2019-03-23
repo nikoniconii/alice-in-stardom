@@ -57,7 +57,8 @@ label week1contest:
     hide taylor
     with dissolve
     
-    ann frown "{i}But they're probably right. Even when I think back to what I did on-stage, it’s all a blur. I think I sang my favourite song. This week, though, I have to pick from a selection, but I’ve barely heard this song prior to practicing it!{/i}"
+    ann frown "{i}But they're probably right. Even when I think back to what I did on-stage, it’s all a blur. I think I sang my favourite song.{/i}"
+    ann "{i}This week, though, I have to pick from a selection, but I’ve barely heard this song prior to practicing it!{/i}"
     ann "{i}The others are taking this rather calmly though. Cherry is in a corner, giggling at her phone. Mary is arguing over jewellery.{/i}"
     ann "{i}I sigh- might as well get this over with.{/i}"
     ann "{i}To match the summer theme for this week’s contest, I’m wearing a purple crop-top and black shorts. My attire isn’t anything too glaring, but those red heels... they’re so hard to walk in!{/i}"
@@ -67,11 +68,11 @@ label week1contest:
         yalign 0.5
     with hpunch
     
-    m frowntalk frowntalk "You better thank me for catching you, Clumsy!"
+    m frowntalk "You better thank me for catching you, Clumsy!"
 
     show mary frown
     
-    ann down "{i}When I try to walk over to the jewellery and prop counter, I nearly fall face-first onto the linoleum floor. Luckily, Mary manages to steady me with her outstretched arms.{/i}"
+    ann down "{i}When I try to walk over to the jewelery and prop counter, I nearly fall face-first onto the linoleum floor. Luckily, Mary manages to steady me with her outstretched arms.{/i}"
     
     a frowntalk "Sorry..."
 
@@ -213,7 +214,7 @@ label week1contest:
     a smile "{nw}"
     
     scene stage2close
-    with fade
+    with Dissolve(2.0)
 
     $ config.side_image_tag = ""
 
@@ -222,8 +223,9 @@ label week1contest:
         yalign 0.35
     with dissolve
     
-    j talk "Welcome again to your most spectacular idol show of the year, Supernova! I am your host, Jacque Bellavance!"
-    j "Last time, we introduced our four contestants. You’ve had the chance to see their unique glory, taken your pick about who will make it to the throne of stardom’s next idol. Now, our contestants will be pitted against each other."
+    j talk "Welcome again to your most spectacular idol show of the year, Supernova! I am your host, Jacques Bellavance!"
+    j "Last time, we introduced our four contestants. You’ve had the chance to see their unique glory, taken your pick about who will make it to the throne of stardom’s next idol."
+    j "Now, our contestants will be pitted against each other."
     j "Only the best will remain. One will be eliminated tonight!"
     j "Without further ado, lend your applause to our first contestant, Mary Viswanathan!"
 
@@ -269,12 +271,12 @@ label week1contest:
     
     hide cherry with dissolve
 
+    scene stage2far
+    with dissolve
+
     $ config.side_image_tag = "alice"
 
     a summer smile "{nw}"
-
-    scene stage2far
-    with dissolve
 
     show katja smile at rightt
     show taylor up frown summer at leftt
@@ -344,8 +346,9 @@ label week1contest:
 
     $ config.side_image_tag = ""
     
-    ann "{i}Taylor sure is no match for Cherry appearance-wise. While both of them went for the floral theme, Cherry matched her rosy wreath with a delicate pink dress, while Taylor just put on the same faded blue t-shirt as last week.{/i}"
-    ann "{i}Which one of the stylists let her walk out on stage with a shirt that clashes that horribly with the mult-colored flower ring around her neck?{/i}"
+    ann "{i}Taylor sure is no match for Cherry appearance-wise.{/i}"
+    ann "{i}While both of them went for the floral theme, Cherry matched her rosy wreath with a delicate pink dress- Taylor just put on the same faded blue t-shirt as last week.{/i}"
+    ann "{i}Which one of the stylists let her walk out on stage with a shirt that clashes that horribly with the multi-colored flower ring around her neck?{/i}"
     ann "{i}I suppose her stubborn attitude does give her a unique kind of charisma, though. Once again, she opts for minimal background music while she sings, opening the song with smooth falsetto.{/i}"
     ann "{i}Would it be accurate to call her singing wailing? That would give it a negative connotation, would it? But I mean it in a good way, actually. There is just so much emotion in the way she sings.{/i}"
     ann "{i}But if I were to try to convey such sadness and regret, I would’ve tried for a stronger sound. I would’ve tried to sing my lungs out. Taylor does no such thing.{/i}"
@@ -380,7 +383,7 @@ label week1contest:
     show katja frown
     
     a "..."
-    ann "{i}Shit!{/i}"
+    ann down "{i}Shit!{/i}"
     ann "{i}That’s right. This is a contest. I’m not part of the audience. I’m supposed to be a participant!{/i}"
     
     k talk "Don’t look so shocked. Like I said, if you can’t outshine the others, then make the biggest fool out of yourself. A catastrophic failure would have entertainment value too."
@@ -403,12 +406,35 @@ label week1contest:
     ann "{i}Oh God, please, somebody, save me!{/i}"
 
     $ waitTime = 5
-    
-    call screen week1minigame
+
+    $ quick_menu = False
+
+    label week1loop:
+        $ failed = False
+        $ round = 0 #start at 0 for round 1, etc
+        $ eliminated = False
+        while round < 3 and not eliminated: #assuming there are 3 rounds, after that we'd be done
+            $ phrase1 = False
+            $ phrase2 = False
+            $ phrase3 = False
+            $ phrase4 = False
+            call screen minigame(week1[round])
+            if failed:
+                $failed = False #reset for next attempt
+            else:
+                $round += 1
+
     
 label week1win:
 
     $ config.side_image_tag = ""
+    $ quick_menu = True
+
+    $ slow = 0
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
     
     ann "{i}The musical accompaniment is so plain.{/i}"
     ann "{i}It’s not plain in an absolute sense, but compared to the uniqueness of Cherry and Taylor’s performances, it’s just so common. It’s totally something a regular schoolgirl would sing at a karaoke place with her friends.{/i}"
@@ -453,7 +479,7 @@ label week1win:
 
     $ config.side_image_tag = "alice"
     
-    ann "{i}As the commercials play, we eagerly await the results of the poll. Though I’ve resigned myself to whatever fate will befall me, I can’t help but admit that I still hold onto some hopes of advancing.{/i}"
+    ann summer "{i}As the commercials play, we eagerly await the results of the poll. Though I’ve resigned myself to whatever fate will befall me, I can’t help but admit that I still hold onto some hopes of advancing.{/i}"
     
     show director smile at center
     with dissolve
@@ -471,7 +497,7 @@ label week1win:
     show mary summer up smile at center
     with dissolve
     
-    m frowntalk talk "Wrong response. True, you'll probably stay either way, but you shouldn’t even consider the possibility of elimination."
+    m talk "Wrong response. True, you'll probably stay either way, but you shouldn’t even consider the possibility of elimination."
 
     show mary smile
     
@@ -479,7 +505,7 @@ label week1win:
 
     a frown "{nw}"
     
-    m frowntalk frowntalk "Well, do you really think you did worse than the rest of us?"
+    m frowntalk "Well, do you really think you did worse than the rest of us?"
 
     show mary frown
     
@@ -488,7 +514,7 @@ label week1win:
     
     a frown "{nw}"
 
-    m frowntalk frowntalk "It’s not about whether that possibility is there. It’s about whether to consider it."
+    m frowntalk "It’s not about whether that possibility is there. It’s about whether to consider it."
 
     show mary frown
     
@@ -529,7 +555,7 @@ label week1win:
 
     show jacques up smile at center:
         zoom 1.4
-        yalign 0.35
+        yalign 0.3
     with dissolve
 
     $ config.side_image_tag = ""
@@ -547,23 +573,25 @@ label week1win:
     
     a "You mean torturing us. You’ve already advanced!"
     
-    j "And the next highest scoring contestant is... Mary Viswanathan. Congratulations, you have also advanced!"
+    j talk "And the next highest scoring contestant is... Mary Viswanathan. Congratulations, you have also advanced!"
     j "After her, the next highest scoring was... Raisa Cherenkov!"
     j "Lastly... Alice Carroll! Now that you've seen all of our contestants, join us Saturday to see them compete again!"
+
+    show jacques smile
 
     a "..."
 
     scene stage2far
     with dissolve
 
-    $ config.side_image_tag = "alice"
-
     show mary summer up frown at left
     show katja smile at center
     show cherry summer up frown at right
     with dissolve
 
-    a frowntalk "Wait... so, does that mean..."
+    $ config.side_image_tag = "alice"
+
+    a frowntalk summer "Wait... so, does that mean..."
 
     a frown "{nw}"
 
@@ -575,7 +603,7 @@ label week1win:
 
     show cherry smile
 
-    m frowntalk frowntalk "This wasn't an elimination round, was it?"
+    m frowntalk "This wasn't an elimination round, was it?"
 
     show mary frown
 
@@ -587,7 +615,7 @@ label week1win:
 
     a "..."
 
-    m frowntalk frowntalk "Quit looking so glum. You've made it past the first round."
+    m frowntalk "Quit looking so glum. You've made it past the first round."
 
     show mary frown
 
@@ -595,8 +623,8 @@ label week1win:
 
     a frown "{nw}"
 
-    m frowntalk frowntalk "Don't be too sure about that. If you had gone up there screeching, it would have become an elimination round very quickly."
-    m frowntalk talk "Now, let's go eat."
+    m frowntalk "Don't be too sure about that. If you had gone up there screeching, it would have become an elimination round very quickly."
+    m talk "Now, let's go eat."
 
     show mary smile
 
@@ -677,7 +705,7 @@ label week3contest:
     a down frowntalk "That's... it just feels so shallow..."
     a frown "{nw}"
         
-    m frowntalk "I don’t think so. See Jacque? I have deep respect for him, shallow a character as he is. He spends literally hours on his makeup. He even adopted a French stage name just to enhance his stage personality."
+    m frowntalk "I don’t think so. See Jacques? I have deep respect for him, shallow a character as he is. He spends literally hours on his makeup. He even adopted a French stage name just to enhance his stage personality."
     m "You think it’s easy? I think not. He put a lot of hard work into it, all for the sake of entertaining his audience. That’s what an idol should be like."
     m "You may feel like crying on the inside from all the stress upon your shoulders, but under the bright lights, you keep it all in, showing only the smile that your audience wants to see."
     
@@ -909,7 +937,8 @@ label week3contest:
     ann "{i}...I somewhat want to hear what the real Mary would sound like.{/i}"
     ann "{i}I’ve always just noticed her perfection, the lady with a good upbringing, smart and beautiful albeit a little self-centered. But who is she, really? What are her motivations? What are her true feelings now?{/i}"
     ann "{i}I wonder, if Mary were not standing on a stage, but just by a bus stop, waiting as snow falls on her umbrella, what kind of tune will she let slip from her lips?{/i}"
-    ann "{i}But that is just a pointless musing. Perhaps this is the real Mary. Of course she’s not truly perfect. But she’s a person who tries very hard to be so. She may be nervous this moment. She may be lost. But she doesn’t let it show.{/i}"
+    ann "{i}But that is just a pointless musing. Perhaps this is the real Mary. Of course she’s not truly perfect. But she’s a person who tries very hard to be so.{/i}"
+    ann "{i}She may be nervous this moment. She may be lost. But she doesn’t let it show.{/i}"
     ann "{i}To give the audience a dream to experience, huh?{/i}"
     ann "{i}In her own way, Mary may be a gentle person after all.{/i}"
 
@@ -947,7 +976,8 @@ label week3contest:
     ann "{i}Taylor doesn’t let the tense atmosphere get to her. The moment she’s on-stage, she’s the cool, collected singer again.{/i}"
     ann "{i}The broad theme opens in the background, her voice easily blending into it along with the bell-like rings of a second melody.{/i}"
     ann "{i}Taylor doesn’t force too much air into her singing, but somehow, she manages to project the clear sounds into the audience. It’s like it doesn’t take any effort. But at the same time, I know that’s just a show of her skills.{/i}"
-    ann "{i}I know Taylor is very skillful from day one. However, that skill never actually translates to enhancing the mood of songs that she sings. Instead, she warps every song into something of her own, feeding it with hopeless melancholy.{/i}"
+    ann "{i}I know Taylor is very skillful from day one. However, that skill never actually translates to enhancing the mood of songs that she sings.{/i}"
+    ann "{i}Instead, she warps every song into something of her own, feeding it with hopeless melancholy.{/i}"
     ann "{i}She does the same with this wintery music. What originally sounds like an innocent walk down a snow-lined sidewalk becomes a walk down memory lane.{/i}"
     ann "{i}I can almost feel my hand, numb from cold, taken in her and led down a path where her steps leave the snow dented. I follow her into the dark, reliving vague regrets threatening to swallow our meager presence.{/i}"
     ann "{i}Summer, techno, winter... all just minor twists to her bleak mentality.{/i}"
@@ -1776,6 +1806,8 @@ label week4win:
 
 label eliminated:
 
+    $ eliminated = True
+
     with fade
     
     ann "{i}Our performances have ended. Here I am, standing on the stage, facing elimination.{/i}"
@@ -2226,66 +2258,44 @@ label finallose:
 ######################################################################################################################
 
 
-###################################     Week 1
+label failedFirst:
 
-default currentScreen = "week1minigame"
+    $ rand = renpy.random.randint(1,6)
 
-screen week1minigame:
-    textbutton _("Hello my love") xalign 0.05 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
-    textbutton _("Goodbye my friend") xalign 0.3 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
-    textbutton _("Hello new world") xalign 0.6 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
-    textbutton _("Will I see you again?") xalign 0.9 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week1round2"), false = Jump("failed"))
+    if rand == 1:
+        an "Dammit, no! Wrong order!"
+    if rand == 2:
+        an "No, no, not the right order!"
+    if rand == 3:
+        an "Crap, maybe they didn't notice that slip-up-"
+    if rand == 4:
+        an "Let me try that again!"
+    if rand == 5:
+        an "Wait, wrong line!"
+    if rand == 6:
+        an "Oh no, no one heard that, right?"
 
-    timer 8.0 action Jump("failed")
-
-
-label week1round2:
     $ phrase1 = False
     $ phrase2 = False
     $ phrase3 = False
     $ phrase4 = False
 
-    $ currentScreen = "week1minigame2"
-
-    call screen week1minigame2
-
-
-screen week1minigame2:
-    textbutton _("The times are changing") xalign 0.5 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
-    textbutton _("But my heart stands still") xalign 0.5 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
-    textbutton _("Your eyes are listless") xalign 0.5 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
-    textbutton _("Can I change your will?") xalign 0.5 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week1round3"), false = Jump("failed"))
-
-    timer 8.0 action Jump("failed")
-
-
-label week1round3:
-    $ phrase1 = False
-    $ phrase2 = False
-    $ phrase3 = False
-    $ phrase4 = False
-
-    $ currentScreen = "week1minigame3"
-
-    call screen week1minigame3
-
-
-screen week1minigame3:
-    textbutton _("The winds are growing stronger") xalign 0.05 yalign 0.25 text_size 40 at word1 action SetVariable("phrase1", True)
-    textbutton _("Yet I still remain") xalign 0.3 yalign 0.75 text_size 40 at word2 action SetVariable("phrase2", True)
-    textbutton _("If you won't come with me") xalign 0.6 yalign 0.35 text_size 40 at word3 action SetVariable("phrase3", True)
-    textbutton _("Then I'll leave you in the rain") xalign 0.9 yalign 0.85 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week1win"), false = Jump("failed"))
-
-    timer 8.0 action Jump("failed")
+    call screen firstTry
 
 
 label failed:
+    $ failed = True
     $ slow += 1
 
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
+
     if slow >= 3:
-        jump eliminated
+        call eliminated
     else:
-        $ rand = renpy.random.randint(1,5)
+        $ rand = renpy.random.randint(1,6)
 
         if rand == 1:
             an "Dammit, that's not right!"
@@ -2297,9 +2307,134 @@ label failed:
             an "Let me try that again!"
         if rand == 5:
             an "Wait, wrong line!"
+        if rand == 6:
+            an "Oh no, no one heard that, right?"
 
-        call screen currentScreen
+    return
 
+
+################################################################################################################
+################################################################################################################
+
+
+screen minigame(round):
+    textbutton round["lyrics"][0]:
+        pos round["locations"][0]
+        text_size 40
+        at word1
+        action SetVariable("phrase1", True)
+
+    textbutton round["lyrics"][1]:
+        pos round["locations"][1]
+        text_size 40
+        at word2
+        action SetVariable("phrase2", True)
+
+    textbutton round["lyrics"][2]:
+        pos round["locations"][2]
+        text_size 40
+        at word3
+        action SetVariable("phrase3", True)
+
+    textbutton round["lyrics"][3]:
+        pos round["locations"][3]
+        text_size 40
+        at word4
+        action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Return(), false = Call("failed"))
+
+    timer 8.0 action Call("failed")
+
+
+
+define week1 = [{
+    "lyrics": ["Hello my love", "Goodbye my friend", "Hello new world", "Will I see you again?"],
+    "locations" : [(50, 0), (300, 200), (450, 500), (700, 600)]
+},
+{
+    "lyrics": ["The times are changing", "But my heart stands still", "Your eyes are listless", "Can I change your will?"],
+    "locations" : [(400, 50), (400, 250), (400, 450), (400, 650)]
+},
+{
+    "lyrics": ["The winds are growing stronger", "Yet I still remain", "If you won't come with me", "Then I'll leave you in the rain"],
+    "locations" : [(50, 200), (200, 500), (600, 300), (550, 600)]
+}]
+
+
+
+define week2 = [{
+    "lyrics": ["The sun has hidden", "The skies are gray", "I can feel the chill coming", "But I'll brace through it all"],
+    "locations" : [(250, 50), (50, 200), (400, 350), (100, 500)]
+},
+{
+    "lyrics": ["I can still hear your voice", "Whispering through the wind", "The cold air reminds me", "Even if we don't meet again..."],
+    "locations" : [(20, 50), (300, 250), (100, 450), (400, 650)]
+},
+{
+    "lyrics": ["When the snow falls", "My heart will skip again", "I will remember all our days again", "Those memories will be with me"],
+    "locations" : [(50, 30), (200, 180), (50, 300), (400, 420)]
+}]
+
+
+
+###################################################################
+
+
+screen firstTry:
+    textbutton _("The lights are bright") xalign 0.05 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
+    textbutton _("The music's ready") xalign 0.3 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
+    textbutton _("Come on, let's go") xalign 0.6 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
+    textbutton _("The beat is steady") xalign 0.9 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("firstDone"), false = Call("failedFirst"))
+
+    timer 8.0 action Call("failedFirst")
+
+
+
+###################################     Week 1
+
+
+# screen week1minigame:
+#     textbutton _("Hello my love") xalign 0.1 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
+#     textbutton _("Goodbye my friend") xalign 0.3 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
+#     textbutton _("Hello new world") xalign 0.6 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
+#     textbutton _("Will I see you again?") xalign 0.9 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Call("week1round2"), false = Call("failed"))
+
+#     timer 8.0 action Call("failed")
+
+
+# label week1round2:
+#     $ phrase1 = False
+#     $ phrase2 = False
+#     $ phrase3 = False
+#     $ phrase4 = False
+
+#     call screen week1minigame2
+
+
+# screen week1minigame2:
+#     textbutton _("The times are changing") xalign 0.5 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
+#     textbutton _("But my heart stands still") xalign 0.5 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
+#     textbutton _("Your eyes are listless") xalign 0.5 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
+#     textbutton _("Can I change your will?") xalign 0.5 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Call("week1round3"), false = Call("failed"))
+
+#     timer 8.0 action Call("failed")
+
+
+# label week1round3:
+#     $ phrase1 = False
+#     $ phrase2 = False
+#     $ phrase3 = False
+#     $ phrase4 = False
+
+#     call screen week1minigame3
+
+
+# screen week1minigame3:
+#     textbutton _("The winds are growing stronger") xalign 0.05 yalign 0.25 text_size 40 at word1 action SetVariable("phrase1", True)
+#     textbutton _("Yet I still remain") xalign 0.3 yalign 0.75 text_size 40 at word2 action SetVariable("phrase2", True)
+#     textbutton _("If you won't come with me") xalign 0.6 yalign 0.35 text_size 40 at word3 action SetVariable("phrase3", True)
+#     textbutton _("Then I'll leave you in the rain") xalign 0.9 yalign 0.85 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Call("week1win"), false = Call("failed"))
+
+#     timer 8.0 action Call("failed")
 
 
 ######      Week 2 was deleted to cut scope
@@ -2309,54 +2444,50 @@ label failed:
 
 
 
-screen week3minigame:
-    textbutton _("The sun has hidden") xalign 0.25 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
-    textbutton _("The skies are gray") xalign 0.05 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
-    textbutton _("I can feel the chill coming") xalign 0.65 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
-    textbutton _("But I'll brace through it all") xalign 0.15 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week3round2"), false = Jump("failed"))
+# screen week3minigame:
+#     textbutton _("The sun has hidden") xalign 0.25 yalign 0.2 text_size 40 at word1 action SetVariable("phrase1", True)
+#     textbutton _("The skies are gray") xalign 0.05 yalign 0.4 text_size 40 at word2 action SetVariable("phrase2", True)
+#     textbutton _("I can feel the chill coming") xalign 0.65 yalign 0.6 text_size 40 at word3 action SetVariable("phrase3", True)
+#     textbutton _("But I'll brace through it all") xalign 0.15 yalign 0.8 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Call("week3round2"), false = Call("failed"))
 
-    timer 8.0 action Jump("failed")
-
-
-label week3round2:
-    $ phrase1 = False
-    $ phrase2 = False
-    $ phrase3 = False
-    $ phrase4 = False
-
-    $ currentScreen = "week3minigame2"
-
-    call screen week3minigame2
+#     timer 8.0 action Call("failed")
 
 
-screen week3minigame2:
-    textbutton _("I can still hear your voice") xalign 0.1 yalign 0.8 text_size 40 at word1 action SetVariable("phrase1", True)
-    textbutton _("Whispering through the wind") xalign 0.7 yalign 0.6 text_size 40 at word2 action SetVariable("phrase2", True)
-    textbutton _("The cold air reminds me") xalign 0.15 yalign 0.4 text_size 40 at word3 action SetVariable("phrase3", True)
-    textbutton _("Even if we don't meet again...") xalign 0.7 yalign 0.2 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Jump("week3round3"), false = Jump("failed"))
+# label week3round2:
+#     $ phrase1 = False
+#     $ phrase2 = False
+#     $ phrase3 = False
+#     $ phrase4 = False
 
-    timer 8.0 action Jump("failed")
-
-
-label week3round3:
-    $ phrase1 = False
-    $ phrase2 = False
-    $ phrase3 = False
-    $ phrase4 = False
-
-    $ currentScreen = "week3minigame3"
-
-    call screen week3minigame3
+#     call screen week3minigame2
 
 
-screen week3minigame3:
-    textbutton _("When the snow falls") xalign 0.1 yalign 0.1 text_size 40 at word1 action SetVariable("phrase1", True)
-    textbutton _("My heart will skip again") xalign 0.25 yalign 0.25 text_size 40 at word2 action SetVariable("phrase2", True)
-    textbutton _("I will remember all our days again") xalign 0.1 yalign 0.50 text_size 40 at word3 action SetVariable("phrase3", True)
-    textbutton _("Those memories will be with me") xalign 0.35 yalign 0.75 text_size 40 at word4 action SetVariable("phrase4", True)
-    textbutton _("Until I'm old") xalign 0.1 yalign 0.95 text_size 40 at word5 action SetVariable("phrase5", True), If(phrase1 and phrase2 and phrase3 and phrase4, true = Jump("week3win"), false = Jump("failed"))
+# screen week3minigame2:
+#     textbutton _("I can still hear your voice") xalign 0.1 yalign 0.8 text_size 40 at word1 action SetVariable("phrase1", True)
+#     textbutton _("Whispering through the wind") xalign 0.7 yalign 0.6 text_size 40 at word2 action SetVariable("phrase2", True)
+#     textbutton _("The cold air reminds me") xalign 0.15 yalign 0.4 text_size 40 at word3 action SetVariable("phrase3", True)
+#     textbutton _("Even if we don't meet again...") xalign 0.7 yalign 0.2 text_size 40 at word4 action SetVariable("phrase4", True), If(phrase1 and phrase2 and phrase3, true = Call("week3round3"), false = Call("failed"))
 
-    timer 8.0 action Jump("failed")
+#     timer 8.0 action Call("failed")
+
+
+# label week3round3:
+#     $ phrase1 = False
+#     $ phrase2 = False
+#     $ phrase3 = False
+#     $ phrase4 = False
+
+#     call screen week3minigame3
+
+
+# screen week3minigame3:
+#     textbutton _("When the snow falls") xalign 0.1 yalign 0.1 text_size 40 at word1 action SetVariable("phrase1", True)
+#     textbutton _("My heart will skip again") xalign 0.25 yalign 0.25 text_size 40 at word2 action SetVariable("phrase2", True)
+#     textbutton _("I will remember all our days again") xalign 0.1 yalign 0.50 text_size 40 at word3 action SetVariable("phrase3", True)
+#     textbutton _("Those memories will be with me") xalign 0.35 yalign 0.75 text_size 40 at word4 action SetVariable("phrase4", True)
+#     textbutton _("Until I'm old") xalign 0.1 yalign 0.95 text_size 40 at word5 action SetVariable("phrase5", True), If(phrase1 and phrase2 and phrase3 and phrase4, true = Call("week3win"), false = Call("failed"))
+
+#     timer 8.0 action Call("failed")
 
 
 
@@ -2384,7 +2515,7 @@ default waitTime = 5
 transform word1:
     alpha 0
 
-    pause 1
+    pause 0.2
 
     ease 1 alpha 1.0
 
@@ -2395,7 +2526,7 @@ transform word1:
 transform word2:
     alpha 0
 
-    pause 2
+    pause 0.8
 
     ease 1 alpha 1.0
 
@@ -2406,7 +2537,7 @@ transform word2:
 transform word3:
     alpha 0
 
-    pause 3
+    pause 1.4
 
     ease 1 alpha 1.0
 
@@ -2417,7 +2548,7 @@ transform word3:
 transform word4:
     alpha 0
 
-    pause 4
+    pause 2.0
 
     ease 1 alpha 1.0
 
@@ -2428,7 +2559,7 @@ transform word4:
 transform word5:
     alpha 0
 
-    pause 5
+    pause 2.8
 
     ease 1 alpha 1.0
 
