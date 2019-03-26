@@ -295,8 +295,7 @@ label maryroom1:
     
     show mary smile
 
-    if day == 3:
-        jump excited1
+    jump nightSwitch
 
     ## end scene
 
@@ -305,6 +304,8 @@ label mary1:
 
     scene makeuproom
     with fade
+
+    $ mary_stat += 1
 
     $ config.side_image_tag = ""
 
@@ -454,10 +455,7 @@ label mary1:
         an "I hope I made a decent impression. It feels like I know nothing about her."
         an "Well, if she's not gonna talk to me, I guess I can chase her down some other day."
 
-        if day == 1:
-            jump insomnia1
-        elif day == 2:
-            jump sleepy1
+        jump nightSwitch
 
 
         ## end scene
@@ -678,8 +676,7 @@ label taylorroom:
 
             an "It was strange. I kinda kept my distance, thinking she was so serious and aloof, but... she's nicer than I gave her credit for!"
 
-            if day == 3:
-                jump excited1
+            jump nightSwitch
 
             ### end scene
 
@@ -779,16 +776,18 @@ label cherry1:
         an "Cherry and I spend some time looking over hairstyles."
         an "Before long, Cherry has something picked out... and the hairstylist boots me out so she can work. Rude..."
 
-        if day == 3:
-            jump excited1
+        jump nightSwitch
+
         ## end scene
 
 
 
 label cherry2:
 
-    scene hallway
+    scene hallday
     with fade
+
+    $ cherry_stat += 1
 
     an "Cherry said she was working on something over in the dining room. Maybe I'll head over there to check on her."
 
@@ -802,7 +801,7 @@ label cherry2:
 
     show cherry up smile at center:
         zoom 1.4
-        yalign 0.4
+        yalign 0.5
     with dissolve
 
     a talk "Hey!! ...What are you doing over here?"
@@ -846,6 +845,7 @@ label cherry2:
     c talk "...Hehe. I guess so. It's a little reassuring I'm not the only one just kinda riding along."
     show cherry smile
 
+    jump nightSwitch
 
     ## end scene
 
@@ -854,6 +854,8 @@ label cherry3:
     an "The next contest is coming up soon. I should probably get some practice in ahead of time."
     an "Cherry's probably in her room. Out of all the girls, she's definitely the most approachable."
     an "I'll go see what she's up to."
+
+    $ cherry_stat += 1
 
     scene hallwayday
     with fade
@@ -940,6 +942,7 @@ label cherry3:
         jump cherry3merge
 
     label cherry3positive:
+        $ cherry_stat += 1
         a frowntalk "You feel like you're not good enough, and I get that, it... self-comparisons are really hard."
         a frown "{nw}"
         c frowntalk "...Yeah..."
@@ -980,7 +983,11 @@ label cherry3:
         
         $ config.side_image_tag = ""
         hide cherry with dissolve
+
         an "But it cheered Cherry up. I think that's a net positive."
+
+        jump nightSwitch
+
         ## end scene
 
 
@@ -1070,6 +1077,8 @@ label musicroom:
 
         an "...God I hope I survive this goddamn show."
 
+        jump nightSwitch
+
         ## end scene
 
         
@@ -1116,7 +1125,7 @@ label musicroom:
         
         show mary smile
         
-        ann "{i}If Mary is willing to practise with me, I think I’d benefit a lot from working with her. It’d be more fun to have company too. Mary is actually quite nice now that I’m getting to know her better.{/i}"
+        ann "{i}If Mary is willing to practice with me, I think I’d benefit a lot from working with her. It’d be more fun to have company too. Mary is actually quite nice now that I’m getting to know her better.{/i}"
         
         a talk "Alright. Let's start!"
         
@@ -1127,6 +1136,8 @@ label musicroom:
         $ config.side_image_tag = ""
 
         an "Mary and I end up practicing for a couple of hours before eventually changing it to karaoke."
+
+        jump nightSwitch
         
         ## end scene
 
@@ -1210,171 +1221,11 @@ label musicroom:
 
         di "Ohhhh nooo, Daddy didn't mean to frighten you little schnookie wookies...!"
 
-        if day == 1:
-            jump insomnia1
-        elif day == 2:
-            jump sleepy1
+        jump nightSwitch
 
 
 
         ## end scene
-
-
-
-        
-
-label lounge:
-    
-    label jacquesinterview:
-
-        an "You know what? I think I need to stretch my legs for a while..."
-        an "I’ll take a walk around the grounds and see if I can clear my head."
-
-        scene fountainday
-        with fade
-
-        an "As I step outside, the gravel crunches softly under my feet."
-        an "It’s crunching much {i}less{/i} softly as a tall, harried figure paces back and forth on the other side of the fountain."
-        an "I peek my head around."
-
-        $ config.side_image_tag = "alice"
-
-        a frowntalk "...{i}Jacques[/i}?"
-        an frown "He stops and looks up at me."
-
-        show jacques up frown at center:
-            zoom 1.2
-            yalign 0.3
-        with dissolve
-
-        j frowntalk "Yes? Can I help you, mademoiselle?" 
-
-        show jacques frown
-
-        a frowntalk "Umm..."
-
-        menu: 
-            "Ask him what’s wrong.":
-                jump jacqueschat1
-
-            "Forget it and leave.":
-                jump jacquesscene1end
-
-        label jacqueschat1:
-
-            a "You look like you’re... thinking about something."
-            an frown "{nw}"
-
-            j talk "My dear Alice, I’m {i}always{/i} thinking about something."
-            j frowntalk "...But you’re right. This morning I am... how do you say... {i}elsewhere{/i}."
-
-            show jacques frown
-
-            a frowntalk "Excuse me?"
-            an frown "{nw}"
-
-            j frowntalk "It’s an {i}interview{/i}, mademoiselle."
-
-            show jacques frown
-
-            an "That... didn’t really answer my question."
-            a frowntalk "So are you interviewing {i}us{/i}? Like, for the show."
-            an frown "Jacques waves his hand dismissively."
-
-            j frowntalk "No, it’s nothing like {i}that{/i}."
-            j "It’s the {i}press{/i}. {i}They{/i} want to interview {i}me{/i}... Ah, {i}moi{/i}."
-
-            show jacques frown
-
-            a frowntalk "Oh? How come?"
-            an frown "Jacques raises an eyebrow."
-            a down talk "I mean, {i}aside{/i} from the fact that you’re very famous and talented."
-            a smile "{nw}"
-
-            j talk "{i}And{/i} handsome."
-            j "But you’ve got a point."
-            j frowntalk "You see...this show, {i}Supernova{/i}, it’s my first \"big project\" in a very long time."
-
-            show jacques frown
-
-            an frown "That’s right."
-            an "I’d remembered seeing Jacques on all kinds of kids’ variety shows growing up."
-            an "Gameshows, talk shows, stuff where he’d interview tween pop stars..."
-            an "But that stuff kind of...fell out of fashion around the time I graduated junior high."
-            an "I hadn’t thought about it until now, but {i}Supernova{/i} was the first time I’d seen Jacques Bellvance in {i}years{/i}."
-            a frowntalk "So... this is kind of like your big comeback?"
-            a frown "{nw}"
-
-            j frowntalk "Oh, I never really {i}went away{/i}, it’s just the lovely public got {i}distracted{/i} by all the new fads out there."
-            
-            show jacques down frown
-
-            an "He sounds... maybe just a little bitter about that."
-
-            j up talk "But the past is in the past! C’est la vie, non?"
-            j "Now we’re back on track, and I’m becoming a household name once again."
-
-            show jacques smile
-
-            a frowntalk "So, is that what they’re going to ask you about?"
-            a frown "{nw}"
-
-            j frowntalk "Hmm, most likely {i}not{/i}, but {i}that’s{/i} the art of the interview."
-
-            show jacques smile
-
-            an "He winks at me, smiling."
-            j talk "The presss always want to ask the same old boring questions."
-            j "But if you know the right words to say, well... a well-aimed {i}bon mot{/i} can help you steer the conversation."
-
-            show jacques smile
-
-            a talk "So you can talk about what {i}you{/i} want to talk about."
-            a smile "{nw}"
-
-            j talk "{i}Exactement{/i}, dear Alice."
-            j "And {i}that{/i} is your little Bellvance Industry Pro Tip of the day."
-
-            show jacques smile
-
-            an "My {i}what{/i} now?"
-            a down talk "Well, uh, thanks, Jacques."
-            a "It was nice talking to you."
-            a smile "{nw}"
-
-            j talk "Of course it was."
-
-            show jacques smile
-
-            an "He winks again."
-
-            j talk "After all, that’s my {i}job{/i} Alice."
-            j "~Conversation With Style!~"
-
-            show jacques smile
-
-            an smile "Cheesy as it is, I can’t help by smile as I walk away."
-            an "He may be kind of an eccentric, but deep down, Jacques is a really nice person."
-            an "At least... I think he is."
-
-            jump jacquessceneending
-
-        label jacquessceneoneend:
-
-            an frown "As much as I’d like to keep talking to Jacques, I’ve got other things I need to do..."
-
-        label jacquessceneending:
-
-            $ config.side_image_tag = ""
-
-            an "I part ways with him and walk back inside."
-
-            if day == 2:
-                jump sleepy1
-
-
-
-
 
         
 
@@ -1422,6 +1273,7 @@ label rooftop:  ## garden
         
         ann "{i}Mary continues practicing, projecting her voice into the crisp, morning air. I have fun watching her, even learning a bit along the way.{/i}"
         
+        jump nightSwitch
         
 
         
@@ -1613,18 +1465,20 @@ label shopping:
 
             show cherry smile
 
-            show cherry at 2.0 with moveoutright
+            show cherry:
+                xalign 2.0 
+            with moveoutright
 
-            show cherry at -1.1 with moveinleft
+            $ renpy.pause(0.5)
+
+            show cherry:
+                xalign -1.1
+            with MoveTransition(1.0)
 
             a talk "...Well, alright. Godspeed."
             an smile "She's dedicated, I'll give her that..."
 
-
-            if day == 1:
-                jump insomnia1
-            elif day == 2:
-                jump sleepy1
+            jump nightSwitch
 
             ## end scene
 
