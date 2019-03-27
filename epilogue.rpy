@@ -3,11 +3,129 @@
 ########################################        Post Game Scenes        ##########################################
 ##################################################################################################################
 ##################################################################################################################
+image credits_text = ParameterizedText(outlines=[(2, "#3E0045", 0, 0)], size=40, xalign=0.5, yalign=0.5)
 
 label credits:
-    "congrats i havent finished this part"
-    "lots of people helped make this a thing and theyll be here Eventually^TM"
-    "ok now theres an epilogue left and then its OVER bye"
+
+    $ quick_menu = False 
+
+    scene black
+    with fadee
+
+    show credits_text "Lead Designer & Sprite Artist: Violora"
+    with dissolve
+
+    pause 2
+
+    show promo at leftt behind credits_text:
+        zoom 0.50
+        yalign -7.0
+        subpixel True
+        linear 15 yalign 13.0
+        linear 1 alpha 0
+    with Dissolve(1.0)
+
+    pause 6
+
+    hide text
+    with dissolve
+
+    show credits_text "Director, Lead Programmer & Marketer: MikomiKisomi"
+    with dissolve
+        
+    pause 8
+
+    show promomary at rightt behind credits_text:
+        zoom 0.50
+        yalign -7.0
+        subpixel True
+        linear 15 yalign 13.0
+        linear 1 alpha 0
+    with Dissolve(1.0)
+
+    hide text
+    with dissolve
+
+    show credits_text "\nLead Writer: Kevin \"Tutty The Fruity\" Armstrong"
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
+    show credits_text "\nWriter: Kidd \"The Maniac\" Bowyer"
+    with dissolve
+        
+    pause 8
+
+    show promotaylor at leftt behind credits_text:
+        zoom 0.50
+        yalign -7.0
+        subpixel True
+        linear 15 yalign 13.0
+        linear 1 alpha 0
+    with Dissolve(1.0)
+
+    hide text
+    with dissolve
+
+    show credits_text "\nWriter: Seigetsu"
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
+    show credits_text "\nStory Consultants: Penelope Pilbeam, Andi Wamboldt"
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
+    show promocherry at rightt behind credits_text:
+        zoom 0.50
+        yalign -7.0
+        subpixel True
+        linear 15 yalign 12.0
+        linear 1 alpha 0
+    with Dissolve(1.0)
+
+    show credits_text "Special thanks to Ryanne Bowyer, \nNicoletta Christina Browne, and Ayu Sakata."
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
+    show credits_text "\"Fearless\" by Tavian St. James and \n\"Friends Forever\" and \"Forever Dreaming\" by Alcaknight"
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
+    show credits_text "\"Knocking Door\" by dersuperanton, \"Wooden Door Open\" by joedeshon, and \"On Stage Jingles\" by Setuniman"
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
+    show credits_text "This game was made with Ren'Py.\nThank you Pytom."
+    with dissolve
+        
+    pause 8
+
+    hide text
+    with dissolve
+
 
     jump epilogue
 
@@ -19,6 +137,8 @@ label epilogue:
 
     scene black
     with fadee
+
+    $ config.side_image_tag = ""
     
     ann "{i}Oh shit, I'm gonna be late!{/i}"
     ann "{i}It’s all my own fault. I shouldn’t have been so damn excitable that I couldn’t fall asleep all night, then ended up dozing off on my chair just three hours before showtime!{/i}"

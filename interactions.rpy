@@ -314,7 +314,7 @@ label mary1:
     an "Even Jacques doesn't get to peep inside, and he basically owns the joint! It's so curious..."
     an "I think I'll surprise her. Then I can get to the bottom of this!"
 
-    ## TODO sfx rattle door
+    play sound "doorknock.mp3"
 
     $ config.side_image_tag = "alice"
 
@@ -328,7 +328,7 @@ label mary1:
     an "The door was thin. Even with the barrier between us, Mary's shrill commands were still piercingly loud."
     an "With a sigh, I waited a few minutes. Good time to collect my composure - speaking with Mary was a trial."
 
-    ## TODO sfx door open
+    play sound "dooropen.mp3"
 
     scene makeuproom
     with fade
@@ -461,224 +461,359 @@ label mary1:
         ## end scene
 
 
+label maryafterelim:
+
+    scene hallday
+    with fade
+
+    $ config.side_image_tag = ""
+
+    ann "{i}I think I'll see what Mary's up to. I haven't seen a lot of her since she got eliminated.{/i}"
+    ann "{i}Hoo, that was a stressful show.  Things are really coming down to the wire now.{/i}"
+    ann "{i}I wonder what Mary's gonna do now?{/i}"
+    ann "{i}She doesn't come to group practices anymore. Sometimes I see her rehearsing by herself, but... are we all just supposed to move forward?{/i}"
+    ann "{i}These questions all ring in the back of my head as I stand in front of Mary's room.{/i}"
+
+    play sound "doorknock.mp3"
+
+    ann "{i}I knock at her door, hoping for a response.{/i}"
+    ann "{i}...{/i}"
+    ann "{i}... ...{/i}"
+
+    $ config.side_image_tag = "alice"
+    a frown "...?"
+    ann "{i}Quietly, I listen closely. Inside, I could hear her voice. She was murmuring to someone.{/i}"
+
+    play sound "doorknock.mp3"
+
+    ann "{i}So she is in there! I knock again with a little more oomph.{/i}"
+
+    m "Can you sit still for {i}one second!?{/i} I'm on the phone!"
+
+    a frowntalk "Ah!"
+
+    ann frown "{i}I made out an exasperated sigh from the other side of the door.{/i}"
+    ann "{i}Well, Mary seemed to be... well, pretty much the same as usual. That was oddly relieving.{/i}"
+    ann "{i}And I already announced my presence, so... all I could do was awkwardly stand there until Mary summoned for me.{/i}"
+
+    play sound "dooropen.mp3"
+
+    ann "{i}Thankfully, it wasn't long until the door swung open.{/i}"
+
+    m "Come in."
+
+    an "With that low-spoken invitation, I let myself in."
+
+    scene bedmaryday
+    with fade
+
+    show mary unsure frown at center:
+        zoom 1.4
+        yalign 0.5
+    with dissolve
+
+    $ config.side_image_tag = "alice"
+
+    m frowntalk "Tch... sorry for making you wait. I was on the phone with my agent."
+
+    show mary frown
+
+    a down talk "Hi, Mary, um... how are you feeling?"
+    a smile "{nw}"
+
+    m down frowntalk "...? What does that mean? Don't tell me you came over for pity."
+
+    show mary frown
+
+    a frowntalk "Well, since you got eliminated, we don't really see you a lot, so I wondered..."
+    a frown "{nw}"
+
+    m frowntalk "You wondered {i}what{/i}? That I'd be sitting in here all day crying my eyes out? {i}Please.{/i}"
+    m up "You gotta give me a little bit of credit here..."
+
+    show mary frown
+
+    a frowntalk "Th-that's not what I meant, I..."
+    extend "I wanted to see you again, that's all!"
+
+    a frown "{nw}"
+
+    m talk "...Heh. So bloody sentimental."
+
+    show mary smile
+
+    ann "{i}She scoffed, folding her arms. I feel like she was judging me.{/i}"
+
+    m talk "Don't worry your pretty little head. The producer's keeping me around to talk to fans."
+    m "And my agent's already lined me up with a deal to produce a solo album. I'd say I'm in good shape."
+
+    show mary smile
+
+    a up talk "Oh! That's so great!! Let me know when it drops so I can buy, like, ten copies!"
+    a smile "{nw}"
+
+    m talk "Only ten? You wound me, Alice."
+
+    show mary smile
+
+    ann "{i}We share a laugh. Mary seemed to be in high spirits.{/i}"
+
+    a talk "Aaaaah, you're gonna be an idol after all..."
+    a smile "{nw}"
+
+    m talk "Well, I wasn't about to go back and live on Daddy's credit cards all over again."
+    m "And it's not like life's just over when you lose. You just go and do something else, yeah?"
+    m "...I mean, I'm famous now, and I got fans, so I figure I made it out okay."
+
+    show mary smile
+
+    a talk "...Yeah. You're right."
+    a frowntalk "Honestly, I was really worried about what would happen if I lost. I don't really have a plan, you know, so...."
+    a frown "{nw}"
+
+    m talk "You need an agent. I could get you in with my guy, she's fantastic, absolutely cutthroat!"
+
+    show mary smile
+
+    a frowntalk "Eh? ...Cutthroat how?"
+    a frown "{nw}"
+
+    m frowntalk "She's a master at power plays, like... like making sure you only get the blue M&Ms, or so help them-"
+
+    show mary frown
+
+    a frowntalk "What, seriously? Is that one of your requests?"
+    a frown "{nw}"
+
+    m talk "Me? Pfft, no, I'm not crazy. They're all the same."
+
+    show mary frown
+
+    a frowntalk "...Right."
+
+    $ config.side_image_tag = ""
+    ann "{i}Mary and I hung out for a few hours...{/i}"
+
+    jump nightSwitch
+
+
         
         
-label taylorroom:
     
-    label taylor1:
-        scene hallday
-        with fade
+label taylor1:
+    scene hallday
+    with fade
 
-        $ config.side_image_tag = ""
+    $ config.side_image_tag = ""
 
-        an "I opt to head over to Taylor's room for now."
-        an "Her trailer's a bit of a walk to get to. It doesn't see a lot of foot traffic, and you kinda have to go out of the way to reach it."
-        an "Stopping right in front of the door, I overhear some muffled music from the other side."
-        an "It sounds {i}super familiar{/i}, but I can't quite put my finger on it."
+    an "I opt to head over to Taylor's room for now."
+    an "Her trailer's a bit of a walk to get to. It doesn't see a lot of foot traffic, and you kinda have to go out of the way to reach it."
+    an "Stopping right in front of the door, I overhear some muffled music from the other side."
+    an "It sounds {i}super familiar{/i}, but I can't quite put my finger on it."
 
-        ## TODO sfx: knock knock
+    play sound "doorknock.mp3"
 
-        ann "I knock at the door to her trailer, adding a bit more oomph. Hopefully the music wouldn't drown it out."
+    ann "I knock at the door to her trailer, adding a bit more oomph. Hopefully the music wouldn't drown it out."
 
-        $ config.side_image_tag = "alice"
+    $ config.side_image_tag = "alice"
 
-        t "Door's open!"
+    t "Door's open!"
 
-        a frowntalk "Ah-"
+    a frowntalk "Ah-"
+
+    a frown "{nw}"
+
+    play sound "dooropen.mp3"
+
+    scene black
+    with dissolve
+
+    an "Letting myself in, I catch a glimpse at the interior of Taylor's room."
+
+    scene bedtaylorday
+    with fade
+
+    an "It's pretty organized, with each corner of her space dedicated to something. There was a yoga mat to the far corner, some exercise equipment..."
+    an "She managed to fit a sofa in here! And that's where she was, sprawled along it as she picked at a pile of peeled oranges. She's watching some kind of movie on her TV."
+    
+    show taylor up frown at center
+    with dissolve
+
+    t frowntalk "Oh. Hey, Alice. Didn't expect you, what's up?"
+
+    show taylor frown
+
+    an "She turns her head to me with an affirmative nod."
+
+    a frowntalk "Ah! I just wanted to see what you were up to! We barely talk, soooo..."
+
+    a frown "{nw}"
+
+    t frowntalk "...You know we're {i}competing{/i} against each other, right?"
+
+    show taylor frown
+
+    a talk "Right! Right, of course, but... we can still do stuff. I just kinda wanted to get to know you a bit better, that's all."
+    
+    a smile "{nw}"
+
+    t "..."
+
+    show taylor:
+        zoom 1.4
+        yalign 0.40
+    with dissolve
+
+    an frown "Taylor gave me a long look, like she was studying me and downloading my psyche. It was a little unnerving."
+    an "Was she undressing me with her eyes?? Wait, no, you're only supposed to do that on stage..."
+
+    t frowntalk "...Alright. I can vibe with that. C'mon, take a seat."
+
+    show taylor frown:
+        yalign 0.35
+
+    an "She sat up, patting the spot next to her. Oh my gosh, she's accepting me as one of her own!"
+    an "I take a seat next to her, getting a better look at the screen. There was some kind of a dance off in a dingy street alley..."
+
+    t frowntalk "You remember \"Hiphop Streetz\"? They made a bunch of these movies."
+
+    show taylor frown
+
+    a talk "Vaaaaguely. I remember this song though! From Tiffany Lancer!! They played it everywhere when I was a kid!"
+    a "Gosh, I wonder what she's up to nowadays, she was a huuuuge star..."
+
+    a smile "{nw}"
+
+    t frowntalk "Something about a mental breakdown. She drove her Impala into a fountain, hopped up on anti-depressants."
+
+    show taylor frown
+
+    a frowntalk "....Ohhhhhh. Ohhh noooo."
+
+    an frown "Well, that was awkward. Silence hung in the air, the sick beats of the movie filling the void."
+    an "I should probably say something..."
+
+    menu:
+        #negative
+        "These movies are inspirational.":
+            jump tbad1
+        #positive
+        "They're really good dancers!":
+            jump tgood1
+        #neutral
+        "Do you watch a lot of movies?":
+            jump tneutral1
+
+    label tbad1:
+        a talk "I love these kinds of underdog stories. They're so inspirational..."
+
+        a smile "{nw}"
+
+        t frowntalk "Eh. I dunno. I feel like movies like this kinda trick kids?"
+
+        show taylor frown
+
+        a frowntalk "Huh? What do you mean?"
 
         a frown "{nw}"
 
-        ## TODO sfx door open
+        t frowntalk "You don't get to be a superstar in a matter of two-and-something hours. You really gotta buckle down and {i}work{/i} at it, y'know?"
+        t "And getting good at anything that matters takes years and years of dedication. Manufactured stuff like this kind of sends the wrong message."
+        
+        show taylor frown
 
-        scene black
-        with dissolve
+        a frowntalk "...Then why are you watching it?"
 
-        an "Letting myself in, I catch a glimpse at the interior of Taylor's room."
+        a frown "{nw}"
 
+        t frowntalk "Pfft, it's not for the writing or anything. The choreography's sick, and I'm taking notes."
+
+        show taylor frown
+
+        a frowntalk "...Ohhhh."
+        an frown "So she was studying after all."
+        an "I don't think I made a very good impression..."
+        jump tmerge1
+
+
+    label tgood1:
+        $ taylor_stat += 1
+
+        a talk "These dancers are incredible, wow!"
+
+        a smile "{nw}"
+
+        t talk "Yeah, right? The actual writing's all over the place, but who cares. These guys are definitely professionals."
+        t frowntalk "Sucks that you're only getting to see the end of it, though. Maybe I can loan you the disc?"
+
+        show taylor frown
+
+        a frowntalk "Really? You'd do that?"
+
+        a frown "{nw}"
+
+        t talk "Yeah. I think it's good research material. Being a pop idol isn't about having great chords, you gotta have energy and stage presence."
+        t "And you can say a lot with the right motions of the body... you're feeling me, right?"
+
+        show taylor frown
+
+        a talk "Yeah, yeah! Of course! Ah, now I wish I took classes a lot sooner."
+
+        a smile "{nw}"
+
+        t talk "Heheh! You got plenty of time, don't sweat it."
+
+        show taylor smile
+
+        an "We really hit it off! That went great!"
+        jump tmerge1
+
+    label tneutral1:
+        a talk "Do you watch a lot of movies, Taylor?"
+
+        a smile "{nw}"
+
+        t frowntalk "Mm. I let them play in the background. They're good background noise for when I'm doing something actually important."
+        t "Liiiike... you watch documentaries? They're good for new perspectives. I probably prefer those."
+
+        show taylor frown
+
+        a frowntalk "...These movies aren't based on true stories though, aren't they?"
+
+        a frown "{nw}"
+
+        t frowntalk "Nah. I mean, maybe. Who knows? I'm just in it for the choreography."
+
+        show taylor frown
+
+        an smile "I learned something new about Taylor, at least."
+        an "I made an okay impression, I guess."
+        jump tmerge1
+
+    label tmerge1:
         scene bedtaylorday
         with fade
 
-        an "It's pretty organized, with each corner of her space dedicated to something. There was a yoga mat to the far corner, some exercise equipment..."
-        an "She managed to fit a sofa in here! And that's where she was, sprawled along it as she picked at a pile of peeled oranges. She's watching some kind of movie on her TV."
-        
-        show taylor up frown at center
-        with dissolve
+        an "Before long, Taylor and I finished watching the movie."
 
-        t frowntalk "Oh. Hey, Alice. Didn't expect you, what's up?"
-
-        show taylor frown
-
-        an "She turns her head to me with an affirmative nod."
-
-        a frowntalk "Ah! I just wanted to see what you were up to! We barely talk, soooo..."
-
-        a frown "{nw}"
-
-        t frowntalk "...You know we're {i}competing{/i} against each other, right?"
-
-        show taylor frown
-
-        a talk "Right! Right, of course, but... we can still do stuff. I just kinda wanted to get to know you a bit better, that's all."
-        
-        a smile "{nw}"
-
-        t "..."
-
-        show taylor:
+        show taylor up frown at center:
             zoom 1.4
             yalign 0.40
         with dissolve
 
-        an frown "Taylor gave me a long look, like she was studying me and downloading my psyche. It was a little unnerving."
-        an "Was she undressing me with her eyes?? Wait, no, you're only supposed to do that on stage..."
-
-        t frowntalk "...Alright. I can vibe with that. C'mon, take a seat."
-
-        show taylor frown:
-            yalign 0.35
-
-        an "She sat up, patting the spot next to her. Oh my gosh, she's accepting me as one of her own!"
-        an "I take a seat next to her, getting a better look at the screen. There was some kind of a dance off in a dingy street alley..."
-
-        t frowntalk "You remember \"Hiphop Streetz\"? They made a bunch of these movies."
-
-        show taylor frown
-
-        a talk "Vaaaaguely. I remember this song though! From Tiffany Lancer!! They played it everywhere when I was a kid!"
-        a "Gosh, I wonder what she's up to nowadays, she was a huuuuge star..."
+        a talk "I should get going. Thanks for having me, Taylor!"
 
         a smile "{nw}"
 
-        t frowntalk "Something about a mental breakdown. She drove her Impala into a fountain, hopped up on anti-depressants."
+        t frowntalk "No problem. Don't be a stranger."
 
         show taylor frown
 
-        a frowntalk "....Ohhhhhh. Ohhh noooo."
+        an "It was strange. I kinda kept my distance, thinking she was so serious and aloof, but... she's nicer than I gave her credit for!"
 
-        an frown "Well, that was awkward. Silence hung in the air, the sick beats of the movie filling the void."
-        an "I should probably say something..."
+        jump nightSwitch
 
-        menu:
-            #negative
-            "These movies are inspirational.":
-                jump tbad1
-            #positive
-            "They're really good dancers!":
-                jump tgood1
-            #neutral
-            "Do you watch a lot of movies?":
-                jump tneutral1
-
-        label tbad1:
-            a talk "I love these kinds of underdog stories. They're so inspirational..."
-
-            a smile "{nw}"
-
-            t frowntalk "Eh. I dunno. I feel like movies like this kinda trick kids?"
-
-            show taylor frown
-
-            a frowntalk "Huh? What do you mean?"
-
-            a frown "{nw}"
-
-            t frowntalk "You don't get to be a superstar in a matter of two-and-something hours. You really gotta buckle down and {i}work{/i} at it, y'know?"
-            t "And getting good at anything that matters takes years and years of dedication. Manufactured stuff like this kind of sends the wrong message."
-            
-            show taylor frown
-
-            a frowntalk "...Then why are you watching it?"
-
-            a frown "{nw}"
-
-            t frowntalk "Pfft, it's not for the writing or anything. The choreography's sick, and I'm taking notes."
-
-            show taylor frown
-
-            a frowntalk "...Ohhhh."
-            an frown "So she was studying after all."
-            an "I don't think I made a very good impression..."
-            jump tmerge1
-
-
-        label tgood1:
-            $ taylor_stat += 1
-
-            a talk "These dancers are incredible, wow!"
-
-            a smile "{nw}"
-
-            t talk "Yeah, right? The actual writing's all over the place, but who cares. These guys are definitely professionals."
-            t frowntalk "Sucks that you're only getting to see the end of it, though. Maybe I can loan you the disc?"
-
-            show taylor frown
-
-            a frowntalk "Really? You'd do that?"
-
-            a frown "{nw}"
-
-            t talk "Yeah. I think it's good research material. Being a pop idol isn't about having great chords, you gotta have energy and stage presence."
-            t "And you can say a lot with the right motions of the body... you're feeling me, right?"
-
-            show taylor frown
-
-            a talk "Yeah, yeah! Of course! Ah, now I wish I took classes a lot sooner."
-
-            a smile "{nw}"
-
-            t talk "Heheh! You got plenty of time, don't sweat it."
-
-            show taylor smile
-
-            an "We really hit it off! That went great!"
-            jump tmerge1
-
-        label tneutral1:
-            a talk "Do you watch a lot of movies, Taylor?"
-
-            a smile "{nw}"
-
-            t frowntalk "Mm. I let them play in the background. They're good background noise for when I'm doing something actually important."
-            t "Liiiike... you watch documentaries? They're good for new perspectives. I probably prefer those."
-
-            show taylor frown
-
-            a frowntalk "...These movies aren't based on true stories though, aren't they?"
-
-            a frown "{nw}"
-
-            t frowntalk "Nah. I mean, maybe. Who knows? I'm just in it for the choreography."
-
-            show taylor frown
-
-            an smile "I learned something new about Taylor, at least."
-            an "I made an okay impression, I guess."
-            jump tmerge1
-
-        label tmerge1:
-            scene bedtaylorday
-            with fade
-
-            an "Before long, Taylor and I finished watching the movie."
-
-            show taylor up frown at center:
-                zoom 1.4
-                yalign 0.40
-            with dissolve
-
-            a talk "I should get going. Thanks for having me, Taylor!"
-
-            a smile "{nw}"
-
-            t frowntalk "No problem. Don't be a stranger."
-
-            show taylor frown
-
-            an "It was strange. I kinda kept my distance, thinking she was so serious and aloof, but... she's nicer than I gave her credit for!"
-
-            jump nightSwitch
-
-            ### end scene
+        ### end scene
 
 
 label cherry1:
@@ -689,7 +824,7 @@ label cherry1:
     $ cherry_stat += 1
 
     an "I wonder what Cherry's up to? I'll call her."
-    ## TODO sfx ringtone
+
     "{cps=40}... ... ...{/cps}"
     c "Hello?"
     a "Heyyy, Cherry, it's Alice. You up to anything?"
@@ -703,6 +838,9 @@ label cherry1:
 
     scene makeuproom
     with fade
+
+    play music "Friends Forever.wav" fadeout 1
+    queue music "Friends Forever.wav"
 
     $ config.side_image_tag = "alice"
 
@@ -794,6 +932,9 @@ label cherry2:
     scene dinnerday
     with fade
 
+    play music "Friends Forever.wav" fadeout 1
+    queue music "Friends Forever.wav"
+
     $ config.side_image_tag = "alice"
 
     an "I catch her at a table by herself. She's surrounded by emptied bottles of store-bought cappuccinos."
@@ -857,16 +998,20 @@ label cherry3:
 
     $ cherry_stat += 1
 
-    scene hallwayday
+    scene hallday
     with fade
-    ## TODO sfx doorknock
+
+    play sound "doorknock.mp3"
 
     an "I knock on her door."
     $ config.side_image_tag = "alice"
     a talk "Hey, Cherry, it's Alice! Are you free right now?"
     a smile "{nw}"
     c "..."
-    a talk "I figured we can practice together! How does that sound?"
+    if day < 6:
+        a talk "I figured we can practice together! How does that sound?"
+    else:
+        a talk "I just wanted to come by and see how you were doing."
     a smile "{nw}"
     c "...Okaay."
     a frown "...?"
@@ -879,6 +1024,9 @@ label cherry3:
 
     scene bedcherryday
     with fade
+
+    play music "Friends Forever.wav" fadeout 1
+    queue music "Friends Forever.wav"
 
     show cherry up frown at center:
         zoom 1.4
@@ -1288,6 +1436,9 @@ label shopping:
         an "Being smack dab in the middle of the big city has its perks. There's stuff in these stores that you can't find anywhere else!"
         an "And it's so biiiiig. I could spend all day here. But I shouldn't— I don't want to miss rehearsals."
         c "{b}AAAAAAAAAALIIIIIIIIICE!!{/b}"
+
+        play music "Friends Forever.wav" fadeout 1
+        queue music "Friends Forever.wav"
 
         $ config.side_image_tag = "alice"
 

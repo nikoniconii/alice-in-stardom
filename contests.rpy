@@ -1328,6 +1328,9 @@ label week4contest:
     scene stage5far
     with fadee
 
+    play music "Fearless.ogv" fadeout 1
+    queue music "Fearless.ogv"
+
     $ config.side_image_tag = "alice"
     
     ann frown edgy "{i}If the prep room was quiet last week, then it’s silent this week.{/i}"
@@ -1935,8 +1938,10 @@ label finalcontest:
 
     ann "{i}We have walked a long way.{/i}"
     ann "{i}Jacques is right. It really has been a month of sweat and tears. We have met many people along the way, but now, this is a path that we must take alone.{/i}"
-    ann "{i}The audience is watching us. Our friends and family are watching us. We are surrounded, but the moment you set foot on the stage, you are by yourself. You are in a place where they can’t reach you.{/i}"
-    ann "{i}Still, you must shine for them, like the sun and moon, stars and meteors. You are high above the people, but you must make them gravitate towards you, show them the flame that burns in your heart, and use it to warm their hearts too.{/i}"
+    ann "{i}The audience is watching us. Our friends and family are watching us.{/i}"
+    ann "{i}We are surrounded, but the moment you set foot on the stage, you are by yourself. You are in a place where they can’t reach you.{/i}"
+    ann "{i}Still, you must shine for them, like the sun and moon, stars and meteors.{/i}"
+    ann "{i}You are high above the people, but you must make them gravitate towards you, show them the flame that burns in your heart, and use it to warm their hearts too.{/i}"
     ann "{i}That's what Taylor is doing now.{/i}"
 
     show taylor upprince frown prince at center
@@ -1953,7 +1958,8 @@ label finalcontest:
     with dissolve
 
     ann "{i}She has left her shell far behind her. This is the new Taylor. The real Taylor. And the talent she is showcasing is absolutely amazing!{/i}"
-    ann "{i}The guitar riffs are sick. The drums are pounding with my heartbeat. Her voice starts deep and rises like a bird taking flight. Not just any bird. He’s an eagle, soaring high, spreading its wings to glide the azure skies.{/i}"
+    ann "{i}The guitar riffs are sick. The drums are pounding with my heartbeat.{/i}"
+    ann "{i}Her voice starts deep and rises like a bird taking flight. Not just any bird. She’s an eagle, soaring high, spreading its wings to glide the azure skies.{/i}"
     ann "{i}The floodlights, reflecting golden off her hair, are like sunshine crowning eagle feathers. It’s so bright that I must squint against her light. This surely is proof of her kingship over the heavens.{/i}"
     ann "{i}Even though Taylor has always been so talented, I think she couldn’t have performed like this without the struggles she has been through over the past weeks.{/i}"
     ann "{i}Only after a long night does the light of dawn appear beautiful. Only after a cold winter does spring feel warm. Without loss, there is no gain. Without falling down, you never learn how to stand back up.{/i}"
@@ -2012,7 +2018,7 @@ label finalcontest:
         $ failed = False
         $ round = 0 #start at 0 for round 1, etc
         $ eliminated = False
-        while round < 3 and not eliminated: #assuming there are 3 rounds, after that we'd be done
+        while round < 4 and not eliminated: #assuming there are 4 rounds, after that we'd be done
             $ phrase1 = False
             $ phrase2 = False
             $ phrase3 = False
@@ -2287,7 +2293,7 @@ label failed:
     if slow >= 3:
         call eliminated from _call_eliminated
     else:
-        $ rand = renpy.random.randint(1,6)
+        $ rand = renpy.random.randint(1,7)
 
         if rand == 1:
             an "Dammit, that's not right!"
@@ -2301,6 +2307,8 @@ label failed:
             an "Wait, wrong line!"
         if rand == 6:
             an "Oh no, no one heard that, right?"
+        if rand == 7:
+            an "That wasn't right! I gotta start that over..."
 
     return
 
@@ -2382,18 +2390,21 @@ define week4 = [{
 }]
 
 
-##TODO final contest  lyrics
 define week5 = [{
-    "lyrics": ["City lights streaming", "His heart beats fast", "The wind is racing", "All of it's in the past"],
-    "locations" : [(50, 50), (300, 300), (100, 250), (600, 600)]
+    "lyrics": ["City lights streaming", "The air is whistling", "I won't give up", "Give up"],
+    "locations" : [(50, 700), (200, 500), (400, 300), (600, 100)]
 },
 {
-    "lyrics": ["Keep running", "Keep running", "Keep running till the end", "Till the end"],
-    "locations" : [(20, 50), (300, 250), (100, 450), (400, 650)]
+    "lyrics": ["Spark a wish", "Keep on hoping", "Make a wish", "For a new tomorrow"],
+    "locations" : [(20, 700), (200, 650), (350, 400), (400, 150)]
 },
 {
-    "lyrics": ["He'll reach his goal", "He'll never stop", "When the lights turn on", "He'll be there"],
+    "lyrics": ["Take the step with me", "Wish with me", "Together", "Together"],
     "locations" : [(50, 30), (200, 180), (50, 300), (400, 420)]
+},
+{
+    "lyrics": ["We'll make", "our dream", "come", "true"],
+    "locations" : [(100, 150), (200, 300), (350, 400), (550, 520)]
 }]
 
 

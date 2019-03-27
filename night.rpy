@@ -283,9 +283,11 @@ label night1:
 
         scene black
         with fade
-        ann "{i}I book it back to my trailer, lock all the doors and windows, and throw the covers over my head.{/i}"
+        ann "{i}I book it back to my room, lock all the doors and windows, and throw the covers over my head.{/i}"
         ann "{i}I had a pretty restless night... now I was thirsty AND terrified. Maybe I should've told someone about the robber??{/i}"
         ann "{i}...Security will be on top of it, surely...{/i}"
+
+        jump night1end
 
     label night1progress:
         ann "{i}This was a really, REALLY bad idea, but my curiosity was piqued. And I doubt I'd sleep any better if I ran off.{/i}"
@@ -338,6 +340,8 @@ label night1:
 
         $ config.side_image_tag = ""
         ann "{i}Under considerable duress, I make a point of getting out of there as quickly as possible.{/i}"
+
+    label night1end:
         
         jump daySwitch
         

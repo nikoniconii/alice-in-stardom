@@ -70,7 +70,7 @@ label interactionSwitch:
             "Go to the music room" (choiceimage="taylor"):
                 $ interaction3 = "taylor"
                 jump taylor1
-            "Go to Cherry's room" (choiceimage="cherry"):
+            "Go see Cherry" (choiceimage="cherry"):
                 $ interaction3 = "cherry"
                 jump cherry1
 ###########################
@@ -83,7 +83,7 @@ label interactionSwitch:
             "Go by the music room" (choiceimage="mary") if mary_stat >= 2:
                 $ interaction4 = "mary"
                 jump marymusic
-            "Go to Cherry's room" (choiceimage="cherry") if cherry_stat < 2:
+            "Go see Cherry" (choiceimage="cherry") if cherry_stat < 2:
                 $ interaction4 = "cherry"
                 jump cherry1
             "Go to the dining room" (choiceimage="cherry") if cherry_stat >= 2:
@@ -104,7 +104,9 @@ label interactionSwitch:
             "Hang around the lounge" if interaction4 == "mary" or interaction4 == "cherry":
                 $ interaction5 = "paul"
                 jump paulgetscolorful
-            #####TODO Mary eliminated interaction
+            "Go see Mary" (choiceimage="mary"):
+                $ interaction5 = "mary"
+                jump maryafterelim
 ############################
     elif day == 6:
 
@@ -115,6 +117,9 @@ label interactionSwitch:
             "Go to Cherry's room" (choiceimage="cherry") if cherry_stat >= 3:
                 $ interaction6 = "cherry"
                 jump cherry3
+            "Go see Mary" (choiceimage="mary") if interaction5 != "mary":
+                $ interaction5 = "mary"
+                jump maryafterelim
 
 #######################################################################################################################
 ########################################           After Contest 4          ###########################################
@@ -128,7 +133,7 @@ label interactionSwitch:
             "Hang around the lounge" if interaction4 == "mary" or interaction4 == "cherry":
                 $ interaction7 = "paul"
                 jump paulgetscolorful
-            #####TODO Mary eliminated interaction
+            #####TODO Cherry eliminated interaction
 ############################
     elif day == 8:
 
@@ -141,18 +146,7 @@ label interactionSwitch:
                 jump cherry3
 
 
-            
-
-#######################################################################################################################
-########################################           After Contest 3          ###########################################
-#######################################################################################################################            
-    # elif day == 7:
-
-    #     menu:
-
-            ####TODO Cherry eliminated interaction
-
-
+   
 
 
 
@@ -507,7 +501,7 @@ label morning2:
         hide taylor
         with dissolve
 
-        scene black with fade
+        scene hallday with fade
 
         $ config.side_image_tag = ""
 
@@ -533,7 +527,8 @@ label morning5:
     a "Oh, she looks piiiiissed, hahaha! I gotta share this!"
     an smile "I open up my messages and start to draft a message for the accompanying photo..."
     an frown "...Ah, crap, my finger slipped. I was gonna send that to my bestie back home, Marge, but..."
-    ## TODO sfx: phone ping
+    
+    play sound "<from 1 to 8>ringtone.mp3"
     an down "A phone's chiming broke my concentration."
 
     a frowntalk "! ....Oh no."
