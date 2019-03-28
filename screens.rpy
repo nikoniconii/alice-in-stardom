@@ -593,11 +593,24 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
+            ### TODO finish credits
             text _("\nLead Designer & Sprite Artist: {a=https://www.twitter.com/Violora_Art}Violora{/a}")
+
+            text _("\nDirector, Lead Programmer & Marketer: {a=https://twitter.com/MikomiKisomi}Mikomi \"Miko Miko Mii\" Kisomi{/a}")
 
             text _("\nLead Writer: {a=https://www.twitter.com/TuttyTheFruity}Kevin \"Tutty The Fruity\" Armstrong{/a}")
 
             text _("\nWriter: {a=https://twitter.com/VitaminHPanels}Kidd \"The Maniac\" Bowyer{/a}")
+
+            text _("\nWriter: Seigetsu")
+
+            text _("\nStory Consultants: Penelope Pilbeam, Andi Wamboldt")
+
+            text _("\nSpecial thanks to Ryanne Bowyer, Nicoletta Christina Browne, and Ayu Sakata.")
+
+            text _("\n\"Fearless\" by {a=https://soundcloud.com/tavianstjamescc}Tavian St. James{/a}, \"Friends Forever\" by {a=https://soundcloud.com/alcaknight}Alcaknight{/a}, \"Forever Dreaming\" by {a=https://soundcloud.com/alcaknight}Alcaknight{/a}")
+
+            text _("\n\"Knocking Door\" by {a=https://freesound.org/people/dersuperanton/}dersuperanton{/a}, \"Wooden Door Open\" by {a=https://freesound.org/people/joedeshon/}joedeshon{/a}, and \"On Stage Jingles\" by {a=https://freesound.org/people/Setuniman/}Setuniman{/a}")
 
             text _("\nThis game was made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 

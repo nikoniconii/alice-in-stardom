@@ -13,6 +13,7 @@ define c = Character('Cherry', color="#e5bdf6", image='cherry')    #pale
 
 define ma = Character('Makeup Artist', color="#fff")
 define hs = Character('Hair Stylist', color="#fff")
+define p = Character('Paul', color="#fff")
 
 
 define fadee = Fade(1.0, 1.0, 1.0, color="#000")
@@ -64,7 +65,7 @@ label start:
 
     show director smile
     
-    "{i}{cps=45}Uhm... my name is Alice.{/cps} Not Intie. Don't tell me he somehow got that from my rather unglorified pisition as the production crew's intern.{/i}"
+    "{i}{cps=45}Uhm... my name is Alice.{/cps} Not Intie. Don't tell me he somehow got that from my rather unglorified position as the production crew's intern.{/i}"
     
     a frowntalk "Coming..."
     
@@ -105,7 +106,7 @@ label start:
 
     $ config.side_image_tag = ""
     
-    ann "{i}Water... water... there we go! You'd think on a singing show the singers would want water instead of caffinated drinks...{/i}"
+    ann "{i}Water... water... there we go! You'd think on a singing show the singers would want water instead of caffeinated drinks...{/i}"
     ann "{i}And here's where the producers should be...!{/i}"
     
     scene makeuproom
@@ -117,7 +118,7 @@ label start:
     with Dissolve(0.5)
     
     ann "{i}Seated closest to the door is a dark-skinned girl with this... {/i}cascade{i} of perfect, black hair. She's... she's gorgeous!{/i}"
-    ann "{i}Those honey eyes are so striking I couldn't stop myself from staring. At least she's too preoccupied with talking to her makeup artist and hair stylist to notice.{/i}"
+    ann "{i}Those eyes are so striking I couldn't stop myself from staring. At least she's too preoccupied with talking to her makeup artist and hair stylist to notice.{/i}"
     
     show mary up frowntalk
     
@@ -219,11 +220,11 @@ label start:
     
     show jacques smile
     
-    k frowntalk "Jacque, please. I'm not in the mood when I can practically feel my bills slip away into nothingness. And I can almost hear that asshole from Teabag TV laughing the rest of his ass off at my misery!"
+    k frowntalk "Jacques, please. I'm not in the mood when I can practically feel my bills slip away into nothingness. And I can almost hear that asshole from Teabag TV laughing the rest of his ass off at my misery!"
     
     show katja frown
 
-    ann "{i}If she's not in the mood for Jacque, the houshold name for \"entertainment\", I don't know if she'd be in the mood for me and her water.{/i}"
+    ann "{i}If she's not in the mood for Jacques, the household name for \"entertainment\", I don't know if she'd be in the mood for me and her water.{/i}"
     ann "{i}Is the director pulling a prank on me or something? Even if he hates me, he can't be thinking of digging me a hole so I'd get fired, right?{/i}"
     
     hide taylor
@@ -307,7 +308,7 @@ label start:
     hide jacques
     with Dissolve(0.5)
     
-    an "{i}Boss is already out the door, and Jacque has his back turned, focusing on the script. Did that just--{/i}"
+    an "{i}Boss is already out the door, and Jacques has his back turned, focusing on the script. Did that just--{/i}"
     
     a frowntalk "Wait! I really can't sing! I seriously can't do it to save my life!"
     
@@ -326,7 +327,7 @@ label start:
         yalign 0.35
     with dissolve
     
-    j talk "Welcome to {i}Supernova{/i}, the brand new, not-so-average singing contest show hosted by your not-so-average host, Jaaaacque Belleeeeeevance~!"
+    j talk "Welcome to {i}Supernova{/i}, the brand new, not-so-average singing contest show hosted by your not-so-average host, Jaaaacques Belleeeeeevance~!"
     
     play sound "applause.mp3" fadeout 0.5
 
@@ -397,7 +398,7 @@ label start:
 
     show katja smile
     
-    ann "{i}So Cherry is worthy of soup? Wait, is her name Cherry? That’s what her friend called her, right? But Jacque said it’s Raisin.{/i}"
+    ann "{i}So Cherry is worthy of soup? Wait, is her name Cherry? That’s what her friend called her, right? But Jacques said it’s Raisin.{/i}"
     ann "{i}No... that can’t be right. Cherries and raisins? That sounds like fruit toppings on a bowl of cereal!{/i}"
     
     hide katja smile
@@ -532,7 +533,8 @@ label firstDone:
     ann "{i}After the show, we were herded onto a bus and shipped to a gigantic building on the city’s suburbs.{/i}"
     ann "{i}At first, I thought it was a shopping center. But that’s just the ground floor. The upper floors are all part of a huge private residence.{/i}"
     ann "{i}Is this real silk for curtains? No, the actual question should be is this real silk beneath my feet!? I can probably wear this rug as an exotic wedding dress and all my guests would be singing praises to its beauty!{/i}"
-    ann "{i}And the faint scent coming from that cabinet in the corner... that’s agarwood, right? It’s now a threatened species, so there’s no way you can acquire such a big piece for furniture. The cabinet must then be a legit antique!{/i}"
+    ann "{i}And the faint scent coming from that cabinet in the corner... that’s agarwood, right?{/i}"
+    ann "{i}It’s now a threatened species, so there’s no way you can acquire such a big piece for furniture. The cabinet must then be a legit antique!{/i}"
     ann "{i}Holy shit... this is too much. My head hurts just thinking over how many digits went into the cost for the furnishings.{/i}"
     
     scene fountainafternoon
@@ -543,7 +545,8 @@ label firstDone:
     show katja smile
     with Dissolve(0.5)
     
-    k talk "Alright guys, here’s the place you’ll be staying in for the next month. Learn all you can from our teachers and prepare yourself to rock the stage. You’ll be fighting for a chance to stay on next week’s episode."
+    k talk "Alright guys, here’s the place you’ll be staying in for the next month."
+    k "Learn all you can from our teachers and prepare yourself to rock the stage. You’ll be fighting for a chance to stay on next week’s episode."
     
     show katja frown
 
@@ -667,9 +670,8 @@ label firstDone:
     
     show jacques smile
     
-    ann frown "{i}Please, Jacque. Don’t make a fool out of yourself with your half-assed français.{/i}"
+    ann frown "{i}Please, Jacques. Don’t make a fool out of yourself with your half-assed français.{/i}"
 
-    ## TODO scale down musicroom
     scene musicroom
     with fade
 
@@ -756,7 +758,7 @@ label firstDone:
 
     $ config.side_image_tag = ""
     
-    ann "{i}Jacque is right- I am tired. Probably the most tired of everybody. After all, I’m not even supposed to be here!{/i}"
+    ann "{i}Jacques is right- I am tired. Probably the most tired of everybody. After all, I’m not even supposed to be here!{/i}"
     ann "{i}I guess I’ll leave a text for Ma to make sure she knows I’ll be living here for the month. Don’t want her to visit my apartment only to find that I’m not even there.{/i}"
     ann "{i}Should probably ask her to do me the favor of clearing out the fridge too. I don’t want to go home next month to the odor of rotting cabbages.{/i}"
     ann "{i}I lie down on the over-sized bed with overly-fluffy pillows probably filled with the finest of feathers.{/i}"

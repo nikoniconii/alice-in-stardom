@@ -5,6 +5,150 @@
 ##############################################                              ###########################################
 #######################################################################################################################
 
+default day = 0
+
+label interactionSwitch:
+    if day == 1:
+
+        menu:
+            "Go to the makeup room" (choiceimage="mary"):
+                $ interaction1 = "mary1"
+                jump mary1
+            "Go to the music room" (choiceimage="director"):
+                $ interaction1 = "musichall1"
+                jump musichall1
+            "Go to the mall" (choiceimage="cherry"):
+                $ interaction1 = "cherry1"
+                jump mall1
+###########################
+    elif day == 2:
+
+        if interaction1 == "mary1":
+            menu:
+                "Go to the stage" (choiceimage="katja"):
+                    $ interaction2 = "katja"
+                    jump musichall2
+                "Go to the music room" (choiceimage="director"):
+                    $ interaction2 = "musichall1"
+                    jump musichall1
+                "Go to the mall" (choiceimage="cherry"):
+                    $ interaction2 = "cherry1"
+                    jump mall1
+
+        if interaction1 == "musichall1":
+            menu:
+                "Go to the makeup room" (choiceimage="mary"):
+                    $ interaction2 = "mary1"
+                    jump mary1
+                "Go to the stage" (choiceimage="katja"):
+                    $ interaction2 = "katja"
+                    jump musichall2
+                "Go to the mall" (choiceimage="cherry"):
+                    $ interaction2 = "cherry1"
+                    jump mall1
+
+        if interaction1 == cherry1:
+            menu:
+                "Go to the makeup room" (choiceimage="mary"):
+                    $ interaction2 = "mary1"
+                    jump mary1
+                "Go to the music room" (choiceimage="director"):
+                    $ interaction2 = "musichall1"
+                    jump musichall1
+                "Go to the stage" (choiceimage="katja"):
+                    $ interaction2 = "katja"
+                    jump musichall2
+#######################################################################################################################
+########################################           After Contest 1          ###########################################
+#######################################################################################################################
+    elif day == 3:
+
+        menu:
+            "Go to Mary's room" (choiceimage="mary"):
+                $ interaction3 = "mary"
+                jump maryroom1
+            "Go to the music room" (choiceimage="taylor"):
+                $ interaction3 = "taylor"
+                jump taylor1
+            "Go see Cherry" (choiceimage="cherry"):
+                $ interaction3 = "cherry"
+                jump cherry1
+###########################
+    elif day == 4:
+
+        menu:
+            "Go to Mary's room" (choiceimage="mary") if mary_stat < 2:
+                $ interaction4 = "mary"
+                jump maryroom1
+            "Go by the music room" (choiceimage="mary") if mary_stat >= 2:
+                $ interaction4 = "mary"
+                jump marymusic
+            "Go see Cherry" (choiceimage="cherry") if cherry_stat < 2:
+                $ interaction4 = "cherry"
+                jump cherry1
+            "Go to the dining room" (choiceimage="cherry") if cherry_stat >= 2:
+                $ interaction4 = "cherry"
+                jump cherry2
+            "Hang around the lounge":
+                $ interaction4 = "paul"
+                jump paulgetscolorful
+#######################################################################################################################
+########################################           After Contest 3          ###########################################
+#######################################################################################################################
+    elif day == 5:
+
+        menu:
+            "Go for a walk" (choiceimage="jacques") if interaction4 == "paul":
+                $ interaction5 = "jacquesinterview"
+                jump jacquesinterview
+            "Hang around the lounge" if interaction4 == "mary" or interaction4 == "cherry":
+                $ interaction5 = "paul"
+                jump paulgetscolorful
+            "Go see Mary" (choiceimage="mary"):
+                $ interaction5 = "mary"
+                jump maryafterelim
+############################
+    elif day == 6:
+
+        menu:
+            "Go to the dining room" (choiceimage="cherry") if cherry_stat < 3:
+                $ interaction6 = "cherry"
+                jump cherry2
+            "Go to Cherry's room" (choiceimage="cherry") if cherry_stat >= 3:
+                $ interaction6 = "cherry"
+                jump cherry3
+            "Go see Mary" (choiceimage="mary") if interaction5 != "mary":
+                $ interaction5 = "mary"
+                jump maryafterelim
+
+#######################################################################################################################
+########################################           After Contest 4          ###########################################
+#######################################################################################################################
+    elif day == 7:
+
+        menu:
+            "Go for a walk" (choiceimage="jacques") if interaction4 == "paul":
+                $ interaction7 = "jacquesinterview"
+                jump jacquesinterview
+            "Hang around the lounge" if interaction4 == "mary" or interaction4 == "cherry":
+                $ interaction7 = "paul"
+                jump paulgetscolorful
+            #####TODO Cherry eliminated interaction
+############################
+    elif day == 8:
+
+        menu:
+            "Go to the dining room" (choiceimage="cherry") if cherry_stat < 3:
+                $ interaction8 = "cherry"
+                jump cherry2
+            "Go to Cherry's room" (choiceimage="cherry") if cherry_stat >= 3:
+                $ interaction8 = "cherry"
+                jump cherry3
+
+
+   
+
+
 
 ######################### First morning
 
@@ -125,18 +269,7 @@ label morning1:
     an smile "It looks like we're all going to be spending a lot more time together. Better fill up here - the next few days are going to be big."
     an "Now, where should I spend the day?"
 
-
-    menu:
-        "Go to the makeup room" (choiceimage="mary"):
-            $ interaction1 = "mary1"
-            jump mary1
-        "Go to the music room" (choiceimage="director"):
-            $ interaction1 = "musichall1"
-            jump musichall1
-        "Go to the mall" (choiceimage="cherry"):
-            $ interaction1 = "cherry1"
-            jump mall1
-
+    jump interactionSwitch
 
 
 
@@ -196,41 +329,7 @@ label morningnormal1:
 
     $ interaction2 = "null"
 
-    if interaction1 == "mary1":
-        menu:
-            "Go for a walk" (choiceimage="jacques"):
-                $ interaction2 = "jacquesinterview"
-                jump jacquesinterview
-            "Go to the music room" (choiceimage="director"):
-                $ interaction2 = "musichall1"
-                jump musichall1
-            "Go to the mall" (choiceimage="cherry"):
-                $ interaction2 = "cherry1"
-                jump mall1
-
-    if interaction1 == "musichall1":
-        menu:
-            "Go to the makeup room" (choiceimage="mary"):
-                $ interaction2 = "mary1"
-                jump mary1
-            "Go for a walk" (choiceimage="jacques"):
-                $ interaction2 = "jacquesinterview"
-                jump jacquesinterview
-            "Go to the mall" (choiceimage="cherry"):
-                $ interaction2 = "cherry1"
-                jump mall1
-
-    if interaction1 == cherry1:
-        menu:
-            "Go to the makeup room" (choiceimage="mary"):
-                $ interaction2 = "mary1"
-                jump mary1
-            "Go to the music room" (choiceimage="director"):
-                $ interaction2 = "musichall1"
-                jump musichall1
-            "Go for a walk" (choiceimage="jacques"):
-                $ interaction2 = "jacquesinterview"
-                jump jacquesinterview
+    jump interactionSwitch
 
 
 
@@ -399,60 +498,18 @@ label morning2:
         jump morning2merge
 
     label morning2merge:
-        an "The four of us kept at it until it was time to break for lunch. We then went our separate ways..."
+        hide taylor
+        with dissolve
 
-        menu:
-            "Go to Mary's room" (choiceimage="mary"):
-                $ interaction3 = "mary"
-                jump maryroom1
-            "Go to the music room" (choiceimage="taylor"):
-                $ interaction3 = "taylor"
-                jump taylor1
-            "Go to Cherry's room" (choiceimage="cherry"):
-                $ interaction3 = "cherry"
-                jump cherry1
+        scene hallday with fade
+
+        $ config.side_image_tag = ""
+
+        an "The four of us kept at it until it was time to break for lunch. We then went our separate ways and I decided to..."
+
+        jump interactionSwitch
 
         ## end scene
-
-  
-
-label hopeful:
-    
-    scene bedaliceday
-    with fadee
-    
-    ann "{i}I awake to the first light of day streaming through my curtains.{/i}"
-    ann "{i}My alarm has yet to sound. I turn it off, feeling rested enough that I don't need to sleep in any longer.{/i}"
-    ann "{i}The air smells fresh. I take a deep breath in, letting the oxygen fill every cell in my body.{/i}"
-    ann "{i}It’s a new day, and with it, a new adventure awaits. Just thinking about all that has happened is making me excited!{/i}"
-    ann "{i}Yeah, I’m nervous, but I think I’m happy. Let’s try hard today too!{/i}"
-    
-    scene dinnerday
-    with fade
-    
-    show cherry up smile at center
-    with dissolve
-
-    c talk "Good morning! Did you sleep well?"
-
-    show cherry smile
-
-    a talk "Good morning, Cherry- I did. How is breakfast?"
-
-    a smile "{nw}"
-    
-    c talk "That’s good to hear. You’ll feel even better after you’ve filled your stomach. The piggy sausages are delicious!"
-    
-    show cherry smile
-
-    ann "{i}I guess I’ll go for the pork sausages with hash browns this morning too. Those would go well with a fresh fruit salad and Greek yogurt to round it all up. Gosh, with an appetite like this, I’m gonna get real fat in no time!{/i}"
-    ann "{i}Not that I mind a little extra weight. My mom keeps saying I'm not eating enough.{/i}"
-    
-    c talk "So what are you up to this morning?"
-
-    show cherry smile
-    
-    #### call screen
 
 
 label morning5:
@@ -470,7 +527,8 @@ label morning5:
     a "Oh, she looks piiiiissed, hahaha! I gotta share this!"
     an smile "I open up my messages and start to draft a message for the accompanying photo..."
     an frown "...Ah, crap, my finger slipped. I was gonna send that to my bestie back home, Marge, but..."
-    ## TODO sfx: phone ping
+    
+    play sound "<from 1 to 8>ringtone.mp3"
     an down "A phone's chiming broke my concentration."
 
     a frowntalk "! ....Oh no."
@@ -514,7 +572,7 @@ label morning5:
 
     show taylor up frown at right:
         zoom 0.98
-        yalign 0.3
+        yalign 1.0
     with moveinright
 
     t frowntalk "Maybe you should start keeping them in separate cages..."
@@ -538,22 +596,34 @@ label morning5:
     hide taylor
     with dissolve
 
-    an "Cherry proceeded to bombard me with bunny photos for the better part of half an hour. I thin Taylor managed to wriggled free in the ensuing chaos."
+    $ config.side_image_tag = ""
+
+    an "Cherry proceeded to bombard me with bunny photos for the better part of half an hour. I think Taylor managed to wriggled free in the ensuing chaos."
     an "Only when she was satisfied did Cherry finally release me from her grip..."
+    an "It's time to get out of here and find something to do today."
+
+    jump interactionSwitch
 
     ## end scene
+  
 
+
+#######################################################################################################################
+########################################        Morning After Contest 3     ###########################################
+#######################################################################################################################
+#########################################      Mary Has Been Eliminated     ###########################################
+#######################################################################################################################
 
         
 label morning3:
-    scene dinerday
+    scene dinnerday
     with fadee
 
     an "And then it was down to three. After the show last night, it still doesn't really feel real."
     an "It's just the three of us - Cherry, Taylor, and myself - at breakfast together."
     $ config.side_image_tag = "alice"
 
-    show cherry up frown at rightt:
+    show cherry up frown at right:
         zoom 1.2
         yalign 0.3
     with easeinright
@@ -607,13 +677,66 @@ label morning3:
 
     an "I got another big day ahead. Maybe I'll find time to check up on her."
     an "Still, though, I gotta get time to practice on my own routine. Or they might cut me next..."
+
+    jump interactionSwitch
     
     ## end scene
 
 
+
+label hopeful:
+    
+    scene bedaliceday
+    with fadee
+    
+    ann "{i}I awake to the first light of day streaming through my curtains.{/i}"
+    ann "{i}My alarm has yet to sound. I turn it off, feeling rested enough that I don't need to sleep in any longer.{/i}"
+    ann "{i}The air smells fresh. I take a deep breath in, letting the oxygen fill every cell in my body.{/i}"
+    ann "{i}It’s a new day, and with it, a new adventure awaits. Just thinking about all that has happened is making me excited!{/i}"
+    ann "{i}Yeah, I’m nervous, but I think I’m happy. Let’s try hard today too!{/i}"
+    
+    scene dinnerday
+    with fade
+    
+    show cherry up smile at center:
+        zoom 1.3
+        yalign 0.43
+    with dissolve
+
+    c talk "Good morning! Did you sleep well?"
+
+    show cherry smile
+
+    a talk "Good morning, Cherry- I did. How is breakfast?"
+
+    a smile "{nw}"
+    
+    c talk "That’s good to hear. You’ll feel even better after you’ve filled your stomach. The piggy sausages are delicious!"
+    
+    show cherry smile
+
+    ann "{i}I guess I’ll go for the pork sausages with hash browns this morning too. Those would go well with a fresh fruit salad and Greek yogurt to round it all up. Gosh, with an appetite like this, I’m gonna get real fat in no time!{/i}"
+    ann "{i}Not that I mind a little extra weight. My mom keeps saying I'm not eating enough.{/i}"
+    
+    c talk "So what are you up to this morning?"
+
+    show cherry smile
+    
+    jump interactionSwitch
+
+
+
+#######################################################################################################################
+########################################        Morning After Contest 4     ###########################################
+#######################################################################################################################
+#########################################      Cherry Has Been Eliminated     ###########################################
+#######################################################################################################################
+
+
+
 label morning4:
 
-    scene dinerday
+    scene dinnerday
     with fadee
     an "Man, having breakfast first thing in the morning used to be so light and breezy. Now with half of the girls cut from the competition, it was down to me and Taylor. Normally, I'd be ecstatic, but..."
     an "Right now, it just felt... weird. Just sitting here between the two of us. It was so weird."
@@ -676,6 +799,9 @@ label morning4:
     show taylor smile
     a frowntalk "Awww, c'mon Taylor..."
     a frown "{nw}"
+
+    jump interactionSwitch
+
     ## end scene
 
 
@@ -683,7 +809,7 @@ label morning4:
 label anxious:
     
     scene bedaliceday
-    with fade
+    with fadee
     
     ann "{i}I have been tossing and turning the entire night. For some reason, I couldn't sleep.{/i}"
     ann "{i}The sun has finally risen. I turn off the alarm I set and drag myself out of bed.{/i}"
@@ -718,9 +844,17 @@ label anxious:
     show taylor frown
     
     ann "{i}Yeah, I guess he's right. What should I do this morning?{/i}"
+
+    jump interactionSwitch
     
         
-    
+ 
+
+#######################################################################################################################
+########################################               End Game             ###########################################
+#######################################################################################################################
+
+   
 
 
 label tired:
