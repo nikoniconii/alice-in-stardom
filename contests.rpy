@@ -992,17 +992,44 @@ label week3contest:
     
     show jacques smile
 
+    hide jacques with dissolve
+
     ann "{i}Indeed, what is it that I want to express?{/i}"
     ann "{i}What is it that I want to sing?{/i}"
 
-    $ currentScreen = "week3minigame"
     $ waitTime = 4.5
-    
-    call screen week3minigame
+
+    $ quick_menu = False
+
+    label week3loop:
+
+        $ failed = False
+        $ round = 0 #start at 0 for round 1, etc
+        $ eliminated = False
+        while round < 3 and not eliminated: #assuming there are 3 rounds, after that we'd be done
+            $ phrase1 = False
+            $ phrase2 = False
+            $ phrase3 = False
+            $ phrase4 = False
+            call screen minigame(week3[round])
+            if failed:
+                $failed = False #reset for next attempt
+            else:
+                $round += 1
+
+
     
 label week3win:
 
     $ config.side_image_tag = ""
+    $ quick_menu = True
+
+    $ slow = 0
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
+
     
     ann "{i}Should I be like Cherry, sing for a person who means a lot to her?{/i}"
     ann "{i}Or be like Mary, sing for the crowd that watches her?{/i}"
@@ -1292,12 +1319,17 @@ label week3win:
     ann "{i}I wish I could be like that.{/i}"
     ann "{i}If- no, when- Mary becomes an idol in the future, she’ll be an inspiration for many.{/i}"
     
+    jump morning3
+
     ###### end contest 3 win
     
 label week4contest:
 
     scene stage5far
     with fadee
+
+    play music "Fearless.ogv" fadeout 1
+    queue music "Fearless.ogv"
 
     $ config.side_image_tag = "alice"
     
@@ -1517,10 +1549,39 @@ label week4contest:
     ann "{i}But the music is on. The game’s mine.{/i}"
     ann "{i}I head onto the stage, a grin filling my face.{/i}"
     
-    jump week4minigame
+    $ waitTime = 4
+
+    $ quick_menu = False
+
+    label week4loop:
+
+        $ failed = False
+        $ round = 0 #start at 0 for round 1, etc
+        $ eliminated = False
+        while round < 3 and not eliminated: #assuming there are 3 rounds, after that we'd be done
+            $ phrase1 = False
+            $ phrase2 = False
+            $ phrase3 = False
+            $ phrase4 = False
+            call screen minigame(week4[round])
+            if failed:
+                $failed = False #reset for next attempt
+            else:
+                $round += 1
+
+    
     
 label week4win:
-    
+
+    $ config.side_image_tag = ""
+    $ quick_menu = True
+
+    $ slow = 0
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
+
     ann "{i}While Cherry took a more traditional, ghost story-like approach to the dark theme, I’m spinning it with a modern take at Bach’s Fugue in G Minor.{/i}"
     ann "{i}The song takes off with a strong, pounding rhythm, the pedal point only emphasizing this beat. I move my body with the hard hit of each note, making my voice pulse with it.{/i}"
     ann "{i}The lights are flashing along with my lead, swerving, blinking, changing in rapid succession a vivid array of colors.{/i}"
@@ -1715,6 +1776,8 @@ label week4win:
     show jacques up smile at center:
         zoom 0.98
     with dissolve
+
+    a frown edgy "{nw}"
     
     j talk "And we’re back with the results! How do you feel about this, Taylor?"
 
@@ -1796,6 +1859,8 @@ label week4win:
     
     t talk "Pleased to be your opponent in the grand finale. I look forward to our battle of voices, Alice."
     
+    jump morning4
+
     ######### end week 4 WIN
     
     
@@ -1873,8 +1938,10 @@ label finalcontest:
 
     ann "{i}We have walked a long way.{/i}"
     ann "{i}Jacques is right. It really has been a month of sweat and tears. We have met many people along the way, but now, this is a path that we must take alone.{/i}"
-    ann "{i}The audience is watching us. Our friends and family are watching us. We are surrounded, but the moment you set foot on the stage, you are by yourself. You are in a place where they can’t reach you.{/i}"
-    ann "{i}Still, you must shine for them, like the sun and moon, stars and meteors. You are high above the people, but you must make them gravitate towards you, show them the flame that burns in your heart, and use it to warm their hearts too.{/i}"
+    ann "{i}The audience is watching us. Our friends and family are watching us.{/i}"
+    ann "{i}We are surrounded, but the moment you set foot on the stage, you are by yourself. You are in a place where they can’t reach you.{/i}"
+    ann "{i}Still, you must shine for them, like the sun and moon, stars and meteors.{/i}"
+    ann "{i}You are high above the people, but you must make them gravitate towards you, show them the flame that burns in your heart, and use it to warm their hearts too.{/i}"
     ann "{i}That's what Taylor is doing now.{/i}"
 
     show taylor upprince frown prince at center
@@ -1891,7 +1958,8 @@ label finalcontest:
     with dissolve
 
     ann "{i}She has left her shell far behind her. This is the new Taylor. The real Taylor. And the talent she is showcasing is absolutely amazing!{/i}"
-    ann "{i}The guitar riffs are sick. The drums are pounding with my heartbeat. Her voice starts deep and rises like a bird taking flight. Not just any bird. He’s an eagle, soaring high, spreading its wings to glide the azure skies.{/i}"
+    ann "{i}The guitar riffs are sick. The drums are pounding with my heartbeat.{/i}"
+    ann "{i}Her voice starts deep and rises like a bird taking flight. Not just any bird. She’s an eagle, soaring high, spreading its wings to glide the azure skies.{/i}"
     ann "{i}The floodlights, reflecting golden off her hair, are like sunshine crowning eagle feathers. It’s so bright that I must squint against her light. This surely is proof of her kingship over the heavens.{/i}"
     ann "{i}Even though Taylor has always been so talented, I think she couldn’t have performed like this without the struggles she has been through over the past weeks.{/i}"
     ann "{i}Only after a long night does the light of dawn appear beautiful. Only after a cold winter does spring feel warm. Without loss, there is no gain. Without falling down, you never learn how to stand back up.{/i}"
@@ -1921,9 +1989,11 @@ label finalcontest:
     with dissolve
     
     j talk "Thank you very much for your performance, Taylor. A most fitting climax for her month-long journey here at Supernova."
-    j "Our remaining contestant is Alice Carroll. Unlike Taylor, she has little formal musical training. That is not to say she is unfamiliar with the industry. According to her, she has always been fascinated with idol groups, just like you and me."
+    j "Our remaining contestant is Alice Carroll. Unlike Taylor, she has little formal musical training."
+    j "That is not to say she is unfamiliar with the industry. According to her, she has always been fascinated with idol groups, just like you and me."
     j "She would sing to their songs and dance to their moves, dress like them and hold her own secret concerts from the top of her bed. Her audience? No one but herself."
-    j "Like any rational young person, she saw little chances of succeeding in this competitive industry. Instead of pursuing a career on the stage, she resigned herself to one behind it, interning at a television production company."
+    j "Like any rational young person, she saw little chances of succeeding in this competitive industry."
+    j "Instead of pursuing a career on the stage, she resigned herself to one behind it, interning at a television production company."
     j "Her work was hard, but very mundane and under-appreciated. She carried camera cables and lifted heavy equipment, she ran whatever errands were requested of her."
     j "What could prompt her to do all this for the meager pay she was offered, if not for the slight glimmer of hope that she would one day stand atop the stage for an audience other than herself?"
     j "Finally, she realized that she must grasp this hope else it too would eventually fade. Thus, this is why she is now here to sing for us. Alice, this is now your stage. Please make the most out of it!"
@@ -1939,13 +2009,41 @@ label finalcontest:
     ann "{i}No matter what, I’ll not bat down my own dream again. I will pursue it. I will shine for all my fans beneath this stage!{/i}"
     
 
-    ## TODO call screen contest5minigame
+    $ waitTime = 4
+
+    $ quick_menu = False
+
+    label week5loop:
+
+        $ failed = False
+        $ round = 0 #start at 0 for round 1, etc
+        $ eliminated = False
+        while round < 4 and not eliminated: #assuming there are 4 rounds, after that we'd be done
+            $ phrase1 = False
+            $ phrase2 = False
+            $ phrase3 = False
+            $ phrase4 = False
+            call screen minigame(week5[round])
+            if failed:
+                $failed = False #reset for next attempt
+            else:
+                $round += 1
+
 
 ##########################
 ############### WIN FINALE
 default win = False
 
 label finalwin:
+
+    $ config.side_image_tag = ""
+    $ quick_menu = True
+
+    $ slow = 0
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
 
     ann "{i}I feel more at ease on this stage than I have ever before.{/i}"
     ann "{i}All the pressure of winning is just gone. It’s ironic, considering this is my final performance.{/i}"
@@ -1979,10 +2077,12 @@ label finalwin:
     scene stage5far
     with fade
 
-    show katja smile at leftt
+    show katja smile at leftt:
+        zoom 1.1
+        yalign 0.6
     show director smile at rightt:
-        zoom 1.2
-        yalign 0.7
+        zoom 1.1
+        yalign 0.9
     with dissolve
 
     k talk "Aren’t you being biased here? I thought you didn’t like her."
@@ -2048,122 +2148,20 @@ label finalwin:
     jump credits
     
     
-#####################################
-###################### After Credits
-    
-label epilogue:
-
-    $ config.side_image_tag = "alice"
-
-    scene black
-    with fadee
-    
-    ann down frown summer "{i}Oh shit, I'm gonna be late!{/i}"
-    ann "{i}It’s all my own fault. I shouldn’t have been so damn excitable that I couldn’t fall asleep all night, then ended up dozing off on my chair just three hours before showtime!{/i}"
-    ann "{i}Boss is so gonna kill me.{/i}"
-
-    scene makeuproom
-    with fade
-    
-    show mary up smile at center:
-        zoom 1.35
-        yalign 0.4
-    with dissolve
-
-    m talk "Relax, Alice. You fidgeting around like this makes it hard for me to draw your brows."
-
-    show mary smile
-    
-    a frowntalk "Sorry... I'll try not to."
-    a frown "{nw}"
-    
-    m frowntalk "Then again, if you weren’t so nervous, the makeup artist would be able to do this in my stead. Seriously, when have I become your personal assistant?"
-    
-    show mary frown
-
-    a talk "Sorry to always rely on you, Mary. But... you’re the only one who can calm me down, you see, so..."
-    a frown "{nw}"
-
-    m talk "I know, I know. Now just sit back and stop curling up like a pillbug. I’ll finish this in no time."
-
-    show mary smile
-
-    show director smile at right:
-        zoom 1.2
-        yalign 0.8
-    with moveinright
-    
-    di talk "You girls done?"
-    
-    show director frown
-
-    m frowntalk "Just a moment."
-    
-    show mary frown
-
-    di "Yeah, yeah, Superstar. Hurry it up, alright?"
-    
-    m down frowntalk "I'm trying!"
-    
-    show mary frown
-
-    a frowntalk "I'm so sorry..."
-    
-    hide director with moveoutright
-
-    show mary up
-
-    ann frown "{i}Shortly after the director leaves us, Mary finishes lining my right brow.{/i}"
-    
-    a up talk "I think it’s good. Both brows are even."
-    a smile "{nw}"
-    
-    m unsure frowntalk "Aren’t your expectations low..."
-    
-    show mary frown
-
-    a talk "Can’t help it. I’ve gotta go!"
-    
-    show mary up smile
-
-    ann smile "{i}I give Mary’s hands a squeeze and dash off for the stage, leaving her sighing in exasperation.{/i}"
-    ann "{i}I know she just wants the best for me. I’m so lucky to have someone like her by my side.{/i}"
-    
-    scene black
-    with fade
-    
-    a "Is it starting?"
-    
-    k "Made it just before I was about to send out my lackeys to hunt you down, dead or alive."
-
-    scene stageclose
-    with fade
-
-    show jacques up smile at center:
-        zoom 1.35
-        yalign 0.3
-    with dissolve
-    
-    j talk "Welcome to season two of your favorite idol show, Supernova! Are you ready for another month of heart-wrenching, blood-boiling struggles for the throne of your next superstar?"
-    j "Yes! I know I’m ready! And she is too! Introducing our winner from season one - she will start us off with the first song of this new festival!"
-    
-    show jacques smile
-
-    ann "{i}I make my way up the steps. The familiar light falls upon me.{/i}"
-    ann "{i}Tay, Mary, Cherry... they’re all watching. I wave to them, feeling their cheers pour energy into my heart.{/i}"
-    
-    j talk "This is your idol, Alice Carroll......"
-
-    show jacques smile
-
-    return
-    
-    ###### end epilogue
     
     
 ########################
 ############ LOSE FINALE
 label finallose:    
+
+    $ config.side_image_tag = ""
+    $ quick_menu = True
+
+    $ slow = 0
+    $ phrase1 = False
+    $ phrase2 = False
+    $ phrase3 = False
+    $ phrase4 = False
 
     ann "{i}The final stage.{/i}"
     ann "{i}After the past few weeks, I feel confident about myself.{/i}"
@@ -2293,9 +2291,9 @@ label failed:
     $ phrase4 = False
 
     if slow >= 3:
-        call eliminated
+        call eliminated from _call_eliminated
     else:
-        $ rand = renpy.random.randint(1,6)
+        $ rand = renpy.random.randint(1,7)
 
         if rand == 1:
             an "Dammit, that's not right!"
@@ -2309,6 +2307,8 @@ label failed:
             an "Wait, wrong line!"
         if rand == 6:
             an "Oh no, no one heard that, right?"
+        if rand == 7:
+            an "That wasn't right! I gotta start that over..."
 
     return
 
@@ -2361,7 +2361,7 @@ define week1 = [{
 
 
 
-define week2 = [{
+define week3 = [{
     "lyrics": ["The sun has hidden", "The skies are gray", "I can feel the chill coming", "But I'll brace through it all"],
     "locations" : [(250, 50), (50, 200), (400, 350), (100, 500)]
 },
@@ -2373,6 +2373,40 @@ define week2 = [{
     "lyrics": ["When the snow falls", "My heart will skip again", "I will remember all our days again", "Those memories will be with me"],
     "locations" : [(50, 30), (200, 180), (50, 300), (400, 420)]
 }]
+
+
+
+define week4 = [{
+    "lyrics": ["His eyes are closed", "His heart beats fast", "The wind is racing", "All of it's in the past"],
+    "locations" : [(50, 50), (300, 400), (100, 250), (600, 600)]
+},
+{
+    "lyrics": ["Keep running", "Keep running", "Keep running till the end", "Till the end"],
+    "locations" : [(20, 50), (300, 250), (100, 450), (700, 650)]
+},
+{
+    "lyrics": ["He'll reach his goal", "He'll never stop", "When the lights turn on", "He'll be there"],
+    "locations" : [(50, 30), (200, 180), (50, 300), (400, 420)]
+}]
+
+
+define week5 = [{
+    "lyrics": ["City lights streaming", "The air is whistling", "I won't give up", "Give up"],
+    "locations" : [(50, 700), (200, 500), (400, 300), (600, 100)]
+},
+{
+    "lyrics": ["Spark a wish", "Keep on hoping", "Make a wish", "For a new tomorrow"],
+    "locations" : [(20, 700), (200, 650), (350, 400), (400, 150)]
+},
+{
+    "lyrics": ["Take the step with me", "Wish with me", "Together", "Together"],
+    "locations" : [(50, 30), (200, 180), (50, 300), (400, 420)]
+},
+{
+    "lyrics": ["We'll make", "our dream", "come", "true"],
+    "locations" : [(100, 150), (200, 300), (350, 400), (550, 520)]
+}]
+
 
 
 
