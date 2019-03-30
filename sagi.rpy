@@ -149,42 +149,21 @@ label taylor2neutral:
     an "I don't have a lot of trans friends. None I'm really close with. I'm glad Taylor is being really chill about all this."
     jump taylor2merge
 
-# SAGI'S NOTE: label says one thing, comments say the other. I'm keeping this one for now
-#don't use this label: use the next label
 label taylor2positive:
-    a up talk "You look great! I-I mean, this photo's also cute, but... now it's like, wow!"
-    a smile "{nw}"
-    #emote: blushu
-    t smile "Hehe. Thanks Alice. I'm glad."
-    t  "It's nice to know that HRT is doing something after all~"
-    a talk "Oh! Is that something you get regularly?"
-    a smile "{nw}"
-    t talk "Oh yeah. Brutally expensive. Maybe if I get a contract to perform from this, paying the bills won't be a problem anymore."
-    t smile "{nw}"
-    a "You could hit up Mary! She's pretty rich."
-    t down smile "I dunnoooo. She doesn't really care for hand-outs."
-    a down smile "Ahh..."
+    a up talk "Wow, you’re—you’re like... magic."
     a up smile "{nw}"
-    t up smile "{nw}"
-
-    an"Taylor really appreciated the compliment. The smile on her face definitely indicates that much."
-    jump taylor2merge
-
-#use this label
-label taylor2positivedeletethis:
-    a "Wow, you’re—you’re like... magic."
     #emote: blushu
-    t "Pfft. What the heck are you talking about?"
+    t down smile "Pfft. What the heck are you talking about?"
     a "It’s just… I see so little of that kid in you. You blossomed into a stunning woman."
-    t "Ah! Uh, th—thanks, Alice."
-    t "It’s... not like that just happened on it’s own, though. It’s been an uphill battle."
-    a "Well… it’s one you’re definitely winning."
-    t "If you say so."
+    t up talk "Ah! Uh, th—thanks, Alice."
+    t down smile "It’s... not like that just happened on it’s own, though. It’s been an uphill battle."
+    a down smile "Well… it’s one you’re definitely winning."
+    t up smile "If you say so."
 
     an "She’s pretending to be aloof, but it’s clear Taylor really appreciated the compliment. The smile on her face clearly indicates that much."
 
-    t "It’s not the only thing I need to win, though. If I get a contract to perform from this, paying the bills won't be a problem anymore..."
-    a "Ahhh…"
+    t up frown "It’s not the only thing I need to win, though. If I get a contract to perform from this, paying the bills won't be a problem anymore..."
+    a down smile "Ahhh…"
     jump taylor2merge
 
 label taylor2merge:
