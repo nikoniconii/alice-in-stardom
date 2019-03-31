@@ -23,41 +23,19 @@ label interactionSwitch:
 ###########################
     elif day == 2:
 
-        if interaction1 == "mary1":
-            menu:
-                "Go to the stage" (choiceimage="katja"):
-                    $ interaction2 = "katja"
-                    jump musichall2
-                "Go to the music room" (choiceimage="director"):
-                    $ interaction2 = "musichall1"
-                    jump musichall1
-                "Go to the mall" (choiceimage="cherry"):
-                    $ interaction2 = "cherry1"
-                    jump mall1
-
-        if interaction1 == "musichall1":
-            menu:
-                "Go to the makeup room" (choiceimage="mary"):
-                    $ interaction2 = "mary1"
-                    jump mary1
-                "Go to the stage" (choiceimage="katja"):
-                    $ interaction2 = "katja"
-                    jump musichall2
-                "Go to the mall" (choiceimage="cherry"):
-                    $ interaction2 = "cherry1"
-                    jump mall1
-
-        if interaction1 == cherry1:
-            menu:
-                "Go to the makeup room" (choiceimage="mary"):
-                    $ interaction2 = "mary1"
-                    jump mary1
-                "Go to the music room" (choiceimage="director"):
-                    $ interaction2 = "musichall1"
-                    jump musichall1
-                "Go to the stage" (choiceimage="katja"):
-                    $ interaction2 = "katja"
-                    jump musichall2
+        menu:
+            "Go to the makeup room" (choiceimage="mary") if interaction1 != "mary1":
+                $ interaction2 = "mary1"
+                jump mary1
+            "Go to the stage" (choiceimage="katja"):
+                $ interaction2 = "katja"
+                jump musichall2
+            "Go to the music room" (choiceimage="director") if interaction1 != "musichall1":
+                $ interaction2 = "musichall1"
+                jump musichall1
+            "Go to the mall" (choiceimage="cherry") if interaction1 != "cherry1":
+                $ interaction2 = "cherry1"
+                jump mall1
 #######################################################################################################################
 ########################################           After Contest 1          ###########################################
 #######################################################################################################################
@@ -73,6 +51,9 @@ label interactionSwitch:
             "Go see Cherry" (choiceimage="cherry"):
                 $ interaction3 = "cherry"
                 jump cherry1
+            "Go to the stage" (choiceimage="katja") if interaction2 != "katja":
+                $ interaction3 = "katja"
+                jump musichall2
 ###########################
     elif day == 4:
 
@@ -104,6 +85,12 @@ label interactionSwitch:
             "Hang around the lounge" if interaction4 == "mary" or interaction4 == "cherry":
                 $ interaction5 = "paul"
                 jump paulgetscolorful
+            "Go to the dining room" (choiceimage="cherry") if cherry_stat < 3:
+                $ interaction5 = "cherry"
+                jump cherry2
+            "Go to Cherry's room" (choiceimage="cherry") if cherry_stat >= 3:
+                $ interaction5 = "cherry"
+                jump cherry3
             "Go see Mary" (choiceimage="mary"):
                 $ interaction5 = "mary"
                 jump maryafterelim
@@ -118,8 +105,17 @@ label interactionSwitch:
                 $ interaction6 = "cherry"
                 jump cherry3
             "Go see Mary" (choiceimage="mary") if interaction5 != "mary":
-                $ interaction5 = "mary"
+                $ interaction6 = "mary"
                 jump maryafterelim
+            "Hang around the lounge" (choiceimage="jacques"):
+                $ interaction6 = "jacques"
+                jump jacquescoffee
+            "Go to the music room" (choiceimage="taylor") if taylor_stat < 2 or interaction3 != "taylor":
+                $ interaction6 = "taylor"
+                jump taylor1            
+            "Hang around the lounge" (choiceimage="taylor") if taylor_stat >= 2 or interaction3 == "taylor":
+                $ interaction6 = "taylor"
+                jump taylorstagecheckscene
 
 #######################################################################################################################
 ########################################           After Contest 4          ###########################################
@@ -127,25 +123,56 @@ label interactionSwitch:
     elif day == 7:
 
         menu:
-            "Go for a walk" (choiceimage="jacques") if interaction4 == "paul":
-                $ interaction7 = "jacquesinterview"
-                jump jacquesinterview
-            "Hang around the lounge" if interaction4 == "mary" or interaction4 == "cherry":
-                $ interaction7 = "paul"
-                jump paulgetscolorful
-            #####TODO Cherry eliminated interaction
+            "Hang around the lounge" (choiceimage="jacques") if interaction6 != "jacques":
+                $ interaction7 = "jacques"
+                jump jacquescoffee
+            "Go to the mall" (choiceimage="mary") if mary_stat >= 2:
+                $ interaction7 = "marymall"
+                jump mary3
+            "Go by the music room" (choiceimage="mary") if mary_stat < 2:
+                $ interaction7 = "mary"
+                jump marymusic
+            "Go to Cherry's room" (choiceimage="cherry"):
+                $ interaction7 = "cherry"
+                jump cherrypostelim
+            "Hang around the lounge" (choiceimage="taylor") if taylor_stat < 2 or interaction7 == "taylor":
+                $ interaction7 = "taylor"
+                jump taylorstagecheckscene
+            "Go to the mall" (choiceimage="taylor") if taylor_stat >= 2 or interaction7 != "taylor":
+                $ interaction7 = "taylor"
+                jump taylor2 
+
 ############################
     elif day == 8:
 
         menu:
-            "Go to the dining room" (choiceimage="cherry") if cherry_stat < 3:
+            "Go to the dining room" (choiceimage="cherry") if cherry2_seen == False and interaction7 != "cherry" and cherrypostelimseen:
                 $ interaction8 = "cherry"
                 jump cherry2
-            "Go to Cherry's room" (choiceimage="cherry") if cherry_stat >= 3:
+            "Go to Cherry's room" (choiceimage="cherry") if cherry2_seen and cherry_stat < 3 and interaction7 != "cherry" and cherrypostelimseen:
                 $ interaction8 = "cherry"
                 jump cherry3
+            "Walk outside" (choiceimage="cherry") if cherry2_seen and cherry_stat >= 3 and interaction7 != "cherry" and cherrypostelimseen:
+                $ interaction8 = "cherry"
+                jump cherrybunnyscene
+            "Go to Cherry's room" (choiceimage="cherry") if cherrypostelimseen == False:
+                $ interaction8 = "cherry"
+                jump cherrypostelim
+            "Go to Mary's room" (choiceimage="mary") if mary_stat < 2:
+                $ interaction8 = "mary"
+                jump maryroom1
+            "Go by the mall" (choiceimage="mary") if mary_stat >= 2 or interaction7 != "marymall":
+                $ interaction8 = "mary"
+                jump mary3
+            "Hang around the lounge" (choiceimage="taylor") if taylor_stat < 2:
+                $ interaction8 = "taylor"
+                jump taylorstagecheckscene
+            "Go to the mall" (choiceimage="taylor") if taylor_stat >= 2:
+                $ interaction8 = "taylor"
+                jump taylor2  
 
 
+default cherrypostelimseen = False
    
 
 
@@ -156,6 +183,9 @@ label morning1:
 
     scene dinnerday
     with fadee
+
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
 
     $ config.side_image_tag = ""
 
@@ -280,6 +310,9 @@ label morningnormal1:
     scene bedaliceday
     with fadee
     
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     ann "{i}Ahh, it's morning.{/i}"
     ann "{i}I can't recall my dreams, so I must've had some decent sleep. I feel rested enough.{/i}"
     ann "{i}Wow, I didn't even know my back could crack that much! These beds are really amazing. Alright, time to go to the washroom and make myself presentable before breakfast.{/i}"
@@ -319,7 +352,7 @@ label morningnormal1:
     a talk "I'll have some pancakes!"
     
     ann smile "{i}As always, they're delicious. It doesn't take long before I gobble it all up.{/i}"
-    ann "{i}Taylor keeps staring at their phone while I'm eating and Jacques is busy talking about a previous show to one of the waitresses.{/i}"
+    ann "{i}Taylor keeps staring at her phone while I'm eating and Jacques is busy talking about a previous show to one of the waitresses.{/i}"
     ann "{i}I usually eat breakfast in my dorm room, all alone... and it's usually something terribly inapt, like a protein bar... or ramen...{/i}"
     ann "{i}So it's nice to have company in the room with you for a change.{/i}"
 
@@ -341,8 +374,11 @@ label morningnormal1:
 
 label morning2: 
 
-    scene musicroom
+    scene workoutday
     with fadee
+
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
 
     $ config.side_image_tag = "alice"
 
@@ -385,7 +421,7 @@ label morning2:
         xalign 1.2
     with moveinright
 
-    di talk "Keep it up, girls! Being a star is more then having a good voice!"
+    di talk "Keep it up, girls! Being a star is more than having a good voice!"
     di "You gotta have the looks! The body movement! The swagger and finesse!"
     di "Work those hips! Wink to the crowd!"
 
@@ -517,6 +553,9 @@ label morning5:
     scene musicroom
     with fade
 
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     an "Hoo! I should've put my phone away during the morning drills. It's been buzzing all morning."
     an "We're all wrapping up right about now. It took all of my willpower not to sneak a look."
     an "Of course, the director's watchful eye was keeping tabs on me all morning. I dunno if he had, I dunno, bat hearing or whatever. Like, he was bitten by a radioactive bat and developed sonar vision or something."
@@ -619,6 +658,9 @@ label morning3:
     scene dinnerday
     with fadee
 
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     an "And then it was down to three. After the show last night, it still doesn't really feel real."
     an "It's just the three of us - Cherry, Taylor, and myself - at breakfast together."
     $ config.side_image_tag = "alice"
@@ -689,6 +731,9 @@ label hopeful:
     scene bedaliceday
     with fadee
     
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     ann "{i}I awake to the first light of day streaming through my curtains.{/i}"
     ann "{i}My alarm has yet to sound. I turn it off, feeling rested enough that I don't need to sleep in any longer.{/i}"
     ann "{i}The air smells fresh. I take a deep breath in, letting the oxygen fill every cell in my body.{/i}"
@@ -721,6 +766,8 @@ label hopeful:
     c talk "So what are you up to this morning?"
 
     show cherry smile
+
+    hide cherry with dissolve
     
     jump interactionSwitch
 
@@ -738,6 +785,10 @@ label morning4:
 
     scene dinnerday
     with fadee
+
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     an "Man, having breakfast first thing in the morning used to be so light and breezy. Now with half of the girls cut from the competition, it was down to me and Taylor. Normally, I'd be ecstatic, but..."
     an "Right now, it just felt... weird. Just sitting here between the two of us. It was so weird."
     an "Taylor wasn't a talkative sort. She didn't lose sleep over the fates of the other girls. She was just... keeping to herself."
@@ -800,6 +851,8 @@ label morning4:
     a frowntalk "Awww, c'mon Taylor..."
     a frown "{nw}"
 
+    hide taylor with dissolve
+
     jump interactionSwitch
 
     ## end scene
@@ -811,6 +864,9 @@ label anxious:
     scene bedaliceday
     with fadee
     
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     ann "{i}I have been tossing and turning the entire night. For some reason, I couldn't sleep.{/i}"
     ann "{i}The sun has finally risen. I turn off the alarm I set and drag myself out of bed.{/i}"
     ann "{i}No matter how many times I look at it, this room still feels so empty. Sure, there's pieces of high-class furniture to fill the space in an artsy arrangement, it’s still much too large a place for a single person to stay in.{/i}"
@@ -843,6 +899,10 @@ label anxious:
     
     show taylor frown
     
+    hide taylor
+    hide director
+    with dissolve
+
     ann "{i}Yeah, I guess he's right. What should I do this morning?{/i}"
 
     jump interactionSwitch
@@ -918,8 +978,8 @@ label morningtaylor:
     
     ann "{i}It's breakfast time again. Time to eat!{/i}"
     
-    show t up frown at rightt
-    show j up smile at leftt
+    show taylor up frown at rightt
+    show jacques up smile at leftt
     with dissolve
 
     $ config.side_image_tag = ""

@@ -435,7 +435,14 @@ label week1win:
     $ phrase2 = False
     $ phrase3 = False
     $ phrase4 = False
-    
+
+    $ achievement.grant("firststeps")
+    init: 
+        $ achievement.register("firststeps")
+        $ achievement.sync()
+
+    $ achievement.sync()
+
     ann "{i}The musical accompaniment is so plain.{/i}"
     ann "{i}It’s not plain in an absolute sense, but compared to the uniqueness of Cherry and Taylor’s performances, it’s just so common. It’s totally something a regular schoolgirl would sing at a karaoke place with her friends.{/i}"
     ann "{i}But is that necessarily a bad thing?{/i}"
@@ -647,6 +654,9 @@ label week3contest:
     scene stage4far
     with fadee
 
+    play music "Forever dreaming.mp3" fadeout 1
+    queue music "Forever dreaming.mp3"
+
     $ config.side_image_tag = ""
     
     ann winter "{i}Today, the prep room is eerily quiet.{/i}"
@@ -758,7 +768,7 @@ label week3contest:
 
     show taylor frown
     
-    m frowntalk "This guy is the one whom you shouldn’t learn from if you want to become an idol, Alice. I'm surprised your lack of style hasn't gotten you eliminated yet on virtue alone."
+    m frowntalk "This one is the one whom you shouldn’t learn from if you want to become an idol, Alice. I'm surprised your lack of style hasn't gotten you eliminated yet on virtue alone."
     
     show mary frown
 
@@ -841,7 +851,7 @@ label week3contest:
     ann "{i}The song opens with lonely piano notes, then, as what sounds like sleigh bells start ringing, Cherry’s voice joins in.{/i}"
     ann "{i}It’s a whispery, sad tone, like withered branches struggling to withstand the cold. But as smooth, synth strings start filling in the shadows, Cherry’s voice thickens, rich with an entrancing power.{/i}"
     
-    an "I thought she only sings children’s songs. Last week, she had to practise a lot to take on that techno pop, but why is she so... in command of this song this week?"
+    an "I thought she only sings children’s songs. But, now, she's so... in command of this song this week?"
     ann "{i}Cherry closes her eyes. I can see, I can hear that she has completely submerged herself into the melody.{/i}"
     ann "{i}There’s probably nothing else on her mind now, just the lyrics of this song, the words she’s singing for one person, and one person only.{/i}"
     
@@ -933,7 +943,7 @@ label week3contest:
     ann "{i}Harps sound in the background, strings plucked one by one. They form a beautiful melody, but it’s thin and sparse, like something is lacking. Mary’s voice fills the gaps, humming, crying.{/i}"
     ann "{i}Her voice, deep, colorful, paints the night sky with the moon and stars. The calm light unveils snowflakes that have been dancing in the frigid air all along, falling upon our shoulders to dust a soft layer of white.{/i}"
     ann "{i}That’s the imagery Mary brings forth. It’s serene. It’s breathtaking. But only then do I realize that she always sounds so detached, from the crowd, from the world, from me, from herself.{/i}"
-    ann "{i}It’s unreal. Her warmth in the summer theme, her energy in the techno theme, and now her delicate cold in this winter theme. So well-constructed, yet...{/i}"
+    ann "{i}It’s unreal. Her warmth in the summer theme, her energy in the nursery rhyme, and now her delicate cold in this winter theme. So well-constructed, yet...{/i}"
     ann "{i}...I somewhat want to hear what the real Mary would sound like.{/i}"
     ann "{i}I’ve always just noticed her perfection, the lady with a good upbringing, smart and beautiful albeit a little self-centered. But who is she, really? What are her motivations? What are her true feelings now?{/i}"
     ann "{i}I wonder, if Mary were not standing on a stage, but just by a bus stop, waiting as snow falls on her umbrella, what kind of tune will she let slip from her lips?{/i}"
@@ -980,7 +990,7 @@ label week3contest:
     ann "{i}Instead, she warps every song into something of her own, feeding it with hopeless melancholy.{/i}"
     ann "{i}She does the same with this wintery music. What originally sounds like an innocent walk down a snow-lined sidewalk becomes a walk down memory lane.{/i}"
     ann "{i}I can almost feel my hand, numb from cold, taken in her and led down a path where her steps leave the snow dented. I follow her into the dark, reliving vague regrets threatening to swallow our meager presence.{/i}"
-    ann "{i}Summer, techno, winter... all just minor twists to her bleak mentality.{/i}"
+    ann "{i}Summer, winter... all just minor twists to her bleak mentality.{/i}"
 
     show jacques up smile at center:
         zoom 1.35
@@ -1030,7 +1040,13 @@ label week3win:
     $ phrase3 = False
     $ phrase4 = False
 
-    
+    $ achievement.grant("coldfeet")
+    init: 
+        $ achievement.register("coldfeet")
+        $ achievement.sync()
+
+    $ achievement.sync()
+
     ann "{i}Should I be like Cherry, sing for a person who means a lot to her?{/i}"
     ann "{i}Or be like Mary, sing for the crowd that watches her?{/i}"
     ann "{i}Maybe yet, I should sing like Taylor, minding only my own feelings, venting them to my heart’s content?{/i}"
@@ -1042,7 +1058,7 @@ label week3win:
     ann "{i}But now I’m getting better. I know I can now command my voice. I have control over the pitch and timbre, the amplitude and texture. I’ve learned a lot from the others.{/i}"
     ann "{i}I’ve developed an arsenal of techniques I can use, maybe even to improvise variations to the melody.{/i}"
     ann "{i}When the piano melody sounds, I wonder how to start. This is important. I’ll be setting the mood for the rest of the song.{/i}"
-    ann "{i}But I'm lost. I still don't know how."
+    ann "{i}But I'm lost. I still don't know how.{/i}"
     
     a "When the snow falls, my heart will skip again..."
     a "I will remember all our days again."
@@ -1189,7 +1205,6 @@ label week3win:
     show jacques smile
 
     ann "{i}I don't think I heard him right.{/i}"
-    ann "{i}For the first time, I will not be standing on the stage of elimination.{/i}"
     ann "{i}I actually made it to second place. I don’t know how to feel about this.{/i}"
 
     scene stage4far
@@ -1248,7 +1263,7 @@ label week3win:
         yalign 0.35
     with dissolve
     
-    j talk "And today, the two facing elimination are our week 1 winner, Taylor Warren, and week 2 winner, Mary Viswanathan. Please come onto the stage, Taylor and Mary."
+    j talk "And today, the two facing elimination are Taylor Warren and Mary Viswanathan. Please come onto the stage, Taylor and Mary."
     j "How do you feel about standing here today?"
     
     show jacques smile
@@ -1296,7 +1311,7 @@ label week3win:
     
     show taylor smile
 
-    j talk "Alright. Now, I must announce who will be eliminated from week 3 of Supernova. I’m sorry to say..."
+    j talk "Alright. Now, I must announce who will be eliminated from week 2 of Supernova. I’m sorry to say..."
     j smile "{cps=40}...{/cps}"
 
     show mary frown
@@ -1481,7 +1496,7 @@ label week4contest:
         yalign 0.3
     with dissolve
 
-    j talk "Welcome to week 4 of Supernova. With only three contestants left, today we will decide who gets the ticket to the grand finale, who will be left behind. Are you ready for the cruel battle to come?"
+    j talk "Welcome to week 3 of Supernova. With only three contestants left, today we will decide who gets the ticket to the grand finale, who will be left behind. Are you ready for the cruel battle to come?"
     j "Of course you are! We have all been waiting for this day since the very beginning. It’s only right that we have a suitable theme to set the stage. Presenting to you the theme of this week..."
     j "Darkness! Yes, darkness will be the theme of this week. How will our contestants portray it with their voices? Let us lend our applause to our first contestant to take on the challenge: Raisa Cherenkov!"
     
@@ -1582,6 +1597,16 @@ label week4win:
     $ phrase3 = False
     $ phrase4 = False
 
+    show concert3
+    with dissolve
+
+    $ achievement.grant("darkness")
+    init: 
+        $ achievement.register("darkness")
+        $ achievement.sync()
+
+    $ achievement.sync()
+
     ann "{i}While Cherry took a more traditional, ghost story-like approach to the dark theme, I’m spinning it with a modern take at Bach’s Fugue in G Minor.{/i}"
     ann "{i}The song takes off with a strong, pounding rhythm, the pedal point only emphasizing this beat. I move my body with the hard hit of each note, making my voice pulse with it.{/i}"
     ann "{i}The lights are flashing along with my lead, swerving, blinking, changing in rapid succession a vivid array of colors.{/i}"
@@ -1607,18 +1632,9 @@ label week4win:
     ann "{i}I pull my hand back, dissolving the imaginary cobwebs, holding the new energy to my chest as my body loses rigidity, moving into an easy, lively dance. Despite the black teardrops painted beneath my eyes, I’m smiling.{/i}"
     ann "{i}I take my voice to a bright climax, giving it all my radiance. The waves of glow sticks beneath the stage follow my lead. We’re breaking through the night, bringing in a new dawn.{/i}"
     ann "{i}It's a celebration!{/i}"
-
-    show jacques up smile at center:
-        zoom 1.3
-        yalign 0.3
-    with dissolve
     
-    j talk "Beautiful, beautiful work from Alice Carroll. A big hand for her, please!"
+    j "Beautiful, beautiful work from Alice Carroll. A big hand for her, please!"
 
-    show jacques smile
-
-    hide jacques with dissolve
-    
     scene stage5far
     with dissolve
 
@@ -1874,6 +1890,13 @@ label eliminated:
     $ eliminated = True
 
     with fade
+
+    $ achievement.grant("eliminated")
+    init: 
+        $ achievement.register("eliminated")
+        $ achievement.sync()
+
+    $ achievement.sync()
     
     ann "{i}Our performances have ended. Here I am, standing on the stage, facing elimination.{/i}"
     ann "{i}I have worked hard these past weeks. Even though it was an unexpected opportunity to participate in this contest, I think I’ve made the most out of it.{/i}"
@@ -1916,6 +1939,9 @@ label finalcontest:
     scene stage5close
     with fadee
 
+    play music "Into the Unknown.mp3" fadeout 1
+    queue music "Into the Unknown.mp3"
+
     $ config.side_image_tag = ""
 
     ann "{i}I'm finally here.{/i}"
@@ -1926,7 +1952,7 @@ label finalcontest:
         yalign 0.3
     with dissolve
     
-    j talk "Welcome to day 5 of the Supernova idol contest, the final stage of the competition for the coveted throne of your next superstar!"
+    j talk "Welcome back to the Supernova idol contest, the final stage of the competition for the coveted throne of your next superstar!"
     j "Taylor Warren, a veteran in the music industry. While she has stayed behind the scenes till now, she is a well-known composer of many songs."
     j "Her audience is spread across the globe, many praising the strong emotions she manages to evoke in her colorful melodies and driving rhythms."
     j "By entering this contest, she has taken off on what she describes as a path of self-discovery. Now, she is not only writing music for us, but also performing it live, showing us exactly the messages she wishes to convey."
@@ -2045,6 +2071,16 @@ label finalwin:
     $ phrase3 = False
     $ phrase4 = False
 
+    show concert5
+    with whitefade
+
+    $ achievement.grant("idol")
+    init: 
+        $ achievement.register("idol")
+        $ achievement.sync()
+
+    $ achievement.sync()
+
     ann "{i}I feel more at ease on this stage than I have ever before.{/i}"
     ann "{i}All the pressure of winning is just gone. It’s ironic, considering this is my final performance.{/i}"
     ann "{i}The heavy gown should be weighing me down, but my body feels light. My voice, which needs to be projected to the very back of this room, comes just as easily.{/i}"
@@ -2069,9 +2105,21 @@ label finalwin:
     ann "{i}I’m not an idol who towers above all. I’m an idol who inspires!{/i}"
     
     a "You can be yourself too!"
+
+    show petal1
+    show petal6
     
     ann "{i}I shout into the crowd, holding out my hand. In my mind’s eye, I see flowers blooming from my fingers, so ripe their petals catch the wind and scatter into the seats below.{/i}"
+    
+    show petal2
+    show petal7
+
     ann "{i}Pink and white, violet and orange, warm colors fill the room with feelings of spring, a season of new encounters, new beginnings.{/i}"
+    
+    show petal3
+    show petal4
+    show petal5
+
     ann "{i}The flowers may be imaginary, but the little squares of colored tissue paper that rain down into my hands are not.{/i}"
     
     scene stage5far
@@ -2084,6 +2132,11 @@ label finalwin:
         zoom 1.1
         yalign 0.9
     with dissolve
+
+    show petal5
+    show petal2
+
+    $ config.side_image_tag = ""
 
     k talk "Aren’t you being biased here? I thought you didn’t like her."
 
@@ -2125,6 +2178,12 @@ label finalwin:
     scene stage5close
     with dissolve
 
+    $ config.side_image_tag = ""
+
+    show petal1
+    show petal3
+    show petal7
+
     ann "{i}There is no performance that belongs to a single person. To perform, there must be a recipient of what you’re trying to express. Otherwise, it is nothing but an inner musing.{/i}"
     ann "{i}This performance here is not really mine. At least not mine alone. The stage crew, the audience, the makeup artist, the organizers...everybody plays a part.{/i}"
     ann "{i}Then what's my role?{/i}"
@@ -2145,7 +2204,7 @@ label finalwin:
 
     $ win = True
     
-    jump credits
+    jump endingSwitch
     
     
     

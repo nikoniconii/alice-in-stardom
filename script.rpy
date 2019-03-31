@@ -16,8 +16,16 @@ define hs = Character('Hair Stylist', color="#fff")
 define p = Character('Paul', color="#fff")
 
 
+#Diehard Fan = DF, Obsessed Fan = OF, Super Fan = SF
+define df = Character('Diehard Fan', color="#fff")
+define of = Character('Obsessed Fan', color="#fff")
+define sf = Character('Super Fan', color="#fff")
+
+
+
 define fadee = Fade(1.0, 1.0, 1.0, color="#000")
 define whitefade = Fade(1.0, 1.0, 1.0, color="#fff")
+define creditsfade = Fade(2.5, 1.0, 2.0, color="#000")
 
 transform leftt:
     
@@ -52,9 +60,14 @@ label start:
     scene stagefar
     with fade
 
+    play music "Thinking of You.mp3" fadeout 1
+    queue music "Thinking of You.mp3"
+
     "Hey, you, get those lights shining. And move those stands over. We can't have the stage band in the way of the screen!"
     "And Intern..."
     "Hey, Intie, look this way!"
+
+    $ config.side_image_tag = "alice"
 
     "{i}The director can't be referring to me, right?{/i}"
     
@@ -398,7 +411,7 @@ label start:
 
     show katja smile
     
-    ann "{i}So Cherry is worthy of soup? Wait, is her name Cherry? That’s what her friend called her, right? But Jacques said it’s Raisin.{/i}"
+    ann "{i}So Cherry is worthy of soup? Wait, is her name Cherry? But Jacques said it’s Raisin.{/i}"
     ann "{i}No... that can’t be right. Cherries and raisins? That sounds like fruit toppings on a bowl of cereal!{/i}"
     
     hide katja smile
@@ -515,6 +528,13 @@ label firstDone:
     show concert1
     with dissolve
 
+    $ achievement.grant("humblebeginnings")
+    init: 
+        $ achievement.register("humblebeginnings")
+        $ achievement.sync()
+
+    $ achievement.sync()
+
     ann "{i}Complete my dream, Jacques said.{/i}"
     ann "{i}Yeah, he may be right. Boss may be right. I only didn’t dare admit it.{/i}"
     ann "{i}Who enters this industry without at least the slightest sliver of hope that we’d one day capture the crowd’s attention?{/i}"
@@ -598,7 +618,7 @@ label firstDone:
     show jacques smile
     
     ann "{i}I may be the one most at shock about this turn of events, but I see that some of the others are a little surprised too. Sure, they expected the mansion, but the scale of things probably exceeds their wildest imagination.{/i}"
-    ann "{i}Taylor has slowed to take in everything, his mouth gaping a little. Only Mary seems nonchalant, walking with crossed arms and closed eyes for dramatic effect.{/i}"
+    ann "{i}Taylor has slowed to take in everything, her mouth gaping a little. Only Mary seems nonchalant, walking with crossed arms and closed eyes for dramatic effect.{/i}"
     
     show jacques at left
     show mary up frown at center

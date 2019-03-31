@@ -100,7 +100,7 @@ label lounge:
                 show jacques smile
 
                 a down frowntalk "Hey, {i}everyone{/i} needs to eat and sleep."
-                a up talk "And also, I’m 99/%/ sure \”Millenialle\” isn’t even a real French word."
+                a up talk "And also, I’m 99% sure \"Millenialle\" isn’t even a real French word."
                 a smile "{nw}"
 
                 j talk "Hmm, very true."
@@ -120,14 +120,14 @@ label lounge:
                 yalign 0.3
             with dissolve
 
-            j talk "Actually, \”{i}bonjour{/i}\” works better, here."
+            j talk "Actually, \"{i}bonjour{/i}\" works better, here."
 
             show jacques up smile
 
-            a down frowntalk "Oh? I thought I read somewhere that \”matin\” means \”morning\”..."
+            a down frowntalk "Oh? I thought I read somewhere that \"matin\" means \"morning\"..."
             a down frown "{nw}"
 
-            j talk "True, but in French, most people say \”bonjour\”, unless it’s later in the evening."
+            j talk "True, but in French, most people say \"bonjour\", unless it’s later in the evening."
 
             a down talk "Huh. The more you know, I guess."
             a up smile "{nw}"
@@ -157,7 +157,7 @@ label lounge:
             a down frowntalk "Ah, what {i}is{/i} it, though? Like, what type of coffee?"
             a down frown "{nw}"
 
-            j down talk "{i}Noisette?{/i} It means \”hazelnut\”."
+            j down talk "{i}Noisette?{/i} It means \"hazelnut\"."
             j "It’s a shot of espresso, with four drops of pure, organic cream."
 
             show jacques up smile
@@ -390,7 +390,7 @@ label lounge:
 
                         show jacques smile
 
-                        a up talk "Because \”All work and no play makes Jacques a dull boy?\”"
+                        a up talk "Because \"All work and no play makes Jacques a dull boy?\""
                         a smile "{nw}"
 
                         an "Jacques stares at me for a moment."
@@ -617,7 +617,7 @@ label lounge:
 
                             show jacques smile
 
-                            a down frowntalk "Wait, \”portray\”?"
+                            a down frowntalk "Wait, \"portray\"?"
                             a frown "{nw}"
 
                             j talk "Alice, this is a {i}reality show{/i} after all."
@@ -692,7 +692,7 @@ label lounge:
                             a frowntalk "I’m not sure."
                             a "I mean, when I was a {i}really{/i} little kid, I wanted to be a princess, and a space captain, and a {i}tree{/i}..."
                             a "But if we’re talking career-wise, I just don’t remember."
-                            a "I don’t think there’s {i}any{/i} job that’s been my \”dream\”."
+                            a "I don’t think there’s {i}any{/i} job that’s been my \"dream\"."
                             a frown "{nw}"
 
                             j down frown "Hmm..."
@@ -741,7 +741,7 @@ label lounge:
                             a talk "But when I managed to get the right grades to go to Presley, there was {i}no way{/i} I could say no."
                             a smile "{nw}"
 
-                            j talk "{i}Pourquoi?{?i}"
+                            j talk "{i}Pourquoi?{/i}"
 
                             show jacques smile
 
@@ -1152,7 +1152,7 @@ label lounge:
         an "...Either way, I should probably head to my room."
         an "I stretch a little, and start heading towards the doorway."
         an "And then a figure appears."
-        an "The man in front of me is tall, tanned, and painfully stylish, sporting one of those \”pseudo-casual\” ensembles."
+        an "The man in front of me is tall, tanned, and painfully stylish, sporting one of those \"pseudo-casual\" ensembles."
         an "You know, the kind of clothes that {i}look{/i} like they’re from a thrift store, but cost hundreds of dollars apiece?"
         an "Yeah, those sorts of clothes."
 
@@ -1308,7 +1308,7 @@ label lounge:
 
                 a "..."
 
-                an "I squint at the \”new\” image."
+                an "I squint at the \"new\" image."
                 an "Nope. Still a splotch."
 
                 a frowntalk "Are...these different, Paul?"
@@ -1337,8 +1337,8 @@ label lounge:
                 an "There {i}is{/i} a difference."
                 an "{i}The filenames.{/i}"
                 an "Whenever Paul switches pictures, the filename pops up for about half a second."
-                an "The color that Paul showed me first is labelled \”Oxwood.png\”."
-                an "The other one is \”Redblood\”..."
+                an "The color that Paul showed me first is labelled \"Oxwood.png\"."
+                an "The other one is \"Redblood\"..."
 
                 p "So, any thoughts?"
 
@@ -1382,7 +1382,7 @@ label lounge:
                     a smile "{nw}"
 
                     p "But {i}Redblood{/i} is bold. Agressive, even."
-                    p "Redblood’s a color that says \”I don’t give a crap what you think\”."
+                    p "Redblood’s a color that says \"I don’t give a crap what you think\"."
                     p "If dragons were real, and they peed, it would be this color."
                     p "Oh, and it’s a Winter, of course."
 
@@ -1400,13 +1400,13 @@ label lounge:
 
                     menu:
                         "Oxwood makes the most sense.":
-                            jump oxblood1
+                            jump oxwood1
 
                         "Let’s be bold, do Redblood.":
                             jump redblood1
 
                         "Ox...blood?":
-                            jump oxblood1
+                            jump thatsnotacolor
 
                         "What exactly are you trying to decide the color {i}of{/i}?":
                             jump whyareyoudoingthistomepaul
@@ -1418,7 +1418,7 @@ label lounge:
 
                     p "Nuh-uh. Can’t do it."
                     p "She {i}told{/i} me not to let you know. Said you’d overthink it too much."
-                    p "Can’t let it \”color your decisions\” or whatever."
+                    p "Can’t let it \"color your decisions\" or whatever."
 
                     a down frowntalk "..."
 
@@ -1458,7 +1458,7 @@ label lounge:
 
                     label comeonpaulbecool:
 
-                        p "{i]Look{/i}, Alice."
+                        p "{i}Look{/i}, Alice."
                         p "The whole {i}point{/i} of this is to get your honest, unbiased opinion."
                         p "The less you know, the better your answer will be."
 
@@ -1470,7 +1470,7 @@ label lounge:
                         p "Maybe it’s a piece of set dressing, or a costume, or a flyer...or maybe Katja just wants to buy herself a new {i}car{/i} or something."
                         p "It’s not like any of us ever know what that woman’s {i}thinking{/i}."
 
-                        an down smile "Wait, \”Katja\”?"
+                        an down smile "Wait, \"Katja\"?"
 
                         p "Just tell me which color looks best to {i}you{/i}."
 
@@ -1506,7 +1506,7 @@ label lounge:
 
                         p "I think that’s actually {i}why{/i} she wanted me to ask you."
                         p "There are dozens of people working on this show with degrees in art, and fashion, and stage design..."
-                        p "But it’s a {i}reality{/i} show. It’s {i}trashy{/i}, and {i}melodramatic{/i}, the kind of thing that’s not {i}aimed{/i} at \”artistic\” types."
+                        p "But it’s a {i}reality{/i} show. It’s {i}trashy{/i}, and {i}melodramatic{/i}, the kind of thing that’s not {i}aimed{/i} at \"artistic\" types."
                         p "It’s a show for normal, everyday, average human beings."
                         p "If we want to reach those people, we don’t need an expert opinion. We need a Normal Person Opinion."
 
@@ -1601,7 +1601,7 @@ label lounge:
                     a "I mean, they look pretty similar, but there’s something about Redblood that speaks to me."
                     a smile "{nw}"
 
-                    an "...I’m not going to tell him that what \”speaks to me\” is the ridiculously bizarre name."
+                    an "...I’m not going to tell him that what \"speaks to me\" is the ridiculously bizarre name."
                     an "It sounds like the title of a fighting game or something..."
 
                     p "Hmm..."
@@ -1637,6 +1637,8 @@ label lounge:
                     a smile "{nw}"
 
                     an "Well, now that’s over and done with, I can hopefully get some sleep..."
+
+                label noheckoffpaul:
 
                     jump paulcolorsceneend
 
